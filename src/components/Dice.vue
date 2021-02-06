@@ -6,12 +6,12 @@
 
 export default {
   created() {
-    console.log(this.die)
+    // console.log(this.die)
   },
   data() {
     return {
       face: 'roll',
-      dice: {
+      dice: { // Objekt med 7 olika tärningar
         D4: {min: 1, max: 4, multiplier: 1},
         D6: {min: 1, max: 6, multiplier: 1},
         D8: {min: 1, max: 8, multiplier: 1},
