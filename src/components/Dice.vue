@@ -25,7 +25,7 @@ export default {
   methods: {
     roll() {
       this.face = (Math.floor(Math.random() * Number(this.dice[this.type].max)) + Number(this.dice[this.type].min)) * Number(this.dice[this.type].multiplier)
-      console.log(this.face)
+      // console.log(this.face)
     }
   },
   name: 'dice',

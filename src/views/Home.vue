@@ -7,18 +7,21 @@
     <Dice type="D10"/> D10<br/>
     <Dice type="D12"/> D12<br/>
     <Dice type="D20"/> D20<br/>
-    <Dice type="D100"/> D10-00-90
+    <Dice type="D100"/> D10-00-90<br/>
+    <Save-game-function></Save-game-function>
   </div>
 </template>
 
 <script>
 
 import Dice from '@/components/Dice.vue'
+import SaveGameFunction from '@/components/Save-game-function.vue'
 
 export default {
   name: 'Home',
   components: {
-    Dice
+    Dice,
+    SaveGameFunction
   }
 }
 </script>
