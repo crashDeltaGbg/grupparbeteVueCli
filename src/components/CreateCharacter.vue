@@ -65,7 +65,6 @@
         Save and Go
       </button>
     </div>
-    {{ this.$store.state.character }}
   </section>
 </template>
 
@@ -90,6 +89,7 @@ export default {
   methods: {
     saveGo(page) {
       if (page === 1) {
+        // Stop user from continuing if there is no name.
         if (this.name === null || this.name === "") {
           document.getElementById("name").style.border = "1px solid darkred";
           let msg = document.createElement("div");
@@ -102,15 +102,13 @@ export default {
           document.getElementById("name").style.border = "0";
         }
       } else {
-        // this.page = 1;
-        // save to vuex
+        // Save to $store.
         let character = {
           name: this.name,
           stats: this.stats,
           img: this.img[this.imgIndex],
           bio: this.bio,
         };
-        console.log(character);
 
         this.$store.commit("saveCharacter", character);
       }
