@@ -2,16 +2,12 @@
   <div>
     <p>Will you save the prince from the dragon?</p>
     <input type="button" :key="choice" value="Choose" :disabled=enableDisable @click="checkStats">  
-    <Dice type="D20"/> D20<br/>
-
   </div>  
 </template>
 <script>
-import Dice from '@/components/Dice.vue'
 
 export default {
   components: {
-    Dice
   },
   data(){
     return{
