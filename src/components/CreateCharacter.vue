@@ -13,24 +13,36 @@
           />
           <label for="bio">Bio:</label>
           <textarea name="bio" v-model="bio" id="bio" />
+          <button id="randomize-bio" :page="page" @click="randomizeBio()">
+            Randomize bio
+          </button>
         </div>
       </template>
       <template v-else>
         <div id="stats-wrapper">
-          <div id="available-points">Available Points: {{ points }}</div>
-          <label for="stats">Stats:</label>
+          <div class="flex-wrapper">
+            <button id="help-button" @click="toggleHelpMsg()">Help</button>
+            <div class="hidden" id="help-text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo rem
+              alias impedit quam id nemo praesentium? Dicta enim in, pariatur
+              sit repudiandae dolore eligendi cumque dolorum repellendus, hic
+              velit incidunt!
+            </div>
+            <label for="stats">Stats:</label>
+            <div id="available-points">Available Points: {{ points }}</div>
+          </div>
           <ul id="stats">
             <li v-for="(value, name) in stats" :key="name">
               {{ name }}
               <span>
                 <button
-                  :class="name + ' decrease'"
+                  :class="name + ' decrease stat-button'"
                   @click="onStatsClick('-', name, value)"
                 >
                   -
                 </button>
                 <button
-                  :class="name + ' increase'"
+                  :class="name + ' increase stat-button'"
                   @click="onStatsClick('+', name, value)"
                 >
                   +
@@ -42,7 +54,8 @@
             </li>
           </ul>
         </div>
-        <button id="randomize-button" @click="randomizeStats()">
+        <button id="reset-stats" @click="resetStats()">Reset stats</button>
+        <button id="randomize-stats" @click="randomizeStats()">
           Randomize stats
         </button>
       </template>
@@ -87,6 +100,18 @@ export default {
     };
   },
   methods: {
+    randomizeBio() {
+      // Do something fun here.
+    },
+    toggleHelpMsg() {
+      let msg = document.getElementById("help-text");
+
+      if (msg.classList.contains("hidden")) {
+        msg.classList.remove("hidden");
+      } else {
+        msg.classList.add("hidden");
+      }
+    },
     saveGo(page) {
       if (page === 1) {
         // Stop user from continuing if there is no name.
@@ -147,6 +172,11 @@ export default {
       }
 
       for (let i = 0; i < keys.length; i++) {
+        // Disable all add buttons
+        document
+          .getElementsByClassName(keys[i] + " increase")[0]
+          .setAttribute("disabled", "");
+
         // If the available points are greater than 0 we run a math random to
         // generate the new stat value.
         if (this.points > 0) {
@@ -158,7 +188,26 @@ export default {
 
           this.stats[key_name] += value;
         }
+
+        // Enable decrease button if value is greater than 0.
+        if (this.stats[keys[i]] > 0) {
+          document
+            .getElementsByClassName(keys[i] + " decrease")[0]
+            .removeAttribute("disabled");
+        }
       }
+    },
+    resetStats() {
+      for (let i = 0; i < Object.keys(this.stats).length; i++) {
+        const name = Object.keys(this.stats)[i];
+        this.stats[name] = 3;
+      }
+
+      document.getElementsByClassName("stat-button").forEach((element) => {
+        element.removeAttribute("disabled");
+      });
+
+      this.points = 10;
     },
     onStatsClick(operator, name, value) {
       if (operator === "+") {
@@ -174,6 +223,10 @@ export default {
         document
           .getElementsByClassName(name + " decrease")[0]
           .setAttribute("disabled", "");
+      } else {
+        document
+          .getElementsByClassName(name + " decrease")[0]
+          .removeAttribute("disabled", "");
       }
 
       // If the available points reaches 0 we disable all increase buttons.
@@ -201,6 +254,17 @@ export default {
   background-color: #949191;
   overflow-x: hidden;
 
+  .hidden {
+    display: none;
+  }
+
+  .flex-wrapper {
+    display: flex;
+    width: 100%;
+    margin: 0;
+    justify-items: flex-start;
+  }
+
   .side {
     width: 50%;
     padding: 40px;
@@ -209,7 +273,7 @@ export default {
     label,
     textarea {
       display: block;
-      font-size: 24px;
+      font-size: 20px;
       text-align: left;
       color: #fff;
     }
@@ -240,6 +304,7 @@ export default {
 
     &.left {
       div {
+        position: relative;
         max-width: 522px;
         margin: auto;
       }
@@ -247,6 +312,9 @@ export default {
       #available-points {
         text-align: right;
         margin-right: 0;
+        margin-left: auto;
+        margin: auto 0 11px auto;
+        justify-self: flex-end;
       }
 
       .stat-value {
@@ -298,15 +366,44 @@ export default {
     }
   }
 
-  #save-go,
-  #randomize-button {
-    font-size: 30px;
+  // #save-go,
+  // #randomize-stats,
+  // #randomize-bio {
+  button:not(.stat-button) {
+    font-size: 20px;
     padding: 12px;
     width: 335px;
     background: #373737;
     border-radius: 12px;
     color: #fff;
     margin: 60px auto;
+  }
+
+  button[id*="randomize"] {
+    background: #fff;
+    color: #373737;
+  }
+
+  #reset-stats {
+    width: auto;
+    margin: 20px;
+  }
+
+  #help-button {
+    width: 21px;
+    height: 21px;
+    border-radius: 21px;
+    text-indent: -999999px;
+    margin: auto 10px 10px 0;
+  }
+
+  #help-text {
+    position: absolute;
+    top: 73px;
+    margin-bottom: auto;
+    padding: 20px;
+    background: #373737;
+    color: #fff;
   }
 
   #stats {
