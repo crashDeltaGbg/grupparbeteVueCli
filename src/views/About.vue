@@ -1,5 +1,17 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <h1>This is a test page</h1>
+    <Markdown file-name="test"/>
   </div>
 </template>
+
+<script>
+import Markdown from "@/components/Markdown.vue"
+
+export default {
+  components: {
+    Markdown
+  },
+  name: 'About'
+}
+</script>

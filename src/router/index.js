@@ -28,6 +28,12 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ '../views/Character.vue'),
   },
+  {
+    path: '/markdown',
+    name: 'Markdown',
+    component: () =>
+      import('../components/Markdown.vue')
+  }
 ]
 
 const router = new VueRouter({
