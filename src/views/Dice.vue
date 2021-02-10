@@ -13,14 +13,14 @@
 </template>
 
 <script>
-import Dice from "@/components/Dice.vue";
-import SaveGameFunction from "@/components/Save-game-function.vue";
+import Dice from '@/components/Dice.vue'
+import SaveGameFunction from '@/components/Save-game-function.vue'
 
 export default {
-  name: "Dices",
+  name: 'Dices',
   components: {
     Dice,
-    SaveGameFunction,
-  },
-};
+    SaveGameFunction
+  }
+}
 </script>
