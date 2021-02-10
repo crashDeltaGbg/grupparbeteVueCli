@@ -15,12 +15,12 @@ export default new Vuex.Store({
     },
     roll(state) {
       state.diceValue = Math.floor(Math.random() * 20)
-    },
-  },
-  actions: {
-    roll: context =>{ 
-        context.commit('roll')
     }
   },
-  modules: {},
+  actions: {
+    roll: context => {
+      context.commit('roll')
+    }
+  },
+  modules: {}
 })
