@@ -1,6 +1,6 @@
-export const markdown = {
+export let markdown = {
   created() {
-    // selectFile(test)
+    this.selectFile(test)
     // console.log(this.fileName)
     // this.markdown = require(`@/assets/story/${this.fileName}.md`)
   },
