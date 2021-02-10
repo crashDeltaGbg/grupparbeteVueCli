@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <h1>This is a test page</h1>
-    <Markdown file-name="test"/>
+    <Markdown file-name="markdown"/>
   </div>
 </template>
 

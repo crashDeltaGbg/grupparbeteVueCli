@@ -4,7 +4,7 @@
 
 <script>
 
-// import markdown from "@/assets/story/test.md"
+let markdown // = require('@/assets/story/test.md')
 
 export default {
   created() {
