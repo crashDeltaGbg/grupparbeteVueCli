@@ -16,7 +16,7 @@ export const dice = {
   },
   methods: {
     roll(die) {
-      this.face = (Math.floor(Math.random() * Number(die.max)) + Number(die.min)) * Number(die.multiplier)
+      this.face = (Math.floor(Math.random() * this[die].max) + this[die].min) * this[die].multiplier
     }
   },
   name: 'dice'
