@@ -1,17 +1,17 @@
 <template>
   <div class="about">
     <h1>This is a test page</h1>
-    <Markdown file-name="markdown"/>
+    <div v-html="markdown"></div>
+    <input type="button" @click="selectFile(test)"/>
   </div>
 </template>
 
 <script>
-import Markdown from "@/components/Markdown.vue"
+import { markdown } from "@/assets/scripts/markdown.js"
+// import { dice } from "@/assets/scripts/dice.js"
 
 export default {
-  components: {
-    Markdown
-  },
+  mixins: [markdown],
   name: 'About'
 }
 </script>
