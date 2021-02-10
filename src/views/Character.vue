@@ -6,12 +6,12 @@
 </template>
 
 <script>
-import createCharacter from "@/components/CreateCharacter.vue";
+  import createCharacter from '@/components/CreateCharacter.vue'
 
-export default {
-  name: "Character",
-  components: {
-    createCharacter,
-  },
-};
+  export default {
+    name: 'Character',
+    components: {
+      createCharacter
+    }
+  }
 </script>

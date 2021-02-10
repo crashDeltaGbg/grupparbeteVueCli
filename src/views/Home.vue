@@ -8,25 +8,25 @@
 
 <script>
 export default {
-  name: "Home",
+  name: 'Home',
   components: {},
   methods: {
     continueStory(e) {
       // Added Small "loading" animation.
-      let div = document.createElement("div");
-      div.innerHTML = "And so it beginns...";
-      div.classList.add("fade");
-      e.target.parentNode.appendChild(div);
+      let div = document.createElement('div')
+      div.innerHTML = 'And so it beginns...'
+      div.classList.add('fade')
+      e.target.parentNode.appendChild(div)
 
       // When animation is done we remove the element and redirect the user to
       // create character page.
       setTimeout(() => {
-        document.getElementsByClassName("fade")[0].remove();
-        this.$router.push({ path: "character" });
-      }, 1500);
-    },
-  },
-};
+        document.getElementsByClassName('fade')[0].remove()
+        this.$router.push({ path: 'character' })
+      }, 1500)
+    }
+  }
+}
 </script>
 <style lang="scss">
 #home {
