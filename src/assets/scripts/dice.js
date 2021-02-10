@@ -1,11 +1,7 @@
-import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
-import store from './store'
-
-Vue.config.productionTip = false
-
-/* Vue.mixin({
+export const dice = {
+  /* created() {
+    // console.log(this.die)
+  }, */
   data() {
     return {
       face: 'roll',
@@ -28,10 +24,4 @@ Vue.config.productionTip = false
   },
   name: 'dice',
   // props: ['type']
-}) */
-
-new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app')
+}
