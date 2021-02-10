@@ -5,13 +5,9 @@
       <router-link to="/dice">Dices</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link to="/character">Character</router-link> |
-<<<<<<< HEAD
-      <router-link to="/story">Story</router-link>
-=======
-      <router-link to="/markdown">Markdown</router-link>|
+      <router-link to="/story">Story</router-link>|
       <router-link to="/character">Character</router-link>|
       <router-link to="/choices">Choices</router-link>|
->>>>>>> e7bd99d4e10df7c820b416e6ea4e3c85f5cc10d7
     </div>
     <router-view />
   </div>
