@@ -7,7 +7,7 @@
 
   export default {
     created() {
-      this.selectFile(test)
+      this.selectFile('test')
       // console.log(this.fileName)
       // this.markdown = require(`@/assets/story/${this.fileName}.md`)
     },

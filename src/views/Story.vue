@@ -2,12 +2,12 @@
   <div class="about">
     <h1>This is a test page</h1>
     <div v-html="markdown"></div>
-    <input type="button" @click="selectFile(test)"/>
+    <input type="button" @click="selectFile('test')"/>
   </div>
 </template>
 
 <script>
-import { markdown } from "@/assets/scripts/markdown.js"
+import { markdown } from "@/assets/mixins/markdown.js"
 // import { dice } from "@/assets/scripts/dice.js"
 
 export default {
