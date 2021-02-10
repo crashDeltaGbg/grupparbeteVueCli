@@ -5,8 +5,10 @@
       <router-link to="/about">About</router-link> |
       <router-link to="/character">Character</router-link> |
       <router-link to="/markdown">Markdown</router-link>
+      <router-link to="/character">Character</router-link>|
+      <router-link to="/choices">Choices</router-link>
     </div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
