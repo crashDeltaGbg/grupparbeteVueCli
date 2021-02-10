@@ -2,7 +2,16 @@
   <section id="home">
     <h1>Adventure Hunter</h1>
     <p>Lorem ipsum</p>
-    <button @click="continueStory($event)">Start</button>
+    <div class="flex-wrapper">
+      <button id="start" @click="continueStory($event)">Start</button>
+      <button
+        id="continue"
+        @click="continueStory($event)"
+        :disabled="continueGame"
+      >
+        Continue
+      </button>
+    </div>
   </section>
 </template>
 
@@ -10,11 +19,22 @@
   export default {
     name: 'Home',
     components: {},
+    mounted() {
+      this.continueGame = localStorage.save ? false : 0
+    },
+    data() {
+      return {
+        continueGame: 0
+      }
+    },
     methods: {
       continueStory(e) {
         // Added Small "loading" animation.
         let div = document.createElement('div')
-        div.innerHTML = 'And so it beginns...'
+        div.innerHTML =
+          localStorage.save && e.target.id != 'start'
+            ? 'And the adventure continues...'
+            : 'And so it beginns...'
         div.classList.add('fade')
         e.target.parentNode.appendChild(div)
 
@@ -22,7 +42,17 @@
         // create character page.
         setTimeout(() => {
           document.getElementsByClassName('fade')[0].remove()
-          this.$router.push({ path: 'character' })
+
+          // If we got a saved game and the button is not the start button we
+          // continue.
+          if (localStorage.save && e.target.id != 'start') {
+            let save = JSON.parse(localStorage.save)
+            //TODO set correct adress.
+            this.$router.push({ path: 'gameplay?' + save[1].level })
+          } else {
+            // If there is no saved game we want to create a new character.
+            this.$router.push({ path: 'character' })
+          }
         }, 1500)
       }
     }
@@ -58,12 +88,20 @@
       color: #fff;
       cursor: pointer;
       font-size: 30px;
-      margin: 40px auto;
+      margin: 40px 20px;
       padding: 10px;
       width: 335px;
 
       &:hover {
         background: darken(#373737, 10%);
+      }
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: unset;
+        &:hover {
+          background: #373737;
+        }
       }
     }
   }
