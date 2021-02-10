@@ -24,14 +24,10 @@
     },
     methods: {
       roll() {
-        let dice = this.dice
-        let type = this.type
         this.face =
           (Math.floor(Math.random() * Number(this.dice[this.type].max)) +
             Number(this.dice[this.type].min)) *
           Number(this.dice[this.type].multiplier)
-        this.$store.commit('roll', { dice, type })
-        this.face = this.$store.state.diceValue
         // console.log(this.face)
       }
     },
