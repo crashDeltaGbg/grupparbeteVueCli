@@ -9,12 +9,12 @@
 </template>
 
 <script>
-import choices from "@/components/Choices.vue";
+  import choices from '@/components/Choices.vue'
 
-export default {
-  name: "Choices",
-  components: {
-    choices,
-  },
-};
+  export default {
+    name: 'Choices',
+    components: {
+      choices
+    }
+  }
 </script>
