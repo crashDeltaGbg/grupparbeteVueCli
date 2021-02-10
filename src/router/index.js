@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Dice from '../views/Dice.vue'
+import Introduction from '../views/Introduction.vue'
 
 Vue.use(VueRouter)
 
@@ -37,8 +38,12 @@ const routes = [
   {
     path: '/story',
     name: 'Story',
-    component: () =>
-      import('../views/Story.vue')
+    component: () => import('../views/Story.vue')
+  },
+  {
+    path: '/introduction',
+    name: 'Introduction',
+    component: Introduction
   }
 ]
 

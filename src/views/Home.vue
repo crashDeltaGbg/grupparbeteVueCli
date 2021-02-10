@@ -51,7 +51,7 @@
             this.$router.push({ path: 'gameplay?' + save[1].level })
           } else {
             // If there is no saved game we want to create a new character.
-            this.$router.push({ path: 'character' })
+            this.$router.push({ path: 'introduction' })
           }
         }, 1500)
       }
