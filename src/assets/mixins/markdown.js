@@ -13,4 +13,4 @@ export let markdown = {
     }
   },
   name: 'markdown'
-  }
+}
