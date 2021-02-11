@@ -1,27 +1,122 @@
 <template>
-  <div class="home">
-    <!-- Ange med props:en 'type' vilken tärning som ska användas -->
-    <Dice type="D4"/> D4<br/>
-    <Dice type="D6"/> D6<br/>
-    <Dice type="D8"/> D8<br/>
-    <Dice type="D10"/> D10<br/>
-    <Dice type="D12"/> D12<br/>
-    <Dice type="D20"/> D20<br/>
-    <Dice type="D100"/> D10-00-90<br/>
-    <Save-game-function></Save-game-function>
-  </div>
+  <section id="home">
+    <h1>Adventure Hunter</h1>
+    <p>Lorem ipsum</p>
+    <div class="flex-wrapper">
+      <button id="start" @click="continueStory($event)">Start</button>
+      <button
+        id="continue"
+        @click="continueStory($event)"
+        :disabled="continueGame"
+      >
+        Continue
+      </button>
+    </div>
+  </section>
 </template>
 
 <script>
+  export default {
+    name: 'Home',
+    components: {},
+    mounted() {
+      this.continueGame = localStorage.save ? false : 0
+    },
+    data() {
+      return {
+        continueGame: 0
+      }
+    },
+    methods: {
+      continueStory(e) {
+        // Added Small "loading" animation.
+        let div = document.createElement('div')
+        div.innerHTML =
+          localStorage.save && e.target.id != 'start'
+            ? 'And the adventure continues...'
+            : 'And so it beginns...'
+        div.classList.add('fade')
+        e.target.parentNode.appendChild(div)
 
-import Dice from '@/components/Dice.vue'
-import SaveGameFunction from '@/components/Save-game-function.vue'
+        // When animation is done we remove the element and redirect the user to
+        // create character page.
+        setTimeout(() => {
+          document.getElementsByClassName('fade')[0].remove()
 
-export default {
-  name: 'Home',
-  components: {
-    Dice,
-    SaveGameFunction
+          // If we got a saved game and the button is not the start button we
+          // continue.
+          if (localStorage.save && e.target.id != 'start') {
+            let save = JSON.parse(localStorage.save)
+            //TODO set correct adress.
+            this.$router.push({ path: 'gameplay?' + save[1].level })
+          } else {
+            // If there is no saved game we want to create a new character.
+            this.$router.push({ path: 'introduction' })
+          }
+        }, 1500)
+      }
+    }
   }
-}
 </script>
+<style lang="scss">
+  #home {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #949191;
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0;
+
+    h1 {
+      font-size: 68px;
+      color: #fff;
+      margin: 10px;
+    }
+
+    p {
+      font-size: 45px;
+      color: #fff;
+      margin: 10px;
+    }
+
+    button {
+      background: #373737;
+      border-radius: 5px;
+      color: #fff;
+      cursor: pointer;
+      font-size: 30px;
+      margin: 40px 20px;
+      padding: 10px;
+      width: 335px;
+
+      &:hover {
+        background: darken(#373737, 10%);
+      }
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: unset;
+        &:hover {
+          background: #373737;
+        }
+      }
+    }
+  }
+  .fade {
+    opacity: 0;
+    animation: fade 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+  @keyframes fade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+</style>
