@@ -12,16 +12,16 @@
 
 <script>
 import Navbar from "@/components/Navbar.vue";
+import { dice } from "@/assets/mixins/dice.js"
 
 export default {
   name: "navbar",
   components: {
     Navbar,
   },
-};
-import { dice } from "@/assets/mixins/dice.js"
-
-export default {
   mixins: [dice]
-}
+};
+
+
+
 </script>
