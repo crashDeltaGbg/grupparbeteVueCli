@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Dice from '../views/Dice.vue'
 import Introduction from '../views/Introduction.vue'
+import Choices from '../views/Choices.vue'
 
 Vue.use(VueRouter)
 
@@ -16,6 +17,11 @@ const routes = [
     path: '/dice',
     name: 'Dice',
     component: Dice
+  },
+  {
+    path: '/choices',
+    name: 'Choices',
+    component: Choices
   },
   {
     path: '/about',
