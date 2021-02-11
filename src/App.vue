@@ -10,6 +10,7 @@
       <!-- <router-link to="/character">Character</router-link>| -->
       <router-link to="/choices">Choices</router-link>|
     </div>
+    <router-view />
     <transition :name="currentTransistion">
       <router-view />
     </transition>
