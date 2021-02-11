@@ -38,8 +38,10 @@
           this.isPrinceAlive === true
         ) {
           console.log('Congratulations! You beat the dragon!')
+          this.enableDisable = true
         } else {
           console.log('Failure.')
+          this.enableDisable = true
         }
       }
     }
