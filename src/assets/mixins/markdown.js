@@ -1,8 +1,6 @@
 export let markdown = {
   created() {
     this.selectFile('test')
-    // console.log(this.fileName)
-    // this.markdown = require(`@/assets/story/${this.fileName}.md`)
   },
   data() {
     return {
@@ -14,6 +12,5 @@ export let markdown = {
       this.markdown = require(`@/assets/story/${fileName}.md`)
     }
   },
-  name: 'markdown',
-  // props: ['fileName']
+  name: 'markdown'
   }
