@@ -1,8 +1,12 @@
 <template>
   <div>
     <ul v-if="choices">
-      <li v-for="choice in choices" :key="choice.id">
-        <input type="button" :value="text" @click="onClick(choice.proceed)" />
+      <li v-for="option in options" :key="option.id">
+        <input
+          type="button"
+          :value="option.text"
+          @click="onClick(option.proceed)"
+        />
       </li>
     </ul>
   </div>
@@ -13,9 +17,9 @@
     created() {},
     data() {
       return {
-        choices: null
+        options: null
       }
     },
-    props: ['next']
+    props: ['choices']
   }
 </script>
