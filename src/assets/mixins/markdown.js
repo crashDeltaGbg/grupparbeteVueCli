@@ -1,6 +1,6 @@
 export let markdown = {
   created() {
-    this.selectFile('test')
+    // this.selectFile('test')
   },
   data() {
     return {

@@ -1,0 +1,20 @@
+{
+  "options": [
+    {
+      "id": "a",
+      "text": "Take the road to Sea'Gull",
+      "proceed": "side_quests/json/SQ1_0"
+    },
+    {
+      "id": "b",
+      "text": "Take the road to Burgress",
+      "proceed": "side_quests/json/SQ2_0"
+    },
+    {
+      "id": "c",
+      "text": "Take the road to the Mines of Lanicam",
+      "proceed": "side_quests/json/SQ3_0"
+    }
+  ],
+  "md_file_path": "side_quest/SQ0_0"
+}

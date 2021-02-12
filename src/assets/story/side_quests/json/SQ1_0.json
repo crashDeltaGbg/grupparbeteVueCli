@@ -1,0 +1,11 @@
+{
+  "options": [
+    { "id": "a", "text": "Spare a coin", "proceed": "side_quests/json/SQ1_1" },
+    {
+      "id": "b",
+      "text": "Ignore the child",
+      "proceed": "side_quests/json/SQ1_2"
+    }
+  ],
+  "md_file_path": "side_quests/SQ1_0"
+}
