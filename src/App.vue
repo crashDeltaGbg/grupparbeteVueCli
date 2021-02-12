@@ -7,10 +7,9 @@
       <router-link to="/about">About</router-link> |
       <router-link to="/character">Character</router-link> |
       <router-link to="/story">Story</router-link>|
-      <!-- <router-link to="/character">Character</router-link>| -->
+      <router-link to="/backstory">backstory</router-link>|
       <router-link to="/choices">Choices</router-link>|
     </div>
-    <router-view />
     <transition :name="currentTransistion">
       <router-view />
     </transition>
@@ -28,7 +27,7 @@
       $route(to) {
         // We watch the route and add fade transition to router-view when we hit
         // the character page.
-        if (to.path === '/character') {
+        if (to.path === '/introduction') {
           this.currentTransistion = 'fade'
         } else {
           this.currentTransistion = 'none'

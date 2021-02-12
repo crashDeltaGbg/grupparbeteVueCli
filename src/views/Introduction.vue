@@ -13,8 +13,10 @@
       as you seem fit. While a strong warrior might not have much of a problem
       facing a troll in single combat, an agile rogue would be wise to wait for
       an ambush oppurtunity or maybe try to sneak past, you get the gist of it.
-      The die system works like an addition to your stats Hur fungerar
-      egentligen tärningssystemet?
+      When faced with adversity you get to roll a die, the relevant stat to the
+      adversity and the total from the roll is added together and compared to
+      see if you overcome the hardship or fail and have to suffer the
+      consequences.
     </p>
     <button @click="continueStory($event)">Continue</button>
   </div>

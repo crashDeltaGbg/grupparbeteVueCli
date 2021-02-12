@@ -21,7 +21,14 @@
       <template v-else>
         <div id="stats-wrapper">
           <div class="flex-wrapper">
-            <button id="help-button" @click="toggleHelpMsg()">Help</button>
+            <button
+              id="help-button"
+              @mouseover="toggleHelpMsg()"
+              @mouseleave="toggleHelpMsg()"
+              @click="toggleHelpMsg()"
+            >
+              Help
+            </button>
             <div class="hidden" id="help-text">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo rem
               alias impedit quam id nemo praesentium? Dicta enim in, pariatur
