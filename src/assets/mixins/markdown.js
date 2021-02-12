@@ -1,10 +1,23 @@
+import axios from 'axios'
+
 export let markdown = {
   created() {
-    this.selectFile('test')
+    axios
+      .get('json/story-test.json')
+      .then(response => response.data)
+      .then(result => {
+        this.stories = result.options
+        this.mdUrl = result.mdFilePath
+        console.log(this.stories)
+        console.log(this.mdUrl)
+        this.selectFile(this.mdUrl)
+      })
   },
   data() {
     return {
-      markdown
+      markdown,
+      stories: '',
+      mdUrl: ''
     }
   },
   methods: {

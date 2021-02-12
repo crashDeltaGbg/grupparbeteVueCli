@@ -1,6 +1,7 @@
 <template>
   <div>
     <p v-for="story in stories" :key="story.id">{{ story.text }}</p>
+    <p>{{ mdUrl }}</p>
   </div>
 </template>
 
@@ -9,7 +10,8 @@
   export default {
     data() {
       return {
-        stories: ''
+        stories: '',
+        mdUrl: ''
       }
     },
     created() {
@@ -18,6 +20,7 @@
         .then(response => response.data)
         .then(result => {
           this.stories = result.options
+          this.mdUrl = result.md_file_path
           console.log(this.stories)
         })
     }

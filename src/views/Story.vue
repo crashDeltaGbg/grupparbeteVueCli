@@ -2,7 +2,7 @@
   <div class="about">
     <h1>This is a test page</h1>
     <div v-html="markdown"></div>
-    <input type="button" @click="selectFile('markdown')" value="Click me!" />
+    <input type="button" @click="selectFile(mdUrl)" value="Click me!" />
   </div>
 </template>
 
