@@ -1,0 +1,10 @@
+{
+  "options": [
+    { "id": "a", "text": "Die", "proceed": "" },
+    { "id": "b", "text": "Die", "proceed": "" }
+  ],
+  "name": "SQ3-1",
+  "md_file_path": "side_quests/SQ3-1",
+  "dice": true,
+  "die": "D4"
+}

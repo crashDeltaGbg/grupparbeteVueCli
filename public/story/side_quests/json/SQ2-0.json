@@ -1,0 +1,17 @@
+{
+  "options": [
+    {
+      "id": "a",
+      "text": "Explore the abandoned house",
+      "proceed": "side_quests/json/SQ2-1"
+    },
+    {
+      "id": "b",
+      "text": "Leave the house alone",
+      "proceed": "side_quests/json/SQ2-2"
+    }
+  ],
+  "md_file_path": "side_quests/SQ2-0",
+  "name": "SQ2-0",
+  "dice": false
+}

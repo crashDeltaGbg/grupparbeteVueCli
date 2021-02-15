@@ -8,5 +8,6 @@
     }
   ],
   "md_file_path": "side_quests/SQ1-0",
-  "name": "SQ1-0"
+  "name": "SQ1-0",
+  "dice": false
 }

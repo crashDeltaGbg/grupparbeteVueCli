@@ -1,0 +1,17 @@
+{
+  "options": [
+    {
+      "id": "a",
+      "text": "Flee, dropping three quarters of the riches you have stolen",
+      "proceed": "side_quests/json/SQ3-1"
+    },
+    {
+      "id": "b",
+      "text": "Face the dragon with your vast intelligence, telling him that riches of the ground are riches for the people",
+      "proceed": "side_quests/json/SQ3-2"
+    }
+  ],
+  "md_file_path": "side_quests/SQ3-0",
+  "name": "SQ3-0",
+  "dice": false
+}
