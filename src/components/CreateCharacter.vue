@@ -259,7 +259,7 @@
           this.stats[name] = 3
         }
 
-        document.getElementsByClassName('stat-button').forEach((element) => {
+        document.getElementsByClassName('stat-button').forEach(element => {
           element.removeAttribute('disabled')
         })
 
@@ -287,13 +287,13 @@
 
         // If the available points reaches 0 we disable all increase buttons.
         if (this.points < 1) {
-          document.getElementsByClassName('increase').forEach((element) => {
+          document.getElementsByClassName('increase').forEach(element => {
             element.setAttribute('disabled', '')
           })
         } else {
           // And if the user removes a point from the stats we enable all increase
           // buttons again.
-          document.getElementsByClassName('increase').forEach((element) => {
+          document.getElementsByClassName('increase').forEach(element => {
             element.removeAttribute('disabled', '')
           })
         }
