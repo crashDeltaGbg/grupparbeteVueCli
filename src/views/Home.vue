@@ -81,26 +81,29 @@
       color: #fff;
       margin: 10px;
     }
+    .flex-wrapper {
+      justify-content: center;
 
-    button {
-      background: #373737;
-      border-radius: 5px;
-      color: #fff;
-      cursor: pointer;
-      font-size: 30px;
-      margin: 40px 20px;
-      padding: 10px;
-      width: 335px;
+      button {
+        background: #373737;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+        font-size: 30px;
+        margin: 40px 20px;
+        padding: 10px;
+        width: 335px;
 
-      &:hover {
-        background: darken(#373737, 10%);
-      }
-
-      &:disabled {
-        opacity: 0.5;
-        cursor: unset;
         &:hover {
-          background: #373737;
+          background: darken(#373737, 10%);
+        }
+
+        &:disabled {
+          opacity: 0.5;
+          cursor: unset;
+          &:hover {
+            background: #373737;
+          }
         }
       }
     }
