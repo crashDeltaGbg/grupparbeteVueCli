@@ -76,7 +76,8 @@
         const result = await response.json()
         // console.log(result)
         this.options = result.options
-        // console.log(this.options)
+        console.log(this.options)
+        console.log(this.options.proceed)
         this.selectFile(result.md_file_path)
         // console.log(result.md_file_path)
         // this.dice = result.dice
@@ -103,6 +104,7 @@
         console.log(score)
         if (score >= this.success) {
           this.getStory(this.options.proceed)
+          console.log(this.options.proceed)
         } else {
           this.getStory('side_quests/json/failure')
         }
