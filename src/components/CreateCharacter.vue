@@ -1,6 +1,6 @@
 <template>
   <section id="character-creation">
-    <div class="left side">
+    <div class="left side" :class="{ 'page-2': page === 2 }">
       <template v-if="page === 1">
         <div>
           <label for="name">Name:</label>
@@ -13,7 +13,13 @@
           />
           <label for="bio">Bio:</label>
           <textarea name="bio" v-model="bio" id="bio" />
-          <button id="randomize-bio" :page="page" @click="randomizeBio()">
+          <button
+            class="secondary-button"
+            id="randomize-bio"
+            disabled
+            :page="page"
+            @click="randomizeBio()"
+          >
             Randomize bio
           </button>
         </div>
@@ -21,7 +27,14 @@
       <template v-else>
         <div id="stats-wrapper">
           <div class="flex-wrapper">
-            <button id="help-button" @click="toggleHelpMsg()">Help</button>
+            <button
+              id="help-button"
+              @mouseover="toggleHelpMsg()"
+              @mouseleave="toggleHelpMsg()"
+              @click="toggleHelpMsg()"
+            >
+              Help
+            </button>
             <div class="hidden" id="help-text">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo rem
               alias impedit quam id nemo praesentium? Dicta enim in, pariatur
@@ -29,7 +42,9 @@
               velit incidunt!
             </div>
             <label for="stats">Stats:</label>
-            <div id="available-points">Available Points: {{ points }}</div>
+            <div id="available-points">
+              Available Points: <span>{{ points }} </span>
+            </div>
           </div>
           <ul id="stats">
             <li v-for="(value, name) in stats" :key="name">
@@ -53,15 +68,29 @@
               </span>
             </li>
           </ul>
+          <button class="primary-button" id="reset-stats" @click="resetStats()">
+            Reset stats
+          </button>
         </div>
-        <button id="reset-stats" @click="resetStats()">Reset stats</button>
-        <button id="randomize-stats" @click="randomizeStats()">
+        <button
+          class="secondary-button"
+          id="randomize-stats"
+          @click="randomizeStats()"
+        >
           Randomize stats
+        </button>
+        <button
+          id="save-go"
+          class="primary-button"
+          :page="page"
+          @click="saveGo(page)"
+        >
+          Save and Go
         </button>
       </template>
     </div>
-    <div class="right side">
-      <div v-if="page === 2">{{ name }}</div>
+    <div class="right side" :class="{ 'page-2': page === 2 }">
+      <div id="name-value" v-if="page === 2">{{ name }}</div>
       <div id="img-wrapper">
         <button v-if="page === 1" class="arrow left" @click="onClickImg('-')">
           left
@@ -74,8 +103,23 @@
           right
         </button>
       </div>
-      <button id="save-go" :page="page" @click="saveGo(page)">
-        Save and Go
+      <button
+        class="primary-button"
+        id="go-back"
+        v-if="page === 2"
+        :page="page"
+        @click="page = 1"
+      >
+        Go back
+      </button>
+      <button
+        class="primary-button"
+        id="next-step"
+        v-if="page === 1"
+        :page="page"
+        @click="saveGo(page)"
+      >
+        Next
       </button>
     </div>
   </section>
@@ -83,6 +127,9 @@
 
 <script>
   export default {
+    mounted() {
+      this.page = 1
+    },
     data() {
       return {
         page: 1,
@@ -121,6 +168,7 @@
             msg.innerHTML = '* Name is required'
             msg.style.color = 'red'
             msg.style.textAlign = 'left'
+            msg.style.marginTop = '-40px'
             document.getElementById('name').after(msg)
           } else {
             this.page = 2
@@ -136,6 +184,10 @@
           }
 
           this.$store.commit('saveCharacter', character)
+
+          if (this.page === 2) {
+            this.$router.push({ path: '/story' })
+          }
         }
       },
       onClickImg(operator) {
@@ -187,6 +239,10 @@
             let key_name = keys[i]
 
             this.stats[key_name] += value
+
+            if (this.points != 0 && i === keys.length - 1) {
+              this.stats[key_name] += this.points
+            }
           }
 
           // Enable decrease button if value is greater than 0.
@@ -265,6 +321,16 @@
       justify-items: flex-start;
     }
 
+    .page-2 {
+      &.left {
+        order: 2;
+      }
+      &.right {
+        order: 1;
+        position: relative;
+      }
+    }
+
     .side {
       width: 50%;
       padding: 40px;
@@ -295,7 +361,11 @@
       }
 
       textarea {
-        min-height: 150px;
+        min-height: 209px;
+      }
+
+      input {
+        margin-bottom: 60px;
       }
 
       &.right {
@@ -326,12 +396,29 @@
 
         #stats-wrapper {
           height: 416px;
-          margin: 20px;
           display: flex;
           flex-direction: column;
           justify-content: flex-end;
+          margin-bottom: 40px;
+
+          .flex-wrapper {
+            border-bottom: 1px solid #373737;
+
+            span {
+              color: #fff;
+            }
+          }
         }
       }
+    }
+
+    #name-value {
+      font-size: 24px;
+      text-align: left;
+      transform: translateX(-50%);
+      margin-left: 50%;
+      width: 414px;
+      text-transform: capitalize;
     }
 
     #img-wrapper {
@@ -366,27 +453,37 @@
       }
     }
 
-    // #save-go,
-    // #randomize-stats,
-    // #randomize-bio {
-    button:not(.stat-button) {
-      font-size: 20px;
-      padding: 12px;
-      width: 335px;
-      background: #373737;
-      border-radius: 12px;
-      color: #fff;
-      margin: 60px auto;
+    #next-step {
+      transform: translateX(50%);
+      margin-right: 107px;
+    }
+
+    #go-back {
+      transform: translateX(-50%);
+      margin-left: 107px;
+    }
+
+    #randomize-bio {
+      margin-right: calc(100% - 89px);
     }
 
     button[id*='randomize'] {
+      margin: 80px 0 60px;
       background: #fff;
       color: #373737;
+
+      &:disabled {
+        opacity: 0.6;
+        cursor: unset;
+      }
     }
 
     #reset-stats {
       width: auto;
-      margin: 20px;
+      white-space: nowrap;
+      justify-self: flex-end;
+      margin: 0;
+      margin-left: auto;
     }
 
     #help-button {
@@ -395,6 +492,17 @@
       border-radius: 21px;
       text-indent: -999999px;
       margin: auto 10px 10px 0;
+      background-color: #c4c4c4;
+      border-width: 1px;
+
+      &::after {
+        content: '?';
+        position: absolute;
+        margin-left: 999985px;
+        font-size: 16px;
+        margin-top: -1px;
+        color: #000;
+      }
     }
 
     #help-text {
@@ -404,11 +512,12 @@
       padding: 20px;
       background: #373737;
       color: #fff;
+      z-index: 10;
     }
 
     #stats {
-      text-align: left;
       padding: 0;
+      text-align: left;
 
       li {
         width: 100%;
@@ -416,6 +525,7 @@
         padding: 0;
         list-style-type: none;
         text-transform: capitalize;
+        color: #fff;
 
         span {
           justify-self: flex-end;

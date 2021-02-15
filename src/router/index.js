@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import Dice from '../views/Dice.vue'
 import Introduction from '../views/Introduction.vue'
 import Choices from '../views/Choices.vue'
+import Backstory from '../views/Backstory.vue'
 
 Vue.use(VueRouter)
 
@@ -22,6 +23,11 @@ const routes = [
     path: '/choices',
     name: 'Choices',
     component: Choices
+  },
+  {
+    path: '/backstory',
+    name: 'Backstory',
+    component: Backstory
   },
   {
     path: '/about',
