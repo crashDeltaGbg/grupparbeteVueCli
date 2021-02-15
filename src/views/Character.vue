@@ -1,17 +1,19 @@
 <template>
   <div class="character-wrapper">
-    <h1>Create character</h1>
+    <Navbar title="Create Character"></Navbar>
     <create-character></create-character>
   </div>
 </template>
 
 <script>
   import createCharacter from '@/components/CreateCharacter.vue'
+  import Navbar from '@/components/Navbar.vue'
 
   export default {
     name: 'Character',
     components: {
-      createCharacter
+      createCharacter,
+      Navbar
     }
   }
 </script>
