@@ -19,7 +19,7 @@
         added together and compared to see if you overcome the hardship or fail
         and have to suffer the consequences.
       </p>
-      <button @click="continueStory()">Continue</button>
+      <button class="primary-button" @click="continueStory()">Continue</button>
     </div>
   </div>
 </template>
@@ -33,7 +33,7 @@
     },
     methods: {
       continueStory() {
-        this.$router.push({ path: 'character' })
+        this.$router.push({ path: 'backstory' })
       }
     }
   }
@@ -57,21 +57,6 @@
       font-size: 30px;
       margin: 50px;
       color: #fff;
-    }
-
-    button {
-      background: #373737;
-      border-radius: 5px;
-      color: #fff;
-      cursor: pointer;
-      font-size: 30px;
-      margin: 40px auto;
-      padding: 10px;
-      width: 335px;
-
-      &:hover {
-        background: darken(#373737, 10%);
-      }
     }
   }
 </style>

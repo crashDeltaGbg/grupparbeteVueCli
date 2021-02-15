@@ -14,6 +14,7 @@
           <label for="bio">Bio:</label>
           <textarea name="bio" v-model="bio" id="bio" />
           <button
+            class="secondary-button"
             id="randomize-bio"
             disabled
             :page="page"
@@ -67,12 +68,23 @@
               </span>
             </li>
           </ul>
-          <button id="reset-stats" @click="resetStats()">Reset stats</button>
+          <button class="primary-button" id="reset-stats" @click="resetStats()">
+            Reset stats
+          </button>
         </div>
-        <button id="randomize-stats" @click="randomizeStats()">
+        <button
+          class="secondary-button"
+          id="randomize-stats"
+          @click="randomizeStats()"
+        >
           Randomize stats
         </button>
-        <button id="save-go" :page="page" @click="saveGo(page)">
+        <button
+          id="save-go"
+          class="primary-button"
+          :page="page"
+          @click="saveGo(page)"
+        >
           Save and Go
         </button>
       </template>
@@ -91,10 +103,22 @@
           right
         </button>
       </div>
-      <button id="go-back" v-if="page === 2" :page="page" @click="page = 1">
+      <button
+        class="primary-button"
+        id="go-back"
+        v-if="page === 2"
+        :page="page"
+        @click="page = 1"
+      >
         Go back
       </button>
-      <button id="next-step" v-if="page === 1" :page="page" @click="page = 2">
+      <button
+        class="primary-button"
+        id="next-step"
+        v-if="page === 1"
+        :page="page"
+        @click="saveGo(page)"
+      >
         Next
       </button>
     </div>
@@ -103,6 +127,9 @@
 
 <script>
   export default {
+    mounted() {
+      this.page = 1
+    },
     data() {
       return {
         page: 1,
@@ -141,6 +168,7 @@
             msg.innerHTML = '* Name is required'
             msg.style.color = 'red'
             msg.style.textAlign = 'left'
+            msg.style.marginTop = '-40px'
             document.getElementById('name').after(msg)
           } else {
             this.page = 2
@@ -156,7 +184,10 @@
           }
 
           this.$store.commit('saveCharacter', character)
-          this.$router.push({ path: '/story' })
+
+          if (this.page === 2) {
+            this.$router.push({ path: '/story' })
+          }
         }
       },
       onClickImg(operator) {
@@ -422,20 +453,6 @@
       }
     }
 
-    // #save-go,
-    // #randomize-stats,
-    // #randomize-bio {
-    button:not(.stat-button) {
-      font-size: 20px;
-      padding: 12px;
-      width: 259px;
-      background: #373737;
-      border-radius: 12px;
-      color: #fff;
-      margin: 60px auto;
-      cursor: pointer;
-    }
-
     #next-step {
       transform: translateX(50%);
       margin-right: 107px;
@@ -481,9 +498,9 @@
       &::after {
         content: '?';
         position: absolute;
-        margin-left: 999979px;
+        margin-left: 999985px;
         font-size: 16px;
-        margin-top: -7px;
+        margin-top: -1px;
         color: #000;
       }
     }

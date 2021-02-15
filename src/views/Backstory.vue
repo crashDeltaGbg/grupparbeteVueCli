@@ -23,7 +23,7 @@
         eligendi. Minus soluta consequuntur nemo sapiente error modi nam
         temporibus quos cupiditate?
 
-        <button @click="startGame()">Start Game</button>
+        <button class="primary-button" @click="startGame()">Start Game</button>
       </div>
       <div class="right">
         <img src="@/assets/logo.png" alt="#" />
@@ -52,6 +52,7 @@
 <style lang="scss" scoped>
   .flex-wrapper {
     padding: 40px;
+    background-color: #949191;
 
     .left,
     .right {
