@@ -81,6 +81,7 @@
       color: #fff;
       margin: 10px;
     }
+
     .flex-wrapper {
       justify-content: center;
 
@@ -101,6 +102,7 @@
         &:disabled {
           opacity: 0.5;
           cursor: unset;
+
           &:hover {
             background: #373737;
           }
@@ -108,12 +110,14 @@
       }
     }
   }
+
   .fade {
     opacity: 0;
     animation: fade 1s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
   }
+
   @keyframes fade {
     from {
       opacity: 0;
