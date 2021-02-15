@@ -1,7 +1,7 @@
 export const dice = {
-  created() {
-    return this.face
-  },
+  /* created() {
+    return Number(this.face)
+  }, */
   data() {
     return {
       face: 'roll',

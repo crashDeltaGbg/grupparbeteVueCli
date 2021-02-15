@@ -1,10 +1,11 @@
 {
   "options": [
-    { "id": "a", "text": "Die", "proceed": "" },
-    { "id": "b", "text": "Die", "proceed": "" }
+    { "id": "a", "text": "Die", "proceed": "side_quests/json/SQ3-3" }
   ],
   "name": "SQ3-1",
   "md_file_path": "side_quests/SQ3-1",
+  "chance": "luck",
   "dice": true,
-  "die": "D4"
+  "die": "D4",
+  "success": "5"
 }
