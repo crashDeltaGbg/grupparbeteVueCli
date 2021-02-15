@@ -516,8 +516,8 @@
     }
 
     #stats {
-      text-align: left;
       padding: 0;
+      text-align: left;
 
       li {
         width: 100%;
