@@ -1,7 +1,11 @@
 {
   "options": [
-    { "id": "a", "text": "Go to the city", "proceed": "" },
-    { "id": "b", "text": "Go to the inn", "proceed": "" }
+    {
+      "id": "a",
+      "text": "Go to the city",
+      "proceed": "side_quests/json/SQ4-0"
+    },
+    { "id": "b", "text": "Go to the inn", "proceed": "side_quests/json/SQ5-0" }
   ],
   "name": "SQ1-1",
   "md_file_path": "side_quests/SQ1-1"

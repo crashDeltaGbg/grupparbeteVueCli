@@ -7,7 +7,7 @@
       <router-link to="/about">About</router-link> |
       <router-link to="/character">Character</router-link> |
       <router-link to="/story">Story</router-link>|
-      <router-link to="/backstory">backstory</router-link>|
+      <router-link to="/backstory">Backstory</router-link>|
       <router-link to="/choices">Choices</router-link>|
     </div>
     <transition :name="currentTransistion">
