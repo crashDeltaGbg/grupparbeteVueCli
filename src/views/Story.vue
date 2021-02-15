@@ -61,6 +61,7 @@
         const conclusion = await answer.text()
         console.log(conclusion)
         this.markdown = marked(conclusion)
+        console.log(this.markdown)
       },
       onClick(path) {
         this.getStory(path)
