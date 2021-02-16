@@ -1,0 +1,186 @@
+{
+  "leavingHome": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Take the road to Sea'Gull",
+        "proceed": "goblinEncounter"
+      },
+      {
+        "id": "b",
+        "text": "Take the road to Burgress",
+        "proceed": "abandonedHouse"
+      },
+      {
+        "id": "c",
+        "text": "Take the road to the Mines of Lanicam",
+        "proceed": "dragonDanger"
+      }
+    ],
+    "alias": "SQ0-0"
+  },
+  "goblinEncounter": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Spare a coin",
+        "proceed": "goblinEncounterSuccess"
+      },
+      {
+        "id": "b",
+        "text": "Ignore the child",
+        "proceed": "goblinEncounterFail"
+      }
+    ],
+    "alias": "SQ1-0"
+  },
+  "abandonedHouse": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Explore the abandoned house",
+        "proceed": "abandonedHouseSuccess"
+      },
+      {
+        "id": "b",
+        "text": "Leave the house alone",
+        "proceed": "abandonedHouseFail"
+      }
+    ],
+    "alias": "SQ2-0"
+  },
+  "dragonDanger": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Flee, dropping three quarters of the riches you have stolen",
+        "proceed": "dragonDangerFail"
+      },
+      {
+        "id": "b",
+        "text": "Debate the Dragon",
+        "proceed": "dragonDangerSuccess"
+      }
+    ],
+    "alias": "SQ3-0"
+  },
+  "goblinEncounterSuccess": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Go to the city",
+        "proceed": "theCity"
+      },
+      {
+        "id": "b",
+        "text": "Go to the inn",
+        "proceed": "theInn"
+      }
+    ],
+    "alias": "SQ1-1",
+    "coin": -1
+  },
+  "goblinEncounterFail": {
+    "options": [
+      { "id": "a", "text": "Success", "proceed": "side_quests/json/SQ1-3" },
+      { "id": "b", "text": "Failure", "proceed": "failure" }
+    ],
+    "alias": "SQ1-2"
+  },
+  "abandonedHouseSuccess": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Go to the city",
+        "proceed": "theCity"
+      },
+      {
+        "id": "b",
+        "text": "Go to the inn",
+        "proceed": "theInn"
+      }
+    ],
+    "alias": "SQ2-1",
+    "coin": 100
+  },
+  "abandonedHouseFail": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Go to the city",
+        "proceed": "theCity"
+      },
+      {
+        "id": "b",
+        "text": "Go to the inn",
+        "proceed": "theInn"
+      }
+    ],
+    "alias": "SQ2-2"
+  },
+  "dragonDangerFail": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Success!",
+        "proceed": "dragonMeasureSuccess"
+      },
+      {
+        "id": "b",
+        "text": "Failure!",
+        "proceed": "failure"
+      }
+    ],
+    "alias": "SQ3-1",
+    "chance": "luck",
+    "die": "D4",
+    "success": "5"
+  },
+  "dragonDangerSuccess": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Go to the city",
+        "proceed": "theCity"
+      },
+      {
+        "id": "b",
+        "text": "Go to the inn",
+        "proceed": "theInn"
+      }
+    ],
+    "alias": "SQ3-2"
+  },
+  "dragonMeasureSuccess": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Go to the city",
+        "proceed": "theCity"
+      },
+      {
+        "id": "b",
+        "text": "Go to the inn",
+        "proceed": "theInn"
+      }
+    ],
+    "alias": "SQ3-3"
+  },
+  "theCity": {
+    "options": [
+      { "id": "a", "text": "Town Square", "proceed": "townSquare" },
+      { "id": "b", "text": "Ale House", "proceed": "aleHouse" }
+    ],
+    "alias": "SQ4-0"
+  },
+  "theInn": {
+    "options": [
+      { "id": "a", "text": "", "proceed": "" },
+      { "id": "b", "text": "", "proceed": "" }
+    ],
+    "alias": "SQ5-0"
+  },
+  "failure": {
+    "alias": "failure"
+  }
+}
