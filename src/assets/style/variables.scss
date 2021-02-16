@@ -1,5 +1,21 @@
-// FONTS
+/* FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Amarante&family=Amaranth&display=swap');
 
-// COLORS
+$heading: 'Amarante', cursive;
+$text: 'Amaranth', sans-serif;
 
-// BREAKPOINTS
+/* COLORS */
+$black: #151515;
+$blue: #5a5a7d;
+$brown: #8e8e64;
+$lightgray: #e2dede;
+$white: #ffffff;
+
+/* BREAKPOINTS */
+// example usage @media (min-width: $breakpoint-tablet) {}
+$breakpoint-mobile: 375px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop-small: 980px;
+$breakpoint-desktop-large: 1200px;
+
+/* OTHER */
