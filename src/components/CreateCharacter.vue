@@ -29,9 +29,9 @@
           <div class="flex-wrapper">
             <button
               id="help-button"
-              @mouseover="toggleHelpMsg()"
-              @mouseleave="toggleHelpMsg()"
-              @click="toggleHelpMsg()"
+              @mouseenter="toggleHelpMsg($event)"
+              @mouseleave="toggleHelpMsg($event)"
+              @click="toggleHelpMsg($event)"
             >
               Help
             </button>
@@ -150,8 +150,14 @@
       randomizeBio() {
         // Do something fun here.
       },
-      toggleHelpMsg() {
+      toggleHelpMsg(e) {
+        // Bug on mobile. Probobly need to rewrite function to work properly on both hover state and click. TODO
+        if (window.innerWidth < 980 && e.type === 'mouseenter') {
+          return
+        }
+
         let msg = document.getElementById('help-text')
+        console.log(msg.classList.contains('hidden'))
 
         if (msg.classList.contains('hidden')) {
           msg.classList.remove('hidden')
@@ -305,10 +311,13 @@
 </script>
 
 <style scoped lang="scss">
+  @import '../assets/style/variables.scss';
+
   #character-creation {
     display: flex;
     background-color: #949191;
     overflow-x: hidden;
+    flex-direction: column;
 
     .hidden {
       display: none;
@@ -332,7 +341,8 @@
     }
 
     .side {
-      width: 50%;
+      box-sizing: border-box;
+      width: 100%;
       padding: 40px;
 
       input,
@@ -351,13 +361,15 @@
 
       input,
       textarea {
-        width: 522px;
+        max-width: 522px;
+        width: 100%;
         margin: auto;
         border-radius: 5px;
         border: 0px;
         padding: 12px;
         font-size: 16px;
         color: #000;
+        box-sizing: border-box;
       }
 
       textarea {
@@ -370,9 +382,16 @@
 
       &.right {
         background-color: #c4c4c4;
+        order: 1;
+
+        @media (min-width: $breakpoint-desktop-small) {
+          order: 2;
+        }
       }
 
       &.left {
+        order: 2;
+
         div {
           position: relative;
           max-width: 522px;
@@ -409,6 +428,14 @@
             }
           }
         }
+
+        @media (min-width: $breakpoint-desktop-small) {
+          order: 1;
+        }
+      }
+
+      @media (min-width: $breakpoint-desktop-small) {
+        width: 50%;
       }
     }
 
@@ -419,6 +446,10 @@
       margin-left: 50%;
       width: 414px;
       text-transform: capitalize;
+      @media (max-width: 979px) {
+        width: calc(100% - 40px);
+        max-width: 414px;
+      }
     }
 
     #img-wrapper {
@@ -432,7 +463,7 @@
         background-repeat: no-repeat;
         background-position: center;
         background-size: contain;
-        margin: 20px;
+        margin: 20px 20px 0;
       }
 
       button {
@@ -452,19 +483,72 @@
         }
       }
     }
+    #save-go {
+      @media (max-width: 979px) {
+        max-width: 522px;
+        margin: auto;
+        width: calc(100% - 105px);
+      }
+      @media (max-width: 1211px) {
+        margin: 0;
+      }
+    }
 
     #next-step {
-      transform: translateX(50%);
-      margin-right: 107px;
+      transform: translateX(-50%);
+      position: absolute;
+      bottom: -680px;
+      left: 50%;
+
+      @media (max-width: $breakpoint-desktop-small) {
+        max-width: 522px;
+        width: calc(100% - 105px);
+      }
+
+      @media (min-width: $breakpoint-desktop-small) {
+        transform: translateX(50%);
+        margin-right: 107px;
+        position: unset;
+      }
     }
 
     #go-back {
       transform: translateX(-50%);
-      margin-left: 107px;
+
+      @media (max-width: 979px) {
+        position: absolute;
+        bottom: -642px;
+        left: 50%;
+        transform: translateX(-100%);
+        max-width: 522px;
+        width: calc(50% - 165px);
+        min-width: 157px;
+        font-size: 100%;
+      }
+
+      @media (min-width: $breakpoint-desktop-small) {
+        margin-left: 107px;
+        position: unset;
+      }
     }
 
     #randomize-bio {
       margin-right: calc(100% - 89px);
+      margin-bottom: 100px;
+    }
+
+    #randomize-stats {
+      transform: unset;
+      display: inline-block;
+      @media (max-width: 979px) {
+        max-width: 522px;
+        width: calc(50% - 165px);
+        margin-left: calc(50% - -5px);
+        box-sizing: border-box;
+        display: block;
+        min-width: 157px;
+        font-size: 100%;
+      }
     }
 
     button[id*='randomize'] {
@@ -476,6 +560,22 @@
         opacity: 0.6;
         cursor: unset;
       }
+
+      @media (max-width: 979px) {
+        width: 100%;
+      }
+
+      @media (min-width: $breakpoint-desktop-small) {
+        margin: 80px 0 60px;
+      }
+    }
+
+    .stat-button {
+      width: 23px;
+      height: 21px;
+      border-radius: 3px;
+      padding: 2px;
+      margin-left: 5px;
     }
 
     #reset-stats {
@@ -484,6 +584,9 @@
       justify-self: flex-end;
       margin: 0;
       margin-left: auto;
+      @media (max-width: 979px) {
+        font-size: 100%;
+      }
     }
 
     #help-button {
@@ -494,6 +597,7 @@
       margin: auto 10px 10px 0;
       background-color: #c4c4c4;
       border-width: 1px;
+      padding: 0;
 
       &::after {
         content: '?';
@@ -532,6 +636,10 @@
           margin-left: auto;
         }
       }
+    }
+
+    @media (min-width: $breakpoint-desktop-small) {
+      flex-direction: row;
     }
   }
 </style>
