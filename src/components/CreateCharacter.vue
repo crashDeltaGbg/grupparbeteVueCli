@@ -381,16 +381,6 @@
       }
     }
 
-    .page-2 {
-      &.left {
-        order: 2;
-      }
-      &.right {
-        order: 1;
-        position: relative;
-      }
-    }
-
     .side {
       box-sizing: border-box;
       width: 100%;
@@ -429,6 +419,16 @@
 
       input {
         margin-bottom: 60px;
+      }
+
+      &.page-2 {
+        &.left {
+          order: 2;
+        }
+        &.right {
+          order: 1;
+          position: relative;
+        }
       }
 
       &.right {
