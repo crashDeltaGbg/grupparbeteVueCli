@@ -1,0 +1,4 @@
+You wake up to a rumbling outside your cottage. Looking outside you see alot of animals running out from the woodlands. You dress yourself and head outside. Exiting your door you look over to your barn and here frantic stomping inside. 
+You walk inside to find your usually calm and friendly pig Eumulus walking around in his pen with what could only be described as a "frantic" look upon him. You climb over and crouch down to calm him down "Hey hey, whats wrong boy?" you ask him while stroking his back. He finally notices you're there and pushes his snout into your belly as if to push you out from the pen. Something big must be happening if all the animals are this riled up.
+
+Walking outside you see a flash of light from the woods rising into the sky. You grab a pitchfork that's leaning against the barn and head over to investigate.

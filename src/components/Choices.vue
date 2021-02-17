@@ -1,6 +1,5 @@
 <template>
   <div>
-    <p>Will you save the prince from the dragon?</p>
     <input
       type="button"
       :key="choice"

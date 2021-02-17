@@ -1,34 +1,28 @@
 <template>
   <section class="backstory">
     <Navbar title="Backstory"></Navbar>
-    <section class="flex-wrapper">
-      <div class="left">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea itaque
-        harum, explicabo quo ipsum eaque quod ullam commodi reprehenderit sit
-        optio nihil dolore debitis ut eum expedita veritatis delectus in? Lorem
-        ipsum, dolor sit amet consectetur adipisicing elit. Est iste eveniet,
-        exercitationem maxime fugit veniam necessitatibus rem velit tenetur
-        porro molestias eligendi soluta, ullam impedit voluptatem, quas harum
-        explicabo optio. Lorem ipsum dolor sit amet consectetur adipisicing
-        elit. Odit eius totam nulla hic optio magnam, sint qui quam eligendi.
-        Minus soluta consequuntur nemo sapiente error modi nam temporibus quos
-        cupiditate? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea
-        itaque harum, explicabo quo ipsum eaque quod ullam commodi reprehenderit
-        sit optio nihil dolore debitis ut eum expedita veritatis delectus in?
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est iste
-        eveniet, exercitationem maxime fugit veniam necessitatibus rem velit
-        tenetur porro molestias eligendi soluta, ullam impedit voluptatem, quas
-        harum explicabo optio. Lorem ipsum dolor sit amet consectetur
-        adipisicing elit. Odit eius totam nulla hic optio magnam, sint qui quam
-        eligendi. Minus soluta consequuntur nemo sapiente error modi nam
-        temporibus quos cupiditate?
+    <div class="left">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea itaque harum,
+      explicabo quo ipsum eaque quod ullam commodi reprehenderit sit optio nihil
+      dolore debitis ut eum expedita veritatis delectus in? Lorem ipsum, dolor
+      sit amet consectetur adipisicing elit. Est iste eveniet, exercitationem
+      maxime fugit veniam necessitatibus rem velit tenetur porro molestias
+      eligendi soluta, ullam impedit voluptatem, quas harum explicabo optio.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit eius totam
+      nulla hic optio magnam, sint qui quam eligendi. Minus soluta consequuntur
+      nemo sapiente error modi nam temporibus quos cupiditate? Lorem ipsum dolor
+      sit amet, consectetur adipisicing elit. Ea itaque harum, explicabo quo
+      ipsum eaque quod ullam commodi reprehenderit sit optio nihil dolore
+      debitis ut eum expedita veritatis delectus in? Lorem ipsum, dolor sit amet
+      consectetur adipisicing elit. Est iste eveniet, exercitationem maxime
+      fugit veniam necessitatibus rem velit tenetur porro molestias eligendi
+      soluta, ullam impedit voluptatem, quas harum explicabo optio. Lorem ipsum
+      dolor sit amet consectetur adipisicing elit. Odit eius totam nulla hic
+      optio magnam, sint qui quam eligendi. Minus soluta consequuntur nemo
+      sapiente error modi nam temporibus quos cupiditate?
 
-        <button @click="startGame()">Start Game</button>
-      </div>
-      <div class="right">
-        <img src="@/assets/logo.png" alt="#" />
-      </div>
-    </section>
+      <button class="primary-button" @click="startGame()">Start Game</button>
+    </div>
   </section>
 </template>
 
@@ -50,28 +44,35 @@
 </script>
 
 <style lang="scss" scoped>
-  .flex-wrapper {
-    padding: 40px;
+  @import '../assets/style/variables.scss';
 
-    .left,
-    .right {
-      width: 50%;
+  .backstory {
+    background-color: #949191;
+
+    .left {
+      width: 100%;
       text-align: left;
       justify-self: center;
-      margin: 40px 20px;
+      margin: 40px 0;
+      padding: 20px;
       display: flex;
       flex-direction: column;
       line-height: 42px;
       font-size: 24px;
+      box-sizing: border-box;
 
       button {
-        margin: 40px 0;
-        margin-right: auto;
+        margin: 40px auto;
+        justify-self: center;
+
+        @media (min-width: $breakpoint-desktop-small) {
+          margin: 40px 0;
+          margin-right: auto;
+        }
       }
 
-      img {
-        margin: auto;
-        justify-self: center;
+      @media (min-width: $breakpoint-desktop-small) {
+        width: 50%;
       }
     }
   }

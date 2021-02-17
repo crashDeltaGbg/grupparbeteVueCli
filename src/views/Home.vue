@@ -3,8 +3,11 @@
     <h1>Adventure Hunter</h1>
     <p>Lorem ipsum</p>
     <div class="flex-wrapper">
-      <button id="start" @click="continueStory($event)">Start</button>
+      <button class="primary-button" id="start" @click="continueStory($event)">
+        Start
+      </button>
       <button
+        class="primary-button"
         id="continue"
         @click="continueStory($event)"
         :disabled="continueGame"
@@ -82,35 +85,34 @@
       margin: 10px;
     }
 
-    button {
-      background: #373737;
-      border-radius: 5px;
-      color: #fff;
-      cursor: pointer;
-      font-size: 30px;
-      margin: 40px 20px;
-      padding: 10px;
-      width: 335px;
+    .flex-wrapper {
+      justify-content: center;
+      flex-wrap: wrap;
 
-      &:hover {
-        background: darken(#373737, 10%);
-      }
+      button {
+        margin: 40px 20px;
+        width: 335px;
 
-      &:disabled {
-        opacity: 0.5;
-        cursor: unset;
-        &:hover {
-          background: #373737;
+        &:disabled {
+          opacity: 0.5;
+          cursor: unset;
+
+          &:hover {
+            background: #373737;
+          }
         }
       }
     }
   }
+
   .fade {
+    flex-basis: 100%;
     opacity: 0;
     animation: fade 1s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
   }
+
   @keyframes fade {
     from {
       opacity: 0;

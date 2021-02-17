@@ -10,4 +10,4 @@ You run out of your house, pitch-dark smoke seeping out of the mountain caves in
 
 1. Escape in your boat, save as many as you can: Greater chance to quickly escape and survive the mountain troll's attack. Chance of population suffer greater losses.
 
-2. Fly on foot and battle with trolls chasing your heels: Win the points of strength and luck. Longer journey to the castle.
+2. Flee on foot and battle with trolls chasing your heels: Win the points of strength and luck. Longer journey to the castle.

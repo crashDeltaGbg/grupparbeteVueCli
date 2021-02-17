@@ -1,5 +1,45 @@
 @import './variables.scss';
 
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: $font-text;
+}
+
+h1,
+h2 {
+  font-family: $font-heading;
+}
+
+p {
+  font-family: $font-text;
+  font-size: $font-size-text;
+}
+
 .flex-wrapper {
   display: flex;
+}
+
+.primary-button,
+.secondary-button {
+  font-size: 20px;
+  padding: 12px;
+  width: 259px;
+  background: #373737;
+  border-radius: 12px;
+  color: #fff;
+  margin: 60px auto;
+  cursor: pointer;
+
+  &:hover {
+    background: darken(#373737, 10%);
+  }
+}
+
+.secondary-button {
+  background: #fff;
+  &:hover {
+    background: darken(#fff, 10%);
+  }
 }
