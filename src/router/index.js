@@ -5,6 +5,9 @@ import Dice from '../views/Dice.vue'
 import Introduction from '../views/Introduction.vue'
 import Choices from '../views/Choices.vue'
 import Backstory from '../views/Backstory.vue'
+import About from '../views/About.vue'
+import Character from '../views/Character.vue'
+import Story from '../views/Story.vue'
 
 Vue.use(VueRouter)
 
@@ -32,24 +35,17 @@ const routes = [
   {
     path: '/about',
     name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '@/views/About.vue')
+    component: About
   },
   {
     path: '/character',
     name: 'Character',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ '@/views/Character.vue')
+    component: Character
   },
   {
     path: '/story',
     name: 'Story',
-    component: () => import('@/views/Story.vue')
+    component: Story
   },
   {
     path: '/introduction',
