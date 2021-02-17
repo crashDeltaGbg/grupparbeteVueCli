@@ -156,7 +156,7 @@
     },
     watch: {
       windowSize(n, old) {
-        console.log(n, old)
+        console.log('Window changed from' + old + ' To ' + n)
       }
     },
     data() {
@@ -164,7 +164,12 @@
         page: 1,
         name: null,
         bio: null,
-        img: [require('../assets/logo.png'), require('../assets/arrow.svg')], // TODO Example images until the real images are defined.
+        img: [
+          require('../../public/images/character-1.jpg'),
+          require('../../public/images/character-2.jpg'),
+          require('../assets/logo.png'),
+          require('../assets/arrow.svg')
+        ], // TODO Example images until the real images are defined.
         imgIndex: 0,
         points: 10,
         stats: {
@@ -508,7 +513,7 @@
         background-color: white;
         background-repeat: no-repeat;
         background-position: center;
-        background-size: contain;
+        background-size: cover;
         margin: 20px 20px 0;
       }
 
