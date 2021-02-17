@@ -26,6 +26,7 @@
         </ul>
       </div>
     </template>
+
     <template v-if="cost">
       <input type="button" value="Pay cost" @click="pay(cost)" />
       <template>
@@ -49,6 +50,7 @@
         />
       </div>
     </template>
+
     <template v-else>
       <div v-if="markdown" v-html="markdown" id="text">
         <!-- Här läses texten in -->
