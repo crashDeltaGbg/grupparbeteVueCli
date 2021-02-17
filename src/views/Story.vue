@@ -77,7 +77,6 @@
         // console.log(result)
         this.options = result.options
         console.log(this.options)
-        console.log(this.options.proceed)
         this.selectFile(result.md_file_path)
         // console.log(result.md_file_path)
         // this.dice = result.dice
@@ -85,7 +84,8 @@
         // console.log(this.die)
         this.chance = result.chance
         this.success = result.success
-        // console.log(this.success)
+        // console.log(this.success)3
+        console.log(this.options.proceed)
       },
       async selectFile(fileName) {
         // this.markdown = require(`@/assets/story/${fileName}.md`)

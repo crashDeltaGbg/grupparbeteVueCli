@@ -1,4 +1,7 @@
 {
+  "options": {
+    "proceed": "You failed!"
+  },
   "md_file_path": "side_quests/failure",
   "name": "failure"
 }
