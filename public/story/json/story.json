@@ -53,7 +53,7 @@
     "options": [
       {
         "id": "a",
-        "text": "Flee, dropping three quarters of the riches you have stolen",
+        "text": "Flee, but lose some of your bounty",
         "proceed": "dragonDangerFail"
       },
       {
@@ -62,7 +62,8 @@
         "proceed": "dragonDangerSuccess"
       }
     ],
-    "alias": "SQ3-0"
+    "alias": "SQ3-0",
+    "coin": 150
   },
   "goblinEncounterSuccess": {
     "options": [
@@ -134,7 +135,8 @@
     "alias": "SQ3-1",
     "chance": "luck",
     "die": "D4",
-    "success": "5"
+    "success": "5",
+    "coin": -50
   },
   "dragonDangerSuccess": {
     "options": [
@@ -175,10 +177,11 @@
   },
   "theInn": {
     "options": [
-      { "id": "a", "text": "", "proceed": "" },
+      { "id": "a", "text": "", "proceed": "enterTheInn" },
       { "id": "b", "text": "", "proceed": "" }
     ],
-    "alias": "SQ5-0"
+    "alias": "SQ5-0",
+    "cost": 2
   },
   "failure": {
     "alias": "failure"

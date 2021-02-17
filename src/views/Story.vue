@@ -1,9 +1,9 @@
 <template>
   <div class="about">
     <div id="status">
-      <span>Gold: {{ character.purse }}</span
+      <span>Coin: {{ character.purse }}</span
       >&nbsp;
-      <span>Health: {{ character.hp }}</span>
+      <!-- <span>Health: {{ character.hp }}</span> -->
     </div>
 
     <template v-if="die">
@@ -24,6 +24,29 @@
             />
           </li>
         </ul>
+      </div>
+    </template>
+    <template v-if="cost">
+      <input type="button" value="Pay cost" @click="pay(cost)" />
+      <template>
+        <div>
+          <p>
+            {{ message }}
+            <input
+              v-if="pay === true"
+              type="button"
+              value="OK"
+              @click="getStory(options[0].proceed)"
+            />
+          </p>
+        </div>
+      </template>
+      <div>
+        <input
+          type="button"
+          value="Leave"
+          @click="getStory(options[1].proceed)"
+        />
       </div>
     </template>
     <template v-else>
@@ -76,9 +99,11 @@
           inventory: []
         },
         // dice: false,
-        die: null,
         coin: null,
+        cost: null,
+        die: null,
         markdown: null,
+        message: null,
         options: null,
         success: null
         // proceed: ''
@@ -101,6 +126,7 @@
         this.chance = result[path].chance
         this.success = result[path].success
         this.coin = result[path].coin
+        this.cost = result[path].cost
         // console.log(this.success)
       },
       async selectFile(fileName) {
@@ -125,17 +151,23 @@
           this.getStory(this.options[1].proceed)
         }
       },
+      obtain(item) {
+        this.character.inventory.push(item)
+      },
       pay(cost) {
         if (this.character.purse >= cost) {
           this.character.purse -= cost
-          return true
+          this.message = `You pay ${cost} coin.`
+          return (this.pay = true)
         } else {
-          return false
+          this.message = `You don't have enough coin.`
         }
       },
       purchase(item, cost) {
-        if (this.pay(cost)) {
-          this.character.inventory.push(item)
+        let checkOut = this.pay(cost)
+        if (checkOut) {
+          // this.character.inventory.push(item)
+          this.obtain(item)
         } else {
           return false
         }
