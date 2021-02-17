@@ -1,9 +1,7 @@
 <template>
   <div class="about">
     <div id="status">
-      <span>Coin: {{ character.purse }}</span
-      >&nbsp;
-      <!-- <span>Health: {{ character.hp }}</span> -->
+      <span>Coin: {{ character.purse }}</span>
     </div>
 
     <template v-if="die">
