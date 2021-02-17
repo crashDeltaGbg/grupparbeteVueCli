@@ -1,5 +1,11 @@
 <template>
   <div class="about">
+    <div id="status">
+      <span>Gold: {{ character.purse }}</span
+      >&nbsp;
+      <span>Health: {{ character.hp }}</span>
+    </div>
+
     <template v-if="die">
       <div v-if="markdown" v-html="markdown" id="text">
         <!-- Här läses texten in -->
@@ -55,14 +61,23 @@
     },
     created() {
       // this.selectFile('side_quests/SQ0_0')
-      this.getStory('side_quests/json/SQ0-0')
+      this.getStory('leavingHome')
     },
     data() {
       return {
         chance: null,
-        character: { strength: 3, agility: 3, intellect: 3, luck: 3 },
+        character: {
+          strength: 3,
+          agility: 3,
+          intellect: 3,
+          luck: 3,
+          hp: 30,
+          purse: 2,
+          inventory: []
+        },
         // dice: false,
         die: null,
+        coin: null,
         markdown: null,
         options: null,
         success: null
@@ -72,19 +87,20 @@
     methods: {
       async getStory(path) {
         // fetch(`@/assets/story/${path}.json`)
-        const response = await fetch(`/story/${path}.json`)
+        const response = await fetch(`/story/json/story.json`)
         const result = await response.json()
         // console.log(result)
-        this.options = result.options
-        console.log(this.options)
-        console.log(this.options.proceed)
-        this.selectFile(result.md_file_path)
+        this.options = result[path].options
+        // console.log(this.options)
+        // console.log(this.options.proceed)
+        this.selectFile(result[path].alias)
         // console.log(result.md_file_path)
         // this.dice = result.dice
-        this.die = result.die
+        this.die = result[path].die
         // console.log(this.die)
-        this.chance = result.chance
-        this.success = result.success
+        this.chance = result[path].chance
+        this.success = result[path].success
+        this.coin = result[path].coin
         // console.log(this.success)
       },
       async selectFile(fileName) {
@@ -103,14 +119,36 @@
         let score = this.face + this.character[stat]
         console.log(score)
         if (score >= this.success) {
-          this.getStory(this.options.proceed)
-          console.log(this.options.proceed)
+          this.getStory(this.options[0].proceed)
+          console.log(this.options[0].proceed)
         } else {
-          this.getStory('side_quests/json/failure')
+          this.getStory(this.options[1].proceed)
+        }
+      },
+      pay(cost) {
+        if (this.character.purse >= cost) {
+          this.character.purse -= cost
+          return true
+        } else {
+          return false
+        }
+      },
+      purchase(item, cost) {
+        if (this.pay(cost)) {
+          this.character.inventory.push(item)
+        } else {
+          return false
         }
       }
     },
     mixins: [dice],
-    name: 'Story'
+    name: 'Story',
+    watch: {
+      coin(amount) {
+        if (this.coin != null && this.coin != undefined) {
+          this.character.purse += amount
+        }
+      }
+    }
   }
 </script>
