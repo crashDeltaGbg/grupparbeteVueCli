@@ -22,6 +22,15 @@
           >
             Randomize bio
           </button>
+          <button
+            class="primary-button mobile"
+            id="next-step"
+            v-if="page === 1 && windowSize < 980"
+            :page="page"
+            @click="saveGo(page)"
+          >
+            Next
+          </button>
         </div>
       </template>
       <template v-else>
@@ -72,21 +81,32 @@
             Reset stats
           </button>
         </div>
-        <button
-          class="secondary-button"
-          id="randomize-stats"
-          @click="randomizeStats()"
-        >
-          Randomize stats
-        </button>
-        <button
-          id="save-go"
-          class="primary-button"
-          :page="page"
-          @click="saveGo(page)"
-        >
-          Save and Go
-        </button>
+        <div id="button-wrapper">
+          <button
+            class="secondary-button"
+            id="randomize-stats"
+            @click="randomizeStats()"
+          >
+            Randomize stats
+          </button>
+          <button
+            class="primary-button mobile"
+            id="go-back"
+            v-if="page === 2 && windowSize < 980"
+            :page="page"
+            @click="page = 1"
+          >
+            Go back
+          </button>
+          <button
+            id="save-go"
+            class="primary-button"
+            :page="page"
+            @click="saveGo(page)"
+          >
+            Save and Go
+          </button>
+        </div>
       </template>
     </div>
     <div class="right side" :class="{ 'page-2': page === 2 }">
@@ -106,7 +126,7 @@
       <button
         class="primary-button"
         id="go-back"
-        v-if="page === 2"
+        v-if="page === 2 && windowSize > 979"
         :page="page"
         @click="page = 1"
       >
@@ -115,7 +135,7 @@
       <button
         class="primary-button"
         id="next-step"
-        v-if="page === 1"
+        v-if="page === 1 && windowSize > 979"
         :page="page"
         @click="saveGo(page)"
       >
@@ -129,6 +149,15 @@
   export default {
     mounted() {
       this.page = 1
+
+      this.$nextTick(() => {
+        window.addEventListener('resize', this.onResize)
+      })
+    },
+    watch: {
+      windowSize(n, old) {
+        console.log(n, old)
+      }
     },
     data() {
       return {
@@ -143,10 +172,15 @@
           agility: 3,
           intellect: 3,
           luck: 3
-        }
+        },
+        isMobile: false,
+        windowSize: window.innerWidth
       }
     },
     methods: {
+      onResize() {
+        this.windowSize = window.innerWidth
+      },
       randomizeBio() {
         // Do something fun here.
       },
@@ -157,7 +191,6 @@
         }
 
         let msg = document.getElementById('help-text')
-        console.log(msg.classList.contains('hidden'))
 
         if (msg.classList.contains('hidden')) {
           msg.classList.remove('hidden')
@@ -330,6 +363,19 @@
       justify-items: flex-start;
     }
 
+    #button-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+      max-width: unset;
+      margin: 0;
+
+      @media (min-width: $breakpoint-desktop-small) {
+        flex-wrap: nowrap;
+      }
+    }
+
     .page-2 {
       &.left {
         order: 2;
@@ -484,25 +530,25 @@
       }
     }
     #save-go {
+      margin: 80px 0 60px;
+
       @media (max-width: 979px) {
         max-width: 522px;
-        margin: auto;
-        width: calc(100% - 105px);
-      }
-      @media (max-width: 1211px) {
-        margin: 0;
+        width: calc(50% - 5px);
+        box-sizing: border-box;
+        display: block;
+        min-width: 137px;
+        font-size: 100%;
+        margin: 0 0 0 5px;
       }
     }
 
     #next-step {
-      transform: translateX(-50%);
-      position: absolute;
-      bottom: -680px;
-      left: 50%;
-
-      @media (max-width: $breakpoint-desktop-small) {
-        max-width: 522px;
-        width: calc(100% - 105px);
+      &.mobile {
+        @media (max-width: $breakpoint-desktop-small) {
+          width: 100%;
+          margin: 20px 0;
+        }
       }
 
       @media (min-width: $breakpoint-desktop-small) {
@@ -514,19 +560,23 @@
 
     #go-back {
       transform: translateX(-50%);
+      margin: 20px 0;
 
-      @media (max-width: 979px) {
-        position: absolute;
-        bottom: -642px;
-        left: 50%;
-        transform: translateX(-100%);
-        max-width: 522px;
-        width: calc(50% - 165px);
-        min-width: 157px;
-        font-size: 100%;
+      &.mobile {
+        @media (max-width: 979px) {
+          transform: unset;
+          width: calc(50% - 5px);
+          font-size: 100%;
+          min-width: 137px;
+          margin: 0 5px 0 0;
+        }
       }
 
-      @media (min-width: $breakpoint-desktop-small) {
+      @media (min-width: $breakpoint-desktop-small) and (max-width: 1024px) {
+        margin-left: 33.5%;
+        position: unset;
+      }
+      @media (min-width: 1024px) {
         margin-left: 107px;
         position: unset;
       }
@@ -535,20 +585,15 @@
     #randomize-bio {
       margin-right: calc(100% - 89px);
       margin-bottom: 100px;
+
+      @media (max-width: 979px) {
+        margin: 40px 0 20px;
+      }
     }
 
     #randomize-stats {
       transform: unset;
       display: inline-block;
-      @media (max-width: 979px) {
-        max-width: 522px;
-        width: calc(50% - 165px);
-        margin-left: calc(50% - -5px);
-        box-sizing: border-box;
-        display: block;
-        min-width: 157px;
-        font-size: 100%;
-      }
     }
 
     button[id*='randomize'] {
