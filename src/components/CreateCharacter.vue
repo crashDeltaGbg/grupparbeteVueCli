@@ -22,6 +22,15 @@
           >
             Randomize bio
           </button>
+          <button
+            class="primary-button mobile"
+            id="next-step"
+            v-if="page === 1 && windowSize < 980"
+            :page="page"
+            @click="saveGo(page)"
+          >
+            Next
+          </button>
         </div>
       </template>
       <template v-else>
@@ -29,9 +38,9 @@
           <div class="flex-wrapper">
             <button
               id="help-button"
-              @mouseover="toggleHelpMsg()"
-              @mouseleave="toggleHelpMsg()"
-              @click="toggleHelpMsg()"
+              @mouseenter="toggleHelpMsg($event)"
+              @mouseleave="toggleHelpMsg($event)"
+              @click="toggleHelpMsg($event)"
             >
               Help
             </button>
@@ -72,21 +81,32 @@
             Reset stats
           </button>
         </div>
-        <button
-          class="secondary-button"
-          id="randomize-stats"
-          @click="randomizeStats()"
-        >
-          Randomize stats
-        </button>
-        <button
-          id="save-go"
-          class="primary-button"
-          :page="page"
-          @click="saveGo(page)"
-        >
-          Save and Go
-        </button>
+        <div id="button-wrapper">
+          <button
+            class="secondary-button"
+            id="randomize-stats"
+            @click="randomizeStats()"
+          >
+            Randomize stats
+          </button>
+          <button
+            class="primary-button mobile"
+            id="go-back"
+            v-if="page === 2 && windowSize < 980"
+            :page="page"
+            @click="page = 1"
+          >
+            Go back
+          </button>
+          <button
+            id="save-go"
+            class="primary-button"
+            :page="page"
+            @click="saveGo(page)"
+          >
+            Save and Go
+          </button>
+        </div>
       </template>
     </div>
     <div class="right side" :class="{ 'page-2': page === 2 }">
@@ -106,7 +126,7 @@
       <button
         class="primary-button"
         id="go-back"
-        v-if="page === 2"
+        v-if="page === 2 && windowSize > 979"
         :page="page"
         @click="page = 1"
       >
@@ -115,7 +135,7 @@
       <button
         class="primary-button"
         id="next-step"
-        v-if="page === 1"
+        v-if="page === 1 && windowSize > 979"
         :page="page"
         @click="saveGo(page)"
       >
@@ -129,13 +149,27 @@
   export default {
     mounted() {
       this.page = 1
+
+      this.$nextTick(() => {
+        window.addEventListener('resize', this.onResize)
+      })
+    },
+    watch: {
+      windowSize(n, old) {
+        console.log('Window changed from' + old + ' To ' + n)
+      }
     },
     data() {
       return {
         page: 1,
         name: null,
         bio: null,
-        img: [require('../assets/logo.png'), require('../assets/arrow.svg')], // TODO Example images until the real images are defined.
+        img: [
+          require('../../public/images/character-1.jpg'),
+          require('../../public/images/character-2.jpg'),
+          require('../assets/logo.png'),
+          require('../assets/arrow.svg')
+        ], // TODO Example images until the real images are defined.
         imgIndex: 0,
         points: 10,
         stats: {
@@ -143,14 +177,24 @@
           agility: 3,
           intellect: 3,
           luck: 3
-        }
+        },
+        isMobile: false,
+        windowSize: window.innerWidth
       }
     },
     methods: {
+      onResize() {
+        this.windowSize = window.innerWidth
+      },
       randomizeBio() {
         // Do something fun here.
       },
-      toggleHelpMsg() {
+      toggleHelpMsg(e) {
+        // Bug on mobile. Probobly need to rewrite function to work properly on both hover state and click. TODO
+        if (window.innerWidth < 980 && e.type === 'mouseenter') {
+          return
+        }
+
         let msg = document.getElementById('help-text')
 
         if (msg.classList.contains('hidden')) {
@@ -305,10 +349,13 @@
 </script>
 
 <style scoped lang="scss">
+  @import '../assets/style/variables.scss';
+
   #character-creation {
     display: flex;
     background-color: #949191;
     overflow-x: hidden;
+    flex-direction: column;
 
     .hidden {
       display: none;
@@ -321,18 +368,22 @@
       justify-items: flex-start;
     }
 
-    .page-2 {
-      &.left {
-        order: 2;
-      }
-      &.right {
-        order: 1;
-        position: relative;
+    #button-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+      max-width: unset;
+      margin: 0;
+
+      @media (min-width: $breakpoint-desktop-small) {
+        flex-wrap: nowrap;
       }
     }
 
     .side {
-      width: 50%;
+      box-sizing: border-box;
+      width: 100%;
       padding: 40px;
 
       input,
@@ -351,13 +402,15 @@
 
       input,
       textarea {
-        width: 522px;
+        max-width: 522px;
+        width: 100%;
         margin: auto;
         border-radius: 5px;
         border: 0px;
         padding: 12px;
         font-size: 16px;
         color: #000;
+        box-sizing: border-box;
       }
 
       textarea {
@@ -368,11 +421,28 @@
         margin-bottom: 60px;
       }
 
+      &.page-2 {
+        &.left {
+          order: 2;
+        }
+        &.right {
+          order: 1;
+          position: relative;
+        }
+      }
+
       &.right {
         background-color: #c4c4c4;
+        order: 1;
+
+        @media (min-width: $breakpoint-desktop-small) {
+          order: 2;
+        }
       }
 
       &.left {
+        order: 2;
+
         div {
           position: relative;
           max-width: 522px;
@@ -409,6 +479,14 @@
             }
           }
         }
+
+        @media (min-width: $breakpoint-desktop-small) {
+          order: 1;
+        }
+      }
+
+      @media (min-width: $breakpoint-desktop-small) {
+        width: 50%;
       }
     }
 
@@ -419,6 +497,10 @@
       margin-left: 50%;
       width: 414px;
       text-transform: capitalize;
+      @media (max-width: 979px) {
+        width: calc(100% - 40px);
+        max-width: 414px;
+      }
     }
 
     #img-wrapper {
@@ -431,8 +513,8 @@
         background-color: white;
         background-repeat: no-repeat;
         background-position: center;
-        background-size: contain;
-        margin: 20px;
+        background-size: cover;
+        margin: 20px 20px 0;
       }
 
       button {
@@ -452,19 +534,71 @@
         }
       }
     }
+    #save-go {
+      margin: 80px 0 60px;
+
+      @media (max-width: 979px) {
+        max-width: 522px;
+        width: calc(50% - 5px);
+        box-sizing: border-box;
+        display: block;
+        min-width: 137px;
+        font-size: 100%;
+        margin: 0 0 0 5px;
+      }
+    }
 
     #next-step {
-      transform: translateX(50%);
-      margin-right: 107px;
+      &.mobile {
+        @media (max-width: $breakpoint-desktop-small) {
+          width: 100%;
+          margin: 20px 0;
+        }
+      }
+
+      @media (min-width: $breakpoint-desktop-small) {
+        transform: translateX(50%);
+        margin-right: 107px;
+        position: unset;
+      }
     }
 
     #go-back {
       transform: translateX(-50%);
-      margin-left: 107px;
+      margin: 20px 0;
+
+      &.mobile {
+        @media (max-width: 979px) {
+          transform: unset;
+          width: calc(50% - 5px);
+          font-size: 100%;
+          min-width: 137px;
+          margin: 0 5px 0 0;
+        }
+      }
+
+      @media (min-width: $breakpoint-desktop-small) and (max-width: 1024px) {
+        margin-left: 33.5%;
+        position: unset;
+      }
+      @media (min-width: 1024px) {
+        margin-left: 107px;
+        position: unset;
+      }
     }
 
     #randomize-bio {
       margin-right: calc(100% - 89px);
+      margin-bottom: 100px;
+
+      @media (max-width: 979px) {
+        margin: 40px 0 20px;
+      }
+    }
+
+    #randomize-stats {
+      transform: unset;
+      display: inline-block;
     }
 
     button[id*='randomize'] {
@@ -476,6 +610,22 @@
         opacity: 0.6;
         cursor: unset;
       }
+
+      @media (max-width: 979px) {
+        width: 100%;
+      }
+
+      @media (min-width: $breakpoint-desktop-small) {
+        margin: 80px 0 60px;
+      }
+    }
+
+    .stat-button {
+      width: 23px;
+      height: 21px;
+      border-radius: 3px;
+      padding: 2px;
+      margin-left: 5px;
     }
 
     #reset-stats {
@@ -484,6 +634,9 @@
       justify-self: flex-end;
       margin: 0;
       margin-left: auto;
+      @media (max-width: 979px) {
+        font-size: 100%;
+      }
     }
 
     #help-button {
@@ -494,6 +647,7 @@
       margin: auto 10px 10px 0;
       background-color: #c4c4c4;
       border-width: 1px;
+      padding: 0;
 
       &::after {
         content: '?';
@@ -516,8 +670,8 @@
     }
 
     #stats {
-      text-align: left;
       padding: 0;
+      text-align: left;
 
       li {
         width: 100%;
@@ -532,6 +686,10 @@
           margin-left: auto;
         }
       }
+    }
+
+    @media (min-width: $breakpoint-desktop-small) {
+      flex-direction: row;
     }
   }
 </style>

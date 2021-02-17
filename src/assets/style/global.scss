@@ -1,5 +1,22 @@
 @import './variables.scss';
 
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: $font-text;
+}
+
+h1,
+h2 {
+  font-family: $font-heading;
+}
+
+p {
+  font-family: $font-text;
+  font-size: $font-size-text;
+}
+
 .flex-wrapper {
   display: flex;
 }
