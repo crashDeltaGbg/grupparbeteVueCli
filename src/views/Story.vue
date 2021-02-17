@@ -1,6 +1,5 @@
 <template>
   <div class="about">
-<<<<<<< HEAD
     <div id="status">
       <span>Coin: {{ character.purse }}</span>
     </div>
@@ -70,17 +69,10 @@
         </ul>
       </div>
     </template>
-=======
-    <h1>This is a test page</h1>
-    <div v-html="markdown"></div>
-    <!-- <input type="button" @click="selectFile(mdUrl)" value="Click me!" /> -->
-    <choices></choices>
->>>>>>> fe7ee55b252d994f2acdcae39d959ef51217e951
   </div>
 </template>
 
 <script>
-<<<<<<< HEAD
   const marked = require('marked')
   // import { markdown } from '@/assets/mixins/markdown.js'
   // import PlayerChoices from '@/components/PlayerChoices.vue'
@@ -190,18 +182,5 @@
         }
       }
     }
-=======
-  import choices from '@/components/Choices.vue'
-
-  import { markdown } from '@/assets/mixins/markdown.js'
-  // import { dice } from "@/assets/scripts/dice.js"
-
-  export default {
-    components: {
-      choices
-    },
-    mixins: [markdown],
-    name: 'markdown'
->>>>>>> fe7ee55b252d994f2acdcae39d959ef51217e951
   }
 </script>
