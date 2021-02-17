@@ -84,7 +84,7 @@
     },
     created() {
       // this.selectFile('side_quests/SQ0_0')
-      this.getStory('leavingHome')
+      this.getStory('introduction-1')
     },
     data() {
       return {

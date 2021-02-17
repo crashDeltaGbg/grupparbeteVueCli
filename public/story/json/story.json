@@ -1,4 +1,108 @@
 {
+  "introduction-1": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Continue",
+        "proceed": "introduction-2"
+      }
+    ],
+    "alias": "introduktion-1"
+  },
+
+  "introduction-2": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Continue",
+        "proceed": "introduction-3"
+      }
+    ],
+    "alias": "introduktion-2"
+  },
+
+  "introduction-3": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Continue",
+        "proceed": "chapter1Start"
+      }
+    ],
+    "alias": "introduktion-3"
+  },
+
+  "chapter1Start": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Take the boat",
+        "proceed": "MQ1-A1"
+      },
+      {
+        "id": "b",
+        "text": "Flee on foot",
+        "proceed": "MQ1-B1"
+      }
+    ],
+    "alias": "MQ1"
+  },
+
+  "MQ1-A1": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Continue",
+        "proceed": "MQ1-A2"
+      }
+    ],
+    "alias": "MQ1-A1"
+  },
+
+  "MQ1-A2": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Continue",
+        "proceed": "abandonedHouse"
+      }
+    ],
+    "alias": "MQ1-A2"
+  },
+
+  "MQ1-B1": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Continue",
+        "proceed": "MQ1-B2"
+      }
+    ],
+    "alias": "MQ1-B1"
+  },
+
+  "MQ1-B2": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Continue",
+        "proceed": "MQ1-B3"
+      }
+    ],
+    "alias": "MQ1-B2"
+  },
+
+  "MQ1-B3": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Continue",
+        "proceed": "goblinEncounter"
+      }
+    ],
+    "alias": "MQ1-B3"
+  },
+
   "leavingHome": {
     "options": [
       {
