@@ -102,7 +102,8 @@
       }
     ],
     "alias": "SQ2-1",
-    "coin": 100
+    "coin": 100,
+    "item": { "dagger": { "strength": 1 } }
   },
   "abandonedHouseFail": {
     "options": [
@@ -135,7 +136,7 @@
     "alias": "SQ3-1",
     "chance": "luck",
     "die": "D4",
-    "success": "5",
+    "success": "3",
     "coin": -50
   },
   "dragonDangerSuccess": {

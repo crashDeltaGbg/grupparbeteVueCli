@@ -1,9 +1,0 @@
-{
-  "options": [
-    { "id": "a", "text": "Go to the city", "proceed": "side_quests/json/4-0" },
-    { "id": "b", "text": "Go to the inn", "proceed": "side_quests/json/5-0" }
-  ],
-  "name": "SQ2-1",
-  "md_file_path": "side_quests/SQ2-1",
-  "dice": false
-}
