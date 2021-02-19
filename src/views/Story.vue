@@ -78,12 +78,8 @@
       // PlayerChoices
     },
     created() {
-<<<<<<< HEAD
       // this.selectFile('side_quests/SQ0_0')
       this.getStory('introduction-1')
-=======
-      this.getStory('leavingHome')
->>>>>>> 1ddc7d1f9eb2d5bc45e7fcb14cc37ca00bb4af46
     },
     data() {
       return {
