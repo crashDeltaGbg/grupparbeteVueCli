@@ -1,62 +1,57 @@
 <template>
   <div class="about">
     <div id="status">
-      <span>Coin: {{ character.purse }}</span>
+      <span>Coin: {{ character.purse }}</span
+      >&nbsp;
+      <span>Inventory: {{ character.inventory }}</span>
     </div>
 
-    <template v-if="die">
-      <div v-if="markdown" v-html="markdown" id="text">
-        <!-- Här läses texten in -->
-      </div>
-      <div v-else>
-        <h1>Uh-oh!</h1>
-        <p>Something's amiss :(</p>
-      </div>
-      <div id="chance">
-        <ul v-if="chance">
-          <li>
-            <input
-              type="button"
-              value="Roll the die!"
-              @click="measure(chance)"
-            />
-          </li>
-        </ul>
-      </div>
-    </template>
-
-    <template v-if="cost">
-      <input type="button" value="Pay cost" @click="pay(cost)" />
-      <template>
-        <div>
-          <p>
-            {{ message }}
-            <input
-              v-if="pay === true"
-              type="button"
-              value="OK"
-              @click="getStory(options[0].proceed)"
-            />
-          </p>
+    <div v-if="markdown" v-html="markdown" id="text">
+      <!-- Här läses texten in -->
+    </div>
+    <div v-else>
+      <h1>Uh-oh!</h1>
+      <p>Something's amiss :(</p>
+    </div>
+    <template v-if="die || cost">
+      <div v-if="die">
+        <div id="chance">
+          <ul v-if="chance">
+            <li>
+              <input
+                type="button"
+                value="Roll the die!"
+                @click="measure(chance)"
+              />
+            </li>
+          </ul>
         </div>
-      </template>
-      <div>
-        <input
-          type="button"
-          value="Leave"
-          @click="getStory(options[1].proceed)"
-        />
-      </div>
-    </template>
-
-    <template v-else>
-      <div v-if="markdown" v-html="markdown" id="text">
-        <!-- Här läses texten in -->
       </div>
       <div v-else>
-        <h1>Uh-oh!</h1>
-        <p>Something's amiss :(</p>
+        <input type="button" value="Pay cost" @click="pay(cost)" />
+        <template>
+          <div>
+            <p>
+              {{ message }}
+              <input
+                v-if="pay === true"
+                type="button"
+                value="OK"
+                @click="getStory(options[0].proceed)"
+              />
+            </p>
+          </div>
+        </template>
+        <div>
+          <input
+            type="button"
+            value="Leave"
+            @click="getStory(options[1].proceed)"
+          />
+        </div>
       </div>
+    </template>
+    <template v-else>
       <div id="options">
         <ul v-if="options">
           <li v-for="option in options" :key="option.id">
@@ -83,8 +78,12 @@
       // PlayerChoices
     },
     created() {
+<<<<<<< HEAD
       // this.selectFile('side_quests/SQ0_0')
       this.getStory('introduction-1')
+=======
+      this.getStory('leavingHome')
+>>>>>>> 1ddc7d1f9eb2d5bc45e7fcb14cc37ca00bb4af46
     },
     data() {
       return {
@@ -98,20 +97,19 @@
           purse: 2,
           inventory: []
         },
-        // dice: false,
         coin: null,
         cost: null,
         die: null,
+        item: null,
         markdown: null,
+        merchandice: null,
         message: null,
         options: null,
         success: null
-        // proceed: ''
       }
     },
     methods: {
       async getStory(path) {
-        // fetch(`@/assets/story/${path}.json`)
         const response = await fetch(`/story/json/story.json`)
         const result = await response.json()
         // console.log(result)
@@ -120,17 +118,17 @@
         // console.log(this.options.proceed)
         this.selectFile(result[path].alias)
         // console.log(result.md_file_path)
-        // this.dice = result.dice
         this.die = result[path].die
         // console.log(this.die)
         this.chance = result[path].chance
         this.success = result[path].success
         this.coin = result[path].coin
         this.cost = result[path].cost
+        this.item = result[path].item
+        console.log(this.item)
         // console.log(this.success)
       },
       async selectFile(fileName) {
-        // this.markdown = require(`@/assets/story/${fileName}.md`)
         const answer = await fetch(`/story/${fileName}.md`)
         const conclusion = await answer.text()
         // console.log(conclusion)
@@ -141,18 +139,19 @@
         this.getStory(path)
       },
       measure(stat) {
-        this.roll(this.die)
-        let score = this.face + this.character[stat]
+        let score = this.roll(this.die) + this.character[stat]
         console.log(score)
-        if (score >= this.success) {
+        let threshold = this.roll(this.die) + Number(this.success)
+        console.log(threshold)
+        if (score >= threshold) {
           this.getStory(this.options[0].proceed)
-          console.log(this.options[0].proceed)
+          // console.log(this.options[0].proceed)
         } else {
           this.getStory(this.options[1].proceed)
         }
       },
       obtain(item) {
-        this.character.inventory.push(item)
+        this.item = item
       },
       pay(cost) {
         if (this.character.purse >= cost) {
@@ -161,12 +160,12 @@
           return (this.pay = true)
         } else {
           this.message = `You don't have enough coin.`
+          return (this.pay = false)
         }
       },
       purchase(item, cost) {
         let checkOut = this.pay(cost)
         if (checkOut) {
-          // this.character.inventory.push(item)
           this.obtain(item)
         } else {
           return false
@@ -179,6 +178,12 @@
       coin(amount) {
         if (this.coin != null && this.coin != undefined) {
           this.character.purse += amount
+        }
+      },
+      item(obj) {
+        if (this.item != null && this.item != undefined) {
+          // let x = JSON.parse(obj)
+          this.character.inventory.push(obj)
         }
       }
     }

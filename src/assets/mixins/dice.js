@@ -19,6 +19,7 @@ export const dice = {
       this.face =
         (Math.floor(Math.random() * this[die].max) + this[die].min) *
         this[die].multiplier
+      return Number(this.face)
     }
   },
   name: 'dice'
