@@ -2,8 +2,8 @@
 
 You finally come to a bridge, namely Somber Stream Bridge and you row ashore. The elderly man jumps ashore and walks up to the nearby sign. You tie your boat under the bridge and walks up to him and look at the sign.
 
-"Town of Innswood"
-"Lothric Castle"
+> "Town of Innswood"  
+> "Lothric Castle"
 
 "Where are you heading now?"
 

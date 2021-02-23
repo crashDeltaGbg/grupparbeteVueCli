@@ -207,7 +207,7 @@
     ],
     "alias": "SQ2-1",
     "coin": 25,
-    "item": { "dagger": { "strength": 1 } }
+    "item": true
   },
   "abandonedHouseFail": {
     "options": [
@@ -290,5 +290,24 @@
   },
   "failure": {
     "alias": "failure"
-  }
+  },
+  "dropItems": [
+    { "dagger": { "luck": 1, "value": 15 } },
+    { "broadsword": { "strenght": 1, "value": 25 } },
+    { "longsword": { "agility": 1, "value": 20 } },
+    { "staff": { "intellect": 1, "value": 20 } },
+    { "rusty butterknife": { "luck": 1, "intellect": 2, "value": 0 } },
+    { "sharpened spoon": { "strength": 1, "agility": 1, "value": 0 } },
+    { "battle axe": { "strength": 2, "agility": -1, "value": 25 } },
+    { "oddly shaped twig": { "value": 1 } },
+    {
+      "cast iron skillet": {
+        "intellect": 1,
+        "agility": -2,
+        "luck": 1,
+        "value": 20
+      }
+    },
+    { "war hammer": { "strength": 3, "agility": -1, "luck": -1, "value": 30 } }
+  ]
 }

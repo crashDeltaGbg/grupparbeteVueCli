@@ -224,7 +224,8 @@
             name: this.name,
             stats: this.stats,
             img: this.img[this.imgIndex],
-            bio: this.bio
+            bio: this.bio,
+            purse: 2
           }
 
           this.$store.commit('saveCharacter', character)

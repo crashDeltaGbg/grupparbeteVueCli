@@ -8,6 +8,7 @@ import Backstory from '../views/Backstory.vue'
 import About from '../views/About.vue'
 import Character from '../views/Character.vue'
 import Story from '../views/Story.vue'
+import LoadGame from '../views/LoadGame.vue'
 
 Vue.use(VueRouter)
 
@@ -51,6 +52,11 @@ const routes = [
     path: '/introduction',
     name: 'Introduction',
     component: Introduction
+  },
+  {
+    path: '/LoadGame',
+    name: 'Load Game',
+    component: LoadGame
   }
 ]
 
