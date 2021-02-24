@@ -184,6 +184,36 @@
     ],
     "alias": "SQ8-0"
   },
+  "banditEncounter": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Give the bandits all of your coins.",
+        "proceed": "side_quests/json/SQ7-A1"
+      },
+      {
+        "id": "b",
+        "text": "Charge!",
+        "proceed": "banditEncounterSuccess"
+      }
+    ],
+    "alias": "SQ7-0"
+  },
+  "banditEncounterSuccess": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Success!",
+        "proceed": "side_quests/json/SQ7-B2!"
+      },
+      {
+        "id": "b",
+        "text": "Fail!",
+        "proceed": "side_quests/json/SQ7-B3!"
+      }
+    ],
+    "alias": "SQ7-B1"
+  },
   "goblinEncounterSuccess": {
     "options": [
       {
