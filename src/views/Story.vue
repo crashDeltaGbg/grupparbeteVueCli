@@ -1,9 +1,9 @@
 <template>
   <div class="about">
     <div id="status">
-      <span>Coin: {{ character.purse }}</span
+      <span v-if="character.purse">Coin: {{ character.purse }}</span
       >&nbsp;
-      <span>Inventory: {{ character.inventory }}</span>
+      <input type="button" @click="save()" value="Save" />
     </div>
 
     <div v-if="markdown" v-html="markdown" id="text">
@@ -69,30 +69,36 @@
 
 <script>
   const marked = require('marked')
-  // import { markdown } from '@/assets/mixins/markdown.js'
-  // import PlayerChoices from '@/components/PlayerChoices.vue'
   import { dice } from '@/assets/mixins/dice.js'
+  import { saveGame } from '@/assets/mixins/save-game.js'
 
   export default {
-    components: {
-      // PlayerChoices
-    },
+    components: {},
     created() {
-      // this.selectFile('side_quests/SQ0_0')
       this.getStory('introduction-1')
+      if (this.character === null) {
+        this.load('character')
+        console.log(this.character)
+      }
     },
     data() {
       return {
         chance: null,
-        character: {
-          strength: 3,
-          agility: 3,
-          intellect: 3,
-          luck: 3,
-          hp: 30,
+        character: null /* {
+          stats: {
+            strength: 3,
+            agility: 3,
+            intellect: 3,
+            luck: 3
+          },
           purse: 2,
-          inventory: []
-        },
+          inventory: [],
+          name: '',
+          bio: '',
+          img: '',
+          progress: null,
+          consequences: []
+        }, */,
         coin: null,
         cost: null,
         die: null,
@@ -101,6 +107,7 @@
         merchandice: null,
         message: null,
         options: null,
+        player: null,
         success: null
       }
     },
@@ -108,40 +115,31 @@
       async getStory(path) {
         const response = await fetch(`/story/json/story.json`)
         const result = await response.json()
-        // console.log(result)
         this.options = result[path].options
-        // console.log(this.options)
-        // console.log(this.options.proceed)
         this.selectFile(result[path].alias)
-        // console.log(result.md_file_path)
         this.die = result[path].die
-        // console.log(this.die)
         this.chance = result[path].chance
         this.success = result[path].success
         this.coin = result[path].coin
         this.cost = result[path].cost
         this.item = result[path].item
-        console.log(this.item)
-        // console.log(this.success)
+        this.character.progress = result[path].alias
       },
       async selectFile(fileName) {
         const answer = await fetch(`/story/${fileName}.md`)
         const conclusion = await answer.text()
-        // console.log(conclusion)
         this.markdown = marked(conclusion)
-        // console.log(this.markdown)
       },
       onClick(path) {
         this.getStory(path)
       },
       measure(stat) {
-        let score = this.roll(this.die) + this.character[stat]
+        let score = this.roll(this.die) + this.character.stats[stat]
         console.log(score)
-        let threshold = this.roll(this.die) + Number(this.success)
-        console.log(threshold)
-        if (score >= threshold) {
+        let target = this.roll(this.die) + Number(this.success)
+        console.log(target)
+        if (score >= target) {
           this.getStory(this.options[0].proceed)
-          // console.log(this.options[0].proceed)
         } else {
           this.getStory(this.options[1].proceed)
         }
@@ -168,7 +166,7 @@
         }
       }
     },
-    mixins: [dice],
+    mixins: [dice, saveGame],
     name: 'Story',
     watch: {
       coin(amount) {
@@ -178,7 +176,6 @@
       },
       item(obj) {
         if (this.item != null && this.item != undefined) {
-          // let x = JSON.parse(obj)
           this.character.inventory.push(obj)
         }
       }

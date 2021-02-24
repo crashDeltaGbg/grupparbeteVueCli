@@ -1,7 +1,7 @@
 ## Chapter 1: The destruction of Villa Pisci.
 
-You run towards the man and say "I have a boat close by, if you value your life you should come with me". The man just nods and runs after you.
+You see a cowering man attempting to hide under nearby cart and run towards him. _"I have a boat close by, if you value your life you should come with me!"_ The man looks at you, nods, and begins to follow you.
 
-You reach the river with the man not far behind and start untying the rope holding it to the shore. The man catches up and jumps unto the boat. You finish untying the rope and jumps onboard and start rowing away from the smoking village.
+You reach the river, dodging another landslide on the way, with the man not far behind. By some stroke of luck your boat is still where you left it, tied firmly to the dock by a rope. You start untying the knot as the man finally catches up and jumps in, his face now grimy and dirtied from the soot raining from the sky. You finish untying the rope and jump onboard, handing one of the oars to your new companion you start rowing away from the smoking ruins of the village.
 
-You ask the man what happened to which he doesn't answer. You look quizzically at him and ask if he's hurt? he swings his head left to right and gesticulates towards his mouth. Are you mute old man? He nods and bows his head as to try and apologize for being unable to help you. You row until you can't see the smoke anymore and finally start to relax somewhat.
+When the boat is finally drifting across the water you ask the man what happened to which he doesn't answer. You look quizzically at him and ask if he's hurt at which he shakes his head and gestures to his mouth. _“Are you mute, old man?”_ You ask. He nods apologetically in reply and bows his head being unable to help you. You and the mute, old man continue rowing until the smoke is left on the horizon and the adrenaline coursing through your veins begins to settle.

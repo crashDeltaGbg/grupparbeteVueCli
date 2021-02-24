@@ -23,7 +23,7 @@
     name: 'Home',
     components: {},
     mounted() {
-      this.continueGame = localStorage.save ? false : 0
+      this.continueGame = localStorage.gameSaves ? false : 0
     },
     data() {
       return {
@@ -48,10 +48,9 @@
 
           // If we got a saved game and the button is not the start button we
           // continue.
-          if (localStorage.save && e.target.id != 'start') {
-            let save = JSON.parse(localStorage.save)
+          if (localStorage.gameSaves && e.target.id != 'start') {
             //TODO set correct adress.
-            this.$router.push({ path: 'gameplay?' + save[1].level })
+            this.$router.push({ path: 'LoadGame' })
           } else {
             // If there is no saved game we want to create a new character.
             this.$router.push({ path: 'introduction' })
