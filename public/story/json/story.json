@@ -67,7 +67,8 @@
         "proceed": "abandonedHouse"
       }
     ],
-    "alias": "MQ1-A2"
+    "alias": "MQ1-A2",
+    "coin": 5
   },
 
   "MQ1-B1": {
