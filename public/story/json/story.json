@@ -169,6 +169,21 @@
     "alias": "SQ3-0",
     "coin": 150
   },
+  "flowersInHerHair": {
+    "options": [
+      {
+        "id": "a",
+        "text": "You stop and give the girl a hand.",
+        "proceed": "side_quests/json/SQ8-A1"
+      },
+      {
+        "id": "b",
+        "text": "You don't feel like helping her.",
+        "proceed": "side_quests/json/SQ8-A2"
+      }
+    ],
+    "alias": "SQ8-0"
+  },
   "goblinEncounterSuccess": {
     "options": [
       {
