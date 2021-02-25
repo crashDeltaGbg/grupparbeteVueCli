@@ -185,11 +185,7 @@
     ],
     "alias": "SQ8-0"
   },
-<<<<<<< HEAD
-  "SQ8-0": {
-=======
   "SQ9-0": {
->>>>>>> 851a6c2deb5d6581b04c3707c41f28fc12caa7cd
     "options": [
       {
         "id": "a",
@@ -219,8 +215,6 @@
     ],
     "alias": "SQ9-A1"
   },
-<<<<<<< HEAD
-=======
   "SQ10-0": {
     "options": [
       {
@@ -251,7 +245,6 @@
     ],
     "alias": "SQ10-A1"
   },
->>>>>>> 851a6c2deb5d6581b04c3707c41f28fc12caa7cd
   "SQ7-0": {
     "options": [
       {
@@ -267,9 +260,6 @@
     ],
     "alias": "SQ7-0"
   },
-<<<<<<< HEAD
-  "SQ7-B1": {
-=======
   "SQ11-0": {
     "options": [
       {
@@ -286,7 +276,6 @@
     "alias": "SQ11-0"
   },
   "banditEncounterSuccess": {
->>>>>>> 851a6c2deb5d6581b04c3707c41f28fc12caa7cd
     "options": [
       {
         "id": "a",
