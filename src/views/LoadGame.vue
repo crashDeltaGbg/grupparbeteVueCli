@@ -1,8 +1,13 @@
 <template>
-  <div>
-    <ul v-if="saves">
-      <li v-for="save in saves" :key="save">{{ save }}</li>
+  <div v-if="saves">
+    <ul>
+      <li v-for="save in saves" :key="save">
+        <button @click="loadCharacter(save)">{{ save }}</button>
+      </li>
     </ul>
+  </div>
+  <div v-else>
+    There are no saved games.
   </div>
 </template>
 
@@ -10,7 +15,8 @@
   export default {
     created() {
       if (localStorage.gameSaves) {
-        this.saves = JSON.parse(localStorage.gameSaves)
+        this.savesRaw = JSON.parse(localStorage.gameSaves)
+        // console.log(this.savesRaw)
       }
       /* const gameSaves = JSON.parse(localStorage.gameSaves)
       gameSaves.forEach(save => {
@@ -20,7 +26,30 @@
     },
     data() {
       return {
-        saves: []
+        savesRaw: [],
+        saves: [],
+        character: null
+      }
+    },
+    methods: {
+      loadCharacter(save) {
+        this.character = this.savesRaw.find(x => x[save])[save]
+        this.$store.commit('saveCharacter', this.character)
+        console.log(this.character)
+        // let alias = this.character.progress
+        // console.log(alias)
+        this.$router.push({ path: `/story` })
+      }
+    },
+    watch: {
+      savesRaw() {
+        let save
+        this.saves = []
+        for (let i = 0; i < this.savesRaw.length; i++) {
+          save = Object.keys(this.savesRaw[i])[0]
+          this.saves.push(save)
+        }
+        // console.log(this.saves)
       }
     }
   }

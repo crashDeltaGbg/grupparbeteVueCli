@@ -26,13 +26,13 @@
       {
         "id": "a",
         "text": "Continue",
-        "proceed": "chapter1Start"
+        "proceed": "MQ1"
       }
     ],
     "alias": "introduktion-3"
   },
 
-  "chapter1Start": {
+  "MQ1": {
     "options": [
       {
         "id": "a",
@@ -64,7 +64,7 @@
       {
         "id": "a",
         "text": "Continue",
-        "proceed": "abandonedHouse"
+        "proceed": "SQ2-0"
       },
       {
         "id": "b",
@@ -72,7 +72,8 @@
         "proceed": "MQ2-1"
       }
     ],
-    "alias": "MQ1-A2"
+    "alias": "MQ1-A2",
+    "coin": 5
   },
 
   "MQ1-B1": {
@@ -102,7 +103,7 @@
       {
         "id": "a",
         "text": "Continue",
-        "proceed": "goblinEncounter"
+        "proceed": "SQ1-0"
       },
       {
         "id": "b",
@@ -167,78 +168,78 @@
       {
         "id": "a",
         "text": "Temporary button to LeavingHomeJson",
-        "proceed": "leavingHome"
+        "proceed": "SQ0-0"
       }
     ],
     "alias": "MQ2-B1"
   },
-  "leavingHome": {
+  "SQ0-0": {
     "options": [
       {
         "id": "a",
         "text": "Take the road to Sea'Gull",
-        "proceed": "goblinEncounter"
+        "proceed": "SQ1-0"
       },
       {
         "id": "b",
         "text": "Take the road to Burgress",
-        "proceed": "abandonedHouse"
+        "proceed": "SQ2-0"
       },
       {
         "id": "c",
         "text": "Take the road to the Mines of Lanicam",
-        "proceed": "dragonDanger"
+        "proceed": "SQ3-0"
       }
     ],
     "alias": "SQ0-0"
   },
-  "goblinEncounter": {
+  "SQ1-0": {
     "options": [
       {
         "id": "a",
         "text": "Spare a coin",
-        "proceed": "goblinEncounterSuccess"
+        "proceed": "SQ1-1"
       },
       {
         "id": "b",
         "text": "Ignore the child",
-        "proceed": "goblinEncounterFail"
+        "proceed": "SQ1-2"
       }
     ],
     "alias": "SQ1-0"
   },
-  "abandonedHouse": {
+  "SQ2-0": {
     "options": [
       {
         "id": "a",
         "text": "Explore the abandoned house",
-        "proceed": "abandonedHouseSuccess"
+        "proceed": "SQ2-1"
       },
       {
         "id": "b",
         "text": "Leave the house alone",
-        "proceed": "abandonedHouseFail"
+        "proceed": "SQ2-2"
       }
     ],
     "alias": "SQ2-0"
   },
-  "dragonDanger": {
+  "SQ3-0": {
     "options": [
       {
         "id": "a",
         "text": "Flee, but lose some of your bounty",
-        "proceed": "dragonDangerFail"
+        "proceed": "SQ3-1"
       },
       {
         "id": "b",
         "text": "Debate the Dragon",
-        "proceed": "dragonDangerSuccess"
+        "proceed": "SQ3-2"
       }
     ],
     "alias": "SQ3-0",
     "coin": 150
   },
-  "flowersInHerHair": {
+  "SQ8-0": {
     "options": [
       {
         "id": "a",
@@ -253,12 +254,12 @@
     ],
     "alias": "SQ8-0"
   },
-  "theBlackPhooka": {
+  "SQ9-0": {
     "options": [
       {
         "id": "a",
         "text": "Chase after the creature",
-        "proceed": "theBlackPhookaChase"
+        "proceed": "side_quests/json/SQ9-A1"
       },
       {
         "id": "b",
@@ -266,9 +267,9 @@
         "proceed": "side_quests/json/SQ9-B1"
       }
     ],
-    "alias": "SQ8-0"
+    "alias": "SQ9-0"
   },
-  "theBlackPhookaChase": {
+  "side_quests/json/SQ9-A1": {
     "options": [
       {
         "id": "a",
@@ -281,9 +282,39 @@
         "proceed": "side_quests/json/SQ9-A3"
       }
     ],
-    "alias": "side_quests/json/SQ9-A1"
+    "alias": "SQ9-A1"
   },
-  "banditEncounter": {
+  "SQ10-0": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Accompany the fisherman",
+        "proceed": "fishingLuck"
+      },
+      {
+        "id": "b",
+        "text": "Stay at land",
+        "proceed": "side_quests/json/SQ10-b1"
+      }
+    ],
+    "alias": "SQ10-0"
+  },
+  "fishingLuck": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Success",
+        "proceed": "side_quests/json/SQ10-A2"
+      },
+      {
+        "id": "b",
+        "text": "fail",
+        "proceed": "side_quests/json/SQ10-A3"
+      }
+    ],
+    "alias": "SQ10-A1"
+  },
+  "SQ7-0": {
     "options": [
       {
         "id": "a",
@@ -293,10 +324,25 @@
       {
         "id": "b",
         "text": "Charge!",
-        "proceed": "banditEncounterSuccess"
+        "proceed": "SQ7-B1"
       }
     ],
     "alias": "SQ7-0"
+  },
+  "SQ11-0": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Help him!",
+        "proceed": "side_quests/json/SQ11-A1"
+      },
+      {
+        "id": "b",
+        "text": "Sorry I'm lost...",
+        "proceed": "side_quests/json/SQ11-B1"
+      }
+    ],
+    "alias": "SQ11-0"
   },
   "banditEncounterSuccess": {
     "options": [
@@ -313,67 +359,67 @@
     ],
     "alias": "SQ7-B1"
   },
-  "goblinEncounterSuccess": {
+  "SQ1-1": {
     "options": [
       {
         "id": "a",
         "text": "Go to the city",
-        "proceed": "theCity"
+        "proceed": "SQ4-0"
       },
       {
         "id": "b",
         "text": "Go to the inn",
-        "proceed": "theInn"
+        "proceed": "SQ5-0"
       }
     ],
     "alias": "SQ1-1",
     "coin": -1
   },
-  "goblinEncounterFail": {
+  "SQ1-2": {
     "options": [
       { "id": "a", "text": "Success", "proceed": "side_quests/json/SQ1-3" },
       { "id": "b", "text": "Failure", "proceed": "failure" }
     ],
     "alias": "SQ1-2"
   },
-  "abandonedHouseSuccess": {
+  "SQ2-1": {
     "options": [
       {
         "id": "a",
         "text": "Go to the city",
-        "proceed": "theCity"
+        "proceed": "SQ4-0"
       },
       {
         "id": "b",
         "text": "Go to the inn",
-        "proceed": "theInn"
+        "proceed": "SQ5-0"
       }
     ],
     "alias": "SQ2-1",
     "coin": 25,
-    "item": true
+    "item": { "dagger": { "luck": 1, "value": 15 } }
   },
-  "abandonedHouseFail": {
+  "SQ2-2": {
     "options": [
       {
         "id": "a",
         "text": "Go to the city",
-        "proceed": "theCity"
+        "proceed": "SQ4-0"
       },
       {
         "id": "b",
         "text": "Go to the inn",
-        "proceed": "theInn"
+        "proceed": "SQ5-0"
       }
     ],
     "alias": "SQ2-2"
   },
-  "dragonDangerFail": {
+  "SQ3-1": {
     "options": [
       {
         "id": "a",
         "text": "Success!",
-        "proceed": "dragonMeasureSuccess"
+        "proceed": "SQ3-3"
       },
       {
         "id": "b",
@@ -387,44 +433,44 @@
     "success": "3",
     "coin": -50
   },
-  "dragonDangerSuccess": {
+  "SQ3-2": {
     "options": [
       {
         "id": "a",
         "text": "Go to the city",
-        "proceed": "theCity"
+        "proceed": "SQ4-0"
       },
       {
         "id": "b",
         "text": "Go to the inn",
-        "proceed": "theInn"
+        "proceed": "SQ5-0"
       }
     ],
     "alias": "SQ3-2"
   },
-  "dragonMeasureSuccess": {
+  "SQ3-3": {
     "options": [
       {
         "id": "a",
         "text": "Go to the city",
-        "proceed": "theCity"
+        "proceed": "SQ4-0"
       },
       {
         "id": "b",
         "text": "Go to the inn",
-        "proceed": "theInn"
+        "proceed": "SQ5-0"
       }
     ],
     "alias": "SQ3-3"
   },
-  "theCity": {
+  "SQ4-0": {
     "options": [
       { "id": "a", "text": "Town Square", "proceed": "townSquare" },
       { "id": "b", "text": "Ale House", "proceed": "aleHouse" }
     ],
     "alias": "SQ4-0"
   },
-  "theInn": {
+  "SQ5-0": {
     "options": [
       { "id": "a", "text": "", "proceed": "enterTheInn" },
       { "id": "b", "text": "", "proceed": "" }

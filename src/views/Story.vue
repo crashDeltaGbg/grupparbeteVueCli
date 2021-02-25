@@ -2,8 +2,7 @@
   <div class="about">
     <div id="status">
       <span v-if="character.purse">Coin: {{ character.purse }}</span
-      >&nbsp;
-      <input type="button" @click="save()" value="Save" />
+      >&nbsp;<input type="button" @click="save()" value="Save" />
     </div>
 
     <div v-if="markdown" v-html="markdown" id="text">
@@ -75,10 +74,10 @@
   export default {
     components: {},
     created() {
-      this.getStory('introduction-1')
+      this.getStory()
       if (this.character === null) {
         this.load('character')
-        console.log(this.character)
+        // console.log(this.character)
       }
     },
     data() {
@@ -112,7 +111,7 @@
       }
     },
     methods: {
-      async getStory(path) {
+      async getStory(path = 'introduction-1') {
         const response = await fetch(`/story/json/story.json`)
         const result = await response.json()
         this.options = result[path].options
@@ -167,7 +166,12 @@
       }
     },
     mixins: [dice, saveGame],
+    mounted() {
+      this.getStory(this.$store.state.character.progress)
+      console.log(this.$store.state.character.progress)
+    },
     name: 'Story',
+    // props: [alias],
     watch: {
       coin(amount) {
         if (this.coin != null && this.coin != undefined) {

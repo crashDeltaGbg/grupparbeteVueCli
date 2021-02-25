@@ -225,7 +225,11 @@
             stats: this.stats,
             img: this.img[this.imgIndex],
             bio: this.bio,
-            purse: 2
+            purse: 2,
+            inventory: [],
+            consequences: [],
+            progress: null,
+            equipment: null
           }
 
           this.$store.commit('saveCharacter', character)

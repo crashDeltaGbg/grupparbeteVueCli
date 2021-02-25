@@ -26,20 +26,41 @@ p {
   font-size: 20px;
   padding: 12px;
   width: 259px;
-  background: #373737;
-  border-radius: 12px;
-  color: #fff;
+  height: 47px;
+  background: $blue;
+  border-radius: 5px;
+  font-family: $font-text;
+  font-size: $font-size-text;
+  border: none;
+  color: $white;
   margin: 60px auto;
   cursor: pointer;
 
   &:hover {
-    background: darken(#373737, 10%);
+    background: darken($blue, 10%);
   }
 }
 
 .secondary-button {
-  background: #fff;
+  background: $white;
   &:hover {
-    background: darken(#fff, 10%);
+    background: darken($white, 10%);
+  }
+}
+
+/* GHOST BUTTON */
+.third-button {
+  width: 259px;
+  height: 47px;
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+  background: transparent;
+  color: $white;
+  font-family: $font-text;
+  font-size: $font-size-text;
+  cursor: pointer;
+  &:hover {
+    background: darken($black, 10%);
+    opacity: 0.4;
   }
 }
