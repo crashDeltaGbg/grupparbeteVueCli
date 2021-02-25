@@ -37,7 +37,7 @@
         div.innerHTML =
           localStorage.save && e.target.id != 'start'
             ? 'And the adventure continues...'
-            : 'And so it beginns...'
+            : 'And so it begins...'
         div.classList.add('fade')
         e.target.parentNode.appendChild(div)
 
