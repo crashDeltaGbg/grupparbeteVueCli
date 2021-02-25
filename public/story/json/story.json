@@ -214,6 +214,36 @@
     ],
     "alias": "side_quests/json/SQ9-A1"
   },
+  "whatHidesInTheDeeps": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Accompany the fisherman",
+        "proceed": "fishingLuck"
+      },
+      {
+        "id": "b",
+        "text": "Stay at land",
+        "proceed": "side_quests/json/SQ10-b1"
+      }
+    ],
+    "alias": "side_quests/json/SQ10-0"
+  },
+  "fishingLuck": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Success",
+        "proceed": "side_quests/json/SQ10-A2"
+      },
+      {
+        "id": "b",
+        "text": "fail",
+        "proceed": "side_quests/json/SQ10-A3"
+      }
+    ],
+    "alias": "side_quests/json/SQ10-A1"
+  },
   "banditEncounter": {
     "options": [
       {
