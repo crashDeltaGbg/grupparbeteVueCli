@@ -65,6 +65,11 @@
         "id": "a",
         "text": "Continue",
         "proceed": "abandonedHouse"
+      },
+      {
+        "id": "b",
+        "text": "Chapter 2",
+        "proceed": "MQ2-1"
       }
     ],
     "alias": "MQ1-A2"
@@ -98,11 +103,75 @@
         "id": "a",
         "text": "Continue",
         "proceed": "goblinEncounter"
+      },
+      {
+        "id": "b",
+        "text": "Chapter 2",
+        "proceed": "MQ2-1"
       }
     ],
     "alias": "MQ1-B3"
   },
-
+  "MQ2-1": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Continue",
+        "proceed": "MQ2-2"
+      }
+    ],
+    "alias": "MQ2-1"
+  },
+  "MQ2-2": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Join the army.",
+        "proceed": "MQ2-A1"
+      },
+      {
+        "id": "b",
+        "text": "Flee back to the caves.",
+        "proceed": "MQ2-B1"
+      }
+    ],
+    "alias": "MQ2-2"
+  },
+  "MQ2-A1": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Continue",
+        "proceed": "MQ2-A2"
+      }
+    ],
+    "alias": "MQ2-A1"
+  },
+  "MQ2-A2": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Fight",
+        "proceed": "MQ2-A2-A1"
+      },
+      {
+        "id": "b",
+        "text": "Flee",
+        "proceed": "MQ2-A2-B1"
+      }
+    ],
+    "alias": "MQ2-A2"
+  },
+  "MQ2-B1": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Temporary button to LeavingHomeJson",
+        "proceed": "leavingHome"
+      }
+    ],
+    "alias": "MQ2-B1"
+  },
   "leavingHome": {
     "options": [
       {
