@@ -1,5 +1,3 @@
-You jump over dead bodies and debris on your way over there. Lex hands over one of her swords and you fight of a couple of trolls aggressively.
-The trolls are short but vile, they're fierce and bloodthirsty creatures who seem to crave this violence.
-You fend of a couple of them whilst slaying another one with a swift blow to it's neck. 
+You leap over fallen debris, dodging the unluckier villagers on your way over. Lex hands you one of her swords, a basic short sword presumably by her own making, and you join the fray with the other hardier villagers. You fight as if your life depends on it, which, in this case, it does. These goblins are shorter than the ones your mother told you about in stories as a child, however, seemingly twice as vile. They are fierce, bloodthirsty creatures who seem to crave and revel in violence. You swing the short blade wildly and are able to fend of a couple of the warier goblins whilst the other villagers manage to slay another bolder goblin.
 
-With your help the villagers can hold back the attackers long enough for most of the villagers to escape. The village get abandoned and now a four-day hike on foot awaits before getting to the castle.
+With your help the villagers are able to hold back the attackers long enough for most of the villagers to escape. When the fighting dies down and you are able to escape with the troop of defending villagers the village is abandoned, leaving only the ruins of what was once a hamlet filled with life. What waits you now is a four-day hike on foot before getting to the castle.
