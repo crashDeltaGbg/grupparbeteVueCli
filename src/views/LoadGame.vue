@@ -33,16 +33,18 @@
     },
     methods: {
       loadCharacter(save) {
-        this.character = this.savesRaw.find(x => x[save])
+        this.character = this.savesRaw.find(x => x[save])[save]
         console.log(this.character)
       }
     },
     watch: {
       savesRaw() {
         let save
-        for (let i = 0; i < this.savesRaw.length; i++)
+        this.saves = []
+        for (let i = 0; i < this.savesRaw.length; i++) {
           save = Object.keys(this.savesRaw[i])[0]
-        this.saves.push(save)
+          this.saves.push(save)
+        }
         console.log(this.saves)
       }
     }

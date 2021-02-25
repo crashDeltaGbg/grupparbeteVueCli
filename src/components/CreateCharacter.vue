@@ -228,7 +228,8 @@
             purse: 2,
             inventory: [],
             consequences: [],
-            progress: null
+            progress: null,
+            equipment: null
           }
 
           this.$store.commit('saveCharacter', character)
