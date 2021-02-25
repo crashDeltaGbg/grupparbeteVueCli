@@ -2,8 +2,7 @@
   <div class="about">
     <div id="status">
       <span v-if="character.purse">Coin: {{ character.purse }}</span
-      >&nbsp;<span>Progress: {{ $store.state.character.progress }}</span>
-      <input type="button" @click="save()" value="Save" />
+      >&nbsp;<input type="button" @click="save()" value="Save" />
     </div>
 
     <div v-if="markdown" v-html="markdown" id="text">
