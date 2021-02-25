@@ -260,6 +260,21 @@
     ],
     "alias": "SQ7-0"
   },
+  "SQ11-0": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Help him!",
+        "proceed": "side_quests/json/SQ11-A1"
+      },
+      {
+        "id": "b",
+        "text": "Sorry I'm lost...",
+        "proceed": "side_quests/json/SQ11-B1"
+      }
+    ],
+    "alias": "SQ11-0"
+  },
   "banditEncounterSuccess": {
     "options": [
       {
