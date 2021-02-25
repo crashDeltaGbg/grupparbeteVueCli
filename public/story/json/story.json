@@ -67,7 +67,8 @@
         "proceed": "abandonedHouse"
       }
     ],
-    "alias": "MQ1-A2"
+    "alias": "MQ1-A2",
+    "coin": 5
   },
 
   "MQ1-B1": {
@@ -312,7 +313,7 @@
     ],
     "alias": "SQ2-1",
     "coin": 25,
-    "item": true
+    "item": { "dagger": { "luck": 1, "value": 15 } }
   },
   "abandonedHouseFail": {
     "options": [
