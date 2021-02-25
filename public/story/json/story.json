@@ -170,7 +170,7 @@
     "alias": "SQ3-0",
     "coin": 150
   },
-  "flowersInHerHair": {
+  "SQ8-0": {
     "options": [
       {
         "id": "a",
@@ -185,7 +185,11 @@
     ],
     "alias": "SQ8-0"
   },
+<<<<<<< HEAD
   "SQ8-0": {
+=======
+  "SQ9-0": {
+>>>>>>> 851a6c2deb5d6581b04c3707c41f28fc12caa7cd
     "options": [
       {
         "id": "a",
@@ -198,7 +202,7 @@
         "proceed": "side_quests/json/SQ9-B1"
       }
     ],
-    "alias": "SQ8-0"
+    "alias": "SQ9-0"
   },
   "side_quests/json/SQ9-A1": {
     "options": [
@@ -213,8 +217,41 @@
         "proceed": "side_quests/json/SQ9-A3"
       }
     ],
-    "alias": "side_quests/json/SQ9-A1"
+    "alias": "SQ9-A1"
   },
+<<<<<<< HEAD
+=======
+  "SQ10-0": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Accompany the fisherman",
+        "proceed": "fishingLuck"
+      },
+      {
+        "id": "b",
+        "text": "Stay at land",
+        "proceed": "side_quests/json/SQ10-b1"
+      }
+    ],
+    "alias": "SQ10-0"
+  },
+  "fishingLuck": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Success",
+        "proceed": "side_quests/json/SQ10-A2"
+      },
+      {
+        "id": "b",
+        "text": "fail",
+        "proceed": "side_quests/json/SQ10-A3"
+      }
+    ],
+    "alias": "SQ10-A1"
+  },
+>>>>>>> 851a6c2deb5d6581b04c3707c41f28fc12caa7cd
   "SQ7-0": {
     "options": [
       {
@@ -230,7 +267,26 @@
     ],
     "alias": "SQ7-0"
   },
+<<<<<<< HEAD
   "SQ7-B1": {
+=======
+  "SQ11-0": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Help him!",
+        "proceed": "side_quests/json/SQ11-A1"
+      },
+      {
+        "id": "b",
+        "text": "Sorry I'm lost...",
+        "proceed": "side_quests/json/SQ11-B1"
+      }
+    ],
+    "alias": "SQ11-0"
+  },
+  "banditEncounterSuccess": {
+>>>>>>> 851a6c2deb5d6581b04c3707c41f28fc12caa7cd
     "options": [
       {
         "id": "a",
