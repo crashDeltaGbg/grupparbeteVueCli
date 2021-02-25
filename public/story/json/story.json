@@ -184,6 +184,36 @@
     ],
     "alias": "SQ8-0"
   },
+  "theBlackPhooka": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Chase after the creature",
+        "proceed": "theBlackPhookaChase"
+      },
+      {
+        "id": "b",
+        "text": "Collect the rest of your items",
+        "proceed": "side_quests/json/SQ9-B1"
+      }
+    ],
+    "alias": "SQ8-0"
+  },
+  "theBlackPhookaChase": {
+    "options": [
+      {
+        "id": "a",
+        "text": "success",
+        "proceed": "side_quests/json/SQ9-A2"
+      },
+      {
+        "id": "b",
+        "text": "fail",
+        "proceed": "side_quests/json/SQ9-A3"
+      }
+    ],
+    "alias": "side_quests/json/SQ9-A1"
+  },
   "banditEncounter": {
     "options": [
       {
