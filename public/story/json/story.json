@@ -170,7 +170,7 @@
     "alias": "SQ3-0",
     "coin": 150
   },
-  "flowersInHerHair": {
+  "SQ8-0": {
     "options": [
       {
         "id": "a",
@@ -185,7 +185,7 @@
     ],
     "alias": "SQ8-0"
   },
-  "theBlackPhooka": {
+  "SQ9-0": {
     "options": [
       {
         "id": "a",
@@ -198,7 +198,7 @@
         "proceed": "side_quests/json/SQ9-B1"
       }
     ],
-    "alias": "SQ8-0"
+    "alias": "SQ9-0"
   },
   "theBlackPhookaChase": {
     "options": [
@@ -213,9 +213,9 @@
         "proceed": "side_quests/json/SQ9-A3"
       }
     ],
-    "alias": "side_quests/json/SQ9-A1"
+    "alias": "SQ9-A1"
   },
-  "whatHidesInTheDeeps": {
+  "SQ10-0": {
     "options": [
       {
         "id": "a",
@@ -228,7 +228,7 @@
         "proceed": "side_quests/json/SQ10-b1"
       }
     ],
-    "alias": "side_quests/json/SQ10-0"
+    "alias": "SQ10-0"
   },
   "fishingLuck": {
     "options": [
@@ -243,9 +243,9 @@
         "proceed": "side_quests/json/SQ10-A3"
       }
     ],
-    "alias": "side_quests/json/SQ10-A1"
+    "alias": "SQ10-A1"
   },
-  "banditEncounter": {
+  "SQ7-0": {
     "options": [
       {
         "id": "a",
