@@ -208,7 +208,7 @@
     ],
     "alias": "SQ2-1",
     "coin": 25,
-    "item": true
+    "item": { "dagger": { "luck": 1, "value": 15 } }
   },
   "abandonedHouseFail": {
     "options": [
