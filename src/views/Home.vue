@@ -80,7 +80,7 @@
   }
 
   #landingpageimg {
-    background-image: url(../../public/images/Slott.jpg);
+    background-image: url(../../public/images/Landingpage.jpg);
     position: relative;
     background-size: cover;
   }
