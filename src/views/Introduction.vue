@@ -18,7 +18,9 @@
       see if you overcome the hardship or fail and have to suffer the
       consequences.
     </p>
-    <button @click="continueStory($event)">Continue</button>
+    <button @click="continueStory($event)">
+      Continue
+    </button>
   </div>
 </template>
 

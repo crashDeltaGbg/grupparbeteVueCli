@@ -1,21 +1,27 @@
 <template>
-  <section id="home">
-    <h1>Adventure Hunter</h1>
-    <p>Lorem ipsum</p>
-    <div class="flex-wrapper">
-      <button class="primary-button" id="start" @click="continueStory($event)">
-        Start
-      </button>
-      <button
-        class="primary-button"
-        id="continue"
-        @click="continueStory($event)"
-        :disabled="continueGame"
-      >
-        Continue
-      </button>
-    </div>
-  </section>
+  <body id="landingpageimg">
+    <section id="home">
+      <h1>Adventure Hunter</h1>
+      <p>Lorem ipsum</p>
+      <div class="flex-wrapper">
+        <button
+          class="primary-button"
+          id="start"
+          @click="continueStory($event)"
+        >
+          Start Game
+        </button>
+        <button
+          class="third-button"
+          id="continue"
+          @click="continueStory($event)"
+          :disabled="continueGame"
+        >
+          Continue
+        </button>
+      </div>
+    </section>
+  </body>
 </template>
 
 <script>
@@ -23,7 +29,7 @@
     name: 'Home',
     components: {},
     mounted() {
-      this.continueGame = localStorage.save ? false : 0
+      this.continueGame = localStorage.gameSaves ? false : 0
     },
     data() {
       return {
@@ -37,7 +43,7 @@
         div.innerHTML =
           localStorage.save && e.target.id != 'start'
             ? 'And the adventure continues...'
-            : 'And so it beginns...'
+            : 'And so it begins...'
         div.classList.add('fade')
         e.target.parentNode.appendChild(div)
 
@@ -48,10 +54,9 @@
 
           // If we got a saved game and the button is not the start button we
           // continue.
-          if (localStorage.save && e.target.id != 'start') {
-            let save = JSON.parse(localStorage.save)
+          if (localStorage.gameSaves && e.target.id != 'start') {
             //TODO set correct adress.
-            this.$router.push({ path: 'gameplay?' + save[1].level })
+            this.$router.push({ path: 'LoadGame' })
           } else {
             // If there is no saved game we want to create a new character.
             this.$router.push({ path: 'introduction' })
@@ -62,13 +67,30 @@
   }
 </script>
 <style lang="scss">
+  /* BACKGROUND IMAGE AND TRANSPARANT OVERLAY */
+  #landingpageimg::before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: rgba(0, 0, 0, 0.66);
+  }
+
+  #landingpageimg {
+    background-image: url(../../public/images/Landingpage.jpg);
+    position: relative;
+    background-size: cover;
+  }
+
   #home {
     width: 100vw;
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: #949191;
+    position: relative;
     overflow-x: hidden;
     padding: 0;
     margin: 0;
