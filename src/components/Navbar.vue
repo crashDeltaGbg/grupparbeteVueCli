@@ -58,6 +58,7 @@
     width: 100%;
     height: 50px;
     /* overflow: hidden; */
+
     background-image: linear-gradient(to right, $black, $brown);
   }
 
@@ -81,6 +82,7 @@
     transform: skewX(+45deg);
     display: flex;
     justify-content: flex-start;
+    clip-path: inset(-10px 30px -10px 0px);
   }
 
   .navitems {

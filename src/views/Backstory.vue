@@ -52,6 +52,7 @@
 
   #ontop {
     position: relative;
+    margin-top: 60px;
   }
 
   #backstoryimage::before {
