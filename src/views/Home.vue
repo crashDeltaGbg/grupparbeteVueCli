@@ -2,7 +2,7 @@
   <body id="landingpageimg">
     <section id="home">
       <h1>Adventure Hunter</h1>
-      <p>Lorem ipsum</p>
+      <p>The Black Obelisk</p>
       <div class="flex-wrapper">
         <button
           class="primary-button"
@@ -67,6 +67,7 @@
   }
 </script>
 <style lang="scss">
+  @import '../assets/style/variables.scss';
   /* BACKGROUND IMAGE AND TRANSPARANT OVERLAY */
   #landingpageimg::before {
     content: '';
@@ -99,12 +100,20 @@
       font-size: 68px;
       color: #fff;
       margin: 10px;
+
+      @media (max-width: $breakpoint-tablet) {
+        font-size: $font-size-h2;
+      }
     }
 
     p {
       font-size: 45px;
       color: #fff;
       margin: 10px;
+      @media (max-width: $breakpoint-tablet) {
+        font-size: $font-size-text;
+        margin-bottom: 60px;
+      }
     }
 
     .flex-wrapper {
@@ -114,6 +123,10 @@
       button {
         margin: 40px 20px;
         width: 335px;
+
+        @media (max-width: $breakpoint-tablet) {
+          margin: 10px;
+        }
 
         &:disabled {
           opacity: 0.5;
