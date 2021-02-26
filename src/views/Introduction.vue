@@ -44,11 +44,13 @@
     overflow-x: hidden;
     padding: 0;
     margin: 0;
+    background-image: url(../assets/intro.png);
 
     h1 {
       font-size: 50px;
       color: #fff;
       margin: 10px;
+      margin-top: 80px;
     }
 
     h2 {
