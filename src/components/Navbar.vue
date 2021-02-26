@@ -56,9 +56,8 @@
   /* DIV SOM SITTER BAKOM FÖR ATT FYLLA UT KANTERNA FRÅN SKEW */
   #crop {
     width: 100%;
-    height: 50px;
-    /* overflow: hidden; */
 
+    clip-path: inset(-20px 0px -20px 0px);
     background-image: linear-gradient(to right, $black, $brown);
   }
 
@@ -69,8 +68,8 @@
   #blacknav {
     background-color: $black;
     height: 50px;
-    flex-grow: 4;
-    transform: skewX(+45deg);
+    flex-grow: 1;
+    transform: skew(+45deg);
     display: flex;
     justify-content: flex-start;
   }
@@ -78,15 +77,15 @@
   #greynav {
     background-color: $brown;
     height: 50px;
-    flex-grow: 1;
-    transform: skewX(+45deg);
+    transform: skew(+45deg);
     display: flex;
     justify-content: flex-start;
-    clip-path: inset(-10px 30px -10px 0px);
+
+    width: 100%;
   }
 
   .navitems {
-    transform: skewX(-45deg);
+    transform: skew(-45deg);
     text-decoration: none;
     list-style: none;
     padding-right: 10px;
@@ -100,7 +99,8 @@
     background-color: $black;
     height: 70px;
     width: 70px;
-    transform: skewX(-45deg);
+    transform: skew(-45deg);
+
     border-radius: 50%;
     margin-left: 60px;
     margin-right: 90px;
@@ -114,6 +114,7 @@
     margin-left: 90px;
     margin-bottom: 30px;
     margin-top: 7px;
+    font-size: 30px;
 
     @media (max-width: 900px) {
       font-size: $font-size-preamble;

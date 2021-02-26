@@ -77,6 +77,10 @@
     background-size: cover;
   }
 
+  p {
+    max-width: 78%;
+  }
+
   .backstory {
     .left {
       width: 100%;
@@ -104,7 +108,7 @@
         }
       }
 
-      @media (min-width: $breakpoint-desktop-small) {
+      @media (max-width: $breakpoint-desktop-small) {
         width: 50%;
       }
     }
