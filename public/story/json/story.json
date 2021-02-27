@@ -163,15 +163,80 @@
     ],
     "alias": "MQ2-A2"
   },
+  "MQ2-A2-A1": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Continue",
+        "proceed": "MQ2-A2-A2"
+      }
+    ],
+    "alias": "MQ2-A2-A1"
+  },
+  "MQ2-A2-A2": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Continue",
+        "proceed": "MQ3-1"
+      }
+    ],
+    "alias": "MQ2-A2-A2"
+  },
+  "MQ2-A2-B1": {
+    "options": [
+      {
+        "id": "a",
+        "text": "A few days later.",
+        "proceed": "MQ3-1"
+      }
+    ],
+    "alias": "MQ2-A2-B1"
+  },
   "MQ2-B1": {
     "options": [
       {
         "id": "a",
-        "text": "Temporary button to LeavingHomeJson",
-        "proceed": "SQ0-0"
+        "text": "Continue",
+        "proceed": "MQ2-B2"
       }
     ],
     "alias": "MQ2-B1"
+  },
+  "MQ2-B2": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Fight",
+        "proceed": "MQ2-B2-A1"
+      },
+      {
+        "id": "b",
+        "text": "Flee",
+        "proceed": "MQ2-B2-B1"
+      }
+    ],
+    "alias": "MQ2-B2"
+  },
+  "MQ2-B1-A1": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Chapter 3",
+        "proceed": "MQ3-1"
+      }
+    ],
+    "alias": "MQ2-B1-A1"
+  },
+  "MQ2-B1-B1": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Chapter 3",
+        "proceed": "MQ3-1"
+      }
+    ],
+    "alias": "MQ2-B1-B1"
   },
   "SQ0-0": {
     "options": [
