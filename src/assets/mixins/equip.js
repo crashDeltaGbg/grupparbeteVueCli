@@ -1,4 +1,9 @@
 export const equip = {
+  computed: {
+    character() {
+      return this.$store.state.character
+    }
+  },
   data() {
     return {
       effectiveStats: {
