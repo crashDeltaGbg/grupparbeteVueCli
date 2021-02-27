@@ -7,7 +7,7 @@
         "proceed": "introduction-2"
       }
     ],
-    "alias": "introduktion-1"
+    "alias": "introduction-1"
   },
 
   "introduction-2": {
@@ -18,7 +18,7 @@
         "proceed": "introduction-3"
       }
     ],
-    "alias": "introduktion-2"
+    "alias": "introduction-2"
   },
 
   "introduction-3": {
@@ -29,7 +29,7 @@
         "proceed": "MQ1"
       }
     ],
-    "alias": "introduktion-3"
+    "alias": "introduction-3"
   },
 
   "MQ1": {

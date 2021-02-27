@@ -5,7 +5,9 @@
       >&nbsp;<Inventory
         :inv="character.inventory"
         :equiped="character.equipment"
-      />&nbsp;<input type="button" @click="save()" value="Save" />
+      />&nbsp;<span v-if="character.equipment">{{ character.equipment }}</span
+      >&nbsp;<span>{{ effectiveStats }}</span
+      >&nbsp;<input type="button" @click="save()" value="Save" />
     </div>
 
     <div v-if="markdown" v-html="markdown" id="text">
@@ -73,8 +75,9 @@
   const marked = require('marked')
   import Inventory from '@/components/Inventory.vue'
   import { dice } from '@/assets/mixins/dice.js'
-  import { saveGame } from '@/assets/mixins/save-game.js'
   import { equip } from '@/assets/mixins/equip.js'
+  import { measure } from '@/assets/mixins/measure.js'
+  import { saveGame } from '@/assets/mixins/save-game.js'
 
   export default {
     components: {
@@ -83,33 +86,20 @@
     computed: {
       character() {
         return this.$store.state.character
+      },
+      effectiveStats() {
+        return this.$store.state.effectiveStats
       }
     },
     created() {
-      this.getStory()
+      this.getStory('introduction-1')
       if (this.character === null) {
         this.load('character')
-        // console.log(this.character)
       }
     },
     data() {
       return {
         chance: null,
-        /* character: null {
-          stats: {
-            strength: 3,
-            agility: 3,
-            intellect: 3,
-            luck: 3
-          },
-          purse: 2,
-          inventory: [],
-          name: '',
-          bio: '',
-          img: '',
-          progress: null,
-          consequences: []
-        }, */
         coin: null,
         cost: null,
         die: null,
@@ -123,10 +113,11 @@
       }
     },
     methods: {
-      async getStory(path = 'introduction-1') {
+      async getStory(path) {
         const response = await fetch(`/story/json/story.json`)
         const result = await response.json()
         this.selectFile(result[path].alias)
+        // console.log(result[path].alias)
         this.options = result[path].options
         this.die = result[path].die
         this.chance = result[path].chance
@@ -137,7 +128,7 @@
         this.character.progress = result[path].alias
         if (result[path].drop === true) {
           let items = result.dropItems
-          console.log(items)
+          // console.log(items)
           let i = this.roll('D10')
           this.item = items[i]
         }
@@ -149,17 +140,6 @@
       },
       onClick(path) {
         this.getStory(path)
-      },
-      measure(stat) {
-        let score = this.roll(this.die) + this.character.stats[stat]
-        // console.log(score)
-        let target = this.roll(this.die) + Number(this.success)
-        // console.log(target)
-        if (score >= target) {
-          this.getStory(this.options[0].proceed)
-        } else {
-          this.getStory(this.options[1].proceed)
-        }
       },
       obtain(item) {
         this.item = item
@@ -183,10 +163,10 @@
         }
       }
     },
-    mixins: [dice, saveGame, equip],
+    mixins: [dice, equip, measure, saveGame],
     mounted() {
       this.getStory(this.$store.state.character.progress)
-      console.log(this.$store.state.character.progress)
+      // console.log(this.$store.state.character.progress)
     },
     name: 'Story',
     // props: [alias],
@@ -199,6 +179,21 @@
       item(obj) {
         if (this.item != null && this.item != undefined) {
           this.character.inventory.push(obj)
+        }
+      },
+      equipment() {
+        // TODO Fix this shit!
+        if (this.character.equipment != null) {
+          this.effectiveStats.strength =
+            this.character.strenght + this.character.equipment.strength
+          this.effectiveStats.agility =
+            this.character.agility + this.character.equipment.agility
+          this.effectiveStats.luck =
+            this.character.luck + this.character.equipment.luck
+          this.effectiveStats.intellect =
+            this.character.intellect + this.character.equipment.intellect
+        } else {
+          this.effectiveStats = this.character.stats
         }
       }
     }
