@@ -1,4 +1,4 @@
-## Chapter 1: The destruction of Villa Pisci.
+# Chapter 1: The destruction of Villa Pisci
 
 Finally, you arrive at a bridge, aptly namely “Somber Stream Bridge”, and row ashore. The elderly man jumps into the water and walks up to a nearby sign. You tie your boat to a stone under the bridge and walk up to him, looking at the sign.
 

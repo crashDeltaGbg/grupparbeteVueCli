@@ -2,7 +2,10 @@
   <div class="about">
     <div id="status">
       <span v-if="character.purse">Coin: {{ character.purse }}</span
-      >&nbsp;<input type="button" @click="save()" value="Save" />
+      >&nbsp;<Inventory
+        :inv="character.inventory"
+        :equiped="character.equipment"
+      />&nbsp;<input type="button" @click="save()" value="Save" />
     </div>
 
     <div v-if="markdown" v-html="markdown" id="text">
@@ -68,11 +71,20 @@
 
 <script>
   const marked = require('marked')
+  import Inventory from '@/components/Inventory.vue'
   import { dice } from '@/assets/mixins/dice.js'
   import { saveGame } from '@/assets/mixins/save-game.js'
+  import { equip } from '@/assets/mixins/equip.js'
 
   export default {
-    components: {},
+    components: {
+      Inventory
+    },
+    computed: {
+      character() {
+        return this.$store.state.character
+      }
+    },
     created() {
       this.getStory()
       if (this.character === null) {
@@ -83,7 +95,7 @@
     data() {
       return {
         chance: null,
-        character: null /* {
+        /* character: null {
           stats: {
             strength: 3,
             agility: 3,
@@ -97,7 +109,7 @@
           img: '',
           progress: null,
           consequences: []
-        }, */,
+        }, */
         coin: null,
         cost: null,
         die: null,
@@ -114,15 +126,21 @@
       async getStory(path = 'introduction-1') {
         const response = await fetch(`/story/json/story.json`)
         const result = await response.json()
-        this.options = result[path].options
         this.selectFile(result[path].alias)
+        this.options = result[path].options
         this.die = result[path].die
         this.chance = result[path].chance
         this.success = result[path].success
         this.coin = result[path].coin
         this.cost = result[path].cost
-        this.item = result[path].item
+        // this.item = result[path].item
         this.character.progress = result[path].alias
+        if (result[path].drop === true) {
+          let items = result.dropItems
+          console.log(items)
+          let i = this.roll('D10')
+          this.item = items[i]
+        }
       },
       async selectFile(fileName) {
         const answer = await fetch(`/story/${fileName}.md`)
@@ -134,9 +152,9 @@
       },
       measure(stat) {
         let score = this.roll(this.die) + this.character.stats[stat]
-        console.log(score)
+        // console.log(score)
         let target = this.roll(this.die) + Number(this.success)
-        console.log(target)
+        // console.log(target)
         if (score >= target) {
           this.getStory(this.options[0].proceed)
         } else {
@@ -165,7 +183,7 @@
         }
       }
     },
-    mixins: [dice, saveGame],
+    mixins: [dice, saveGame, equip],
     mounted() {
       this.getStory(this.$store.state.character.progress)
       console.log(this.$store.state.character.progress)

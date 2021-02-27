@@ -223,6 +223,24 @@
     ],
     "alias": "SQ2-0"
   },
+  "SQ2-1": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Success!",
+        "proceed": "SQ2-A1"
+      },
+      {
+        "id": "b",
+        "text": "Failure!",
+        "proceed": "SQ2-B1"
+      }
+    ],
+    "alias": "SQ2-1",
+    "chance": "luck",
+    "die": "D4",
+    "success": "3"
+  },
   "SQ3-0": {
     "options": [
       {
@@ -244,12 +262,12 @@
       {
         "id": "a",
         "text": "You stop and give the girl a hand.",
-        "proceed": "side_quests/json/SQ8-A1"
+        "proceed": "SQ8-A1"
       },
       {
         "id": "b",
         "text": "You don't feel like helping her.",
-        "proceed": "side_quests/json/SQ8-B1"
+        "proceed": "SQ8-B1"
       }
     ],
     "alias": "SQ8-0"
@@ -259,27 +277,27 @@
       {
         "id": "a",
         "text": "Chase after the creature",
-        "proceed": "side_quests/json/SQ9-A1"
+        "proceed": "SQ9-A1"
       },
       {
         "id": "b",
         "text": "Collect the rest of your items",
-        "proceed": "side_quests/json/SQ9-B1"
+        "proceed": "SQ9-B1"
       }
     ],
     "alias": "SQ9-0"
   },
-  "side_quests/json/SQ9-A1": {
+  "SQ9-A1": {
     "options": [
       {
         "id": "a",
         "text": "success",
-        "proceed": "side_quests/json/SQ9-A2"
+        "proceed": "SQ9-A2"
       },
       {
         "id": "b",
         "text": "fail",
-        "proceed": "side_quests/json/SQ9-A3"
+        "proceed": "SQ9-A3"
       }
     ],
     "alias": "SQ9-A1"
@@ -289,27 +307,27 @@
       {
         "id": "a",
         "text": "Accompany the fisherman",
-        "proceed": "fishingLuck"
+        "proceed": "SQ10-A1"
       },
       {
         "id": "b",
         "text": "Stay at land",
-        "proceed": "side_quests/json/SQ10-b1"
+        "proceed": "SQ10-B1"
       }
     ],
     "alias": "SQ10-0"
   },
-  "fishingLuck": {
+  "SQ10-A1": {
     "options": [
       {
         "id": "a",
         "text": "Success",
-        "proceed": "side_quests/json/SQ10-A2"
+        "proceed": "SQ10-A2"
       },
       {
         "id": "b",
         "text": "fail",
-        "proceed": "side_quests/json/SQ10-A3"
+        "proceed": "SQ10-A3"
       }
     ],
     "alias": "SQ10-A1"
@@ -319,7 +337,7 @@
       {
         "id": "a",
         "text": "Give the bandits all of your coins.",
-        "proceed": "side_quests/json/SQ7-A1"
+        "proceed": "SQ7-A1"
       },
       {
         "id": "b",
@@ -334,27 +352,27 @@
       {
         "id": "a",
         "text": "Help him!",
-        "proceed": "side_quests/json/SQ11-A1"
+        "proceed": "SQ11-A1"
       },
       {
         "id": "b",
         "text": "Sorry I'm lost...",
-        "proceed": "side_quests/json/SQ11-B1"
+        "proceed": "SQ11-B1"
       }
     ],
     "alias": "SQ11-0"
   },
-  "banditEncounterSuccess": {
+  "SQ7-B1": {
     "options": [
       {
         "id": "a",
         "text": "Success!",
-        "proceed": "side_quests/json/SQ7-B2!"
+        "proceed": "SQ7-B2!"
       },
       {
         "id": "b",
         "text": "Fail!",
-        "proceed": "side_quests/json/SQ7-B3!"
+        "proceed": "SQ7-B3!"
       }
     ],
     "alias": "SQ7-B1"
@@ -377,12 +395,20 @@
   },
   "SQ1-2": {
     "options": [
-      { "id": "a", "text": "Success", "proceed": "side_quests/json/SQ1-3" },
-      { "id": "b", "text": "Failure", "proceed": "failure" }
+      {
+        "id": "a",
+        "text": "Success",
+        "proceed": "SQ1-3"
+      },
+      {
+        "id": "b",
+        "text": "Failure",
+        "proceed": "failure"
+      }
     ],
     "alias": "SQ1-2"
   },
-  "SQ2-1": {
+  "SQ2-A1": {
     "options": [
       {
         "id": "a",
@@ -395,9 +421,24 @@
         "proceed": "SQ5-0"
       }
     ],
-    "alias": "SQ2-1",
+    "alias": "SQ2-A1",
     "coin": 25,
-    "item": { "dagger": { "luck": 1, "value": 15 } }
+    "drop": true
+  },
+  "SQ2-B1": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Go to the city",
+        "proceed": "SQ4-0"
+      },
+      {
+        "id": "b",
+        "text": "Go to the inn",
+        "proceed": "SQ5-0"
+      }
+    ],
+    "alias": "SQ2-B1"
   },
   "SQ2-2": {
     "options": [
