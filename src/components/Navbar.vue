@@ -59,6 +59,10 @@
 
     /* clip-path: inset(-20px 0px -20px 0px); */
     background-image: linear-gradient(to right, $black 50%, $brown 50%);
+
+    @media (max-width: 928px) {
+      background-image: linear-gradient(to right, $black 30%, $brown 30%);
+    }
   }
 
   #navwrapper {
@@ -81,7 +85,6 @@
     /* transform: skew(+45deg); */
     display: flex;
     justify-content: flex-start;
-
     width: 100;
   }
 
@@ -140,7 +143,7 @@
     font-size: $font-size-text;
   }
 
-  @media screen and (max-width: 879px) {
+  @media screen and (max-width: 689px) {
     #image {
       display: none;
     }
