@@ -2,11 +2,18 @@
   <div class="about">
     <div id="status">
       <span v-if="character.purse">Coin: {{ character.purse }}</span
+      >&nbsp;<Inventory
+        :inv="character.inventory"
+        :equiped="character.equipment"
+      />&nbsp;<span v-if="character.equipment">{{
+        character.equipment.weapon
+      }}</span
+      >&nbsp;<span>{{ effectiveStats }}</span
       >&nbsp;<input type="button" @click="save()" value="Save" />
     </div>
 
     <div v-if="markdown" v-html="markdown" id="text">
-      <!-- Här läses texten in -->
+      <!-- Här läses texten från markdown-filer in -->
     </div>
     <div v-else>
       <h1>Uh-oh!</h1>
@@ -68,36 +75,37 @@
 
 <script>
   const marked = require('marked')
+  import Inventory from '@/components/Inventory.vue'
   import { dice } from '@/assets/mixins/dice.js'
+  import { equip } from '@/assets/mixins/equip.js'
+  import { measure } from '@/assets/mixins/measure.js'
   import { saveGame } from '@/assets/mixins/save-game.js'
 
   export default {
-    components: {},
+    components: {
+      Inventory
+    },
+    computed: {
+      character() {
+        return this.$store.state.character
+      },
+      effectiveStats() {
+        return this.$store.state.effectiveStats
+      }
+    },
     created() {
-      this.getStory()
+      this.getStory('introduction-1')
       if (this.character === null) {
         this.load('character')
-        // console.log(this.character)
+      }
+      this.character.equipment = {
+        weapon: 'bent ice pick',
+        stats: { luck: -1 }
       }
     },
     data() {
       return {
         chance: null,
-        character: null /* {
-          stats: {
-            strength: 3,
-            agility: 3,
-            intellect: 3,
-            luck: 3
-          },
-          purse: 2,
-          inventory: [],
-          name: '',
-          bio: '',
-          img: '',
-          progress: null,
-          consequences: []
-        }, */,
         coin: null,
         cost: null,
         die: null,
@@ -111,18 +119,22 @@
       }
     },
     methods: {
-      async getStory(path = 'introduction-1') {
+      async getStory(path) {
         const response = await fetch(`/story/json/story.json`)
         const result = await response.json()
-        this.options = result[path].options
         this.selectFile(result[path].alias)
+        this.options = result[path].options
         this.die = result[path].die
         this.chance = result[path].chance
         this.success = result[path].success
         this.coin = result[path].coin
         this.cost = result[path].cost
-        this.item = result[path].item
         this.character.progress = result[path].alias
+        if (result[path].drop === true) {
+          let items = result.dropItems
+          let i = this.roll('D10')
+          this.item = items[i]
+        }
       },
       async selectFile(fileName) {
         const answer = await fetch(`/story/${fileName}.md`)
@@ -131,17 +143,6 @@
       },
       onClick(path) {
         this.getStory(path)
-      },
-      measure(stat) {
-        let score = this.roll(this.die) + this.character.stats[stat]
-        console.log(score)
-        let target = this.roll(this.die) + Number(this.success)
-        console.log(target)
-        if (score >= target) {
-          this.getStory(this.options[0].proceed)
-        } else {
-          this.getStory(this.options[1].proceed)
-        }
       },
       obtain(item) {
         this.item = item
@@ -165,13 +166,11 @@
         }
       }
     },
-    mixins: [dice, saveGame],
+    mixins: [dice, equip, measure, saveGame],
     mounted() {
       this.getStory(this.$store.state.character.progress)
-      console.log(this.$store.state.character.progress)
     },
     name: 'Story',
-    // props: [alias],
     watch: {
       coin(amount) {
         if (this.coin != null && this.coin != undefined) {

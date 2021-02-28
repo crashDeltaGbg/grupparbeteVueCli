@@ -7,7 +7,7 @@
         "proceed": "introduction-2"
       }
     ],
-    "alias": "introduktion-1"
+    "alias": "introduction-1"
   },
 
   "introduction-2": {
@@ -18,7 +18,7 @@
         "proceed": "introduction-3"
       }
     ],
-    "alias": "introduktion-2"
+    "alias": "introduction-2"
   },
 
   "introduction-3": {
@@ -29,7 +29,7 @@
         "proceed": "MQ1"
       }
     ],
-    "alias": "introduktion-3"
+    "alias": "introduction-3"
   },
 
   "MQ1": {
@@ -288,6 +288,24 @@
     ],
     "alias": "SQ2-0"
   },
+  "SQ2-1": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Success!",
+        "proceed": "SQ2-A1"
+      },
+      {
+        "id": "b",
+        "text": "Failure!",
+        "proceed": "SQ2-B1"
+      }
+    ],
+    "alias": "SQ2-1",
+    "chance": "luck",
+    "die": "D4",
+    "success": "3"
+  },
   "SQ3-0": {
     "options": [
       {
@@ -309,12 +327,12 @@
       {
         "id": "a",
         "text": "You stop and give the girl a hand.",
-        "proceed": "side_quests/json/SQ8-A1"
+        "proceed": "SQ8-A1"
       },
       {
         "id": "b",
         "text": "You don't feel like helping her.",
-        "proceed": "side_quests/json/SQ8-B1"
+        "proceed": "SQ8-B1"
       }
     ],
     "alias": "SQ8-0"
@@ -324,27 +342,27 @@
       {
         "id": "a",
         "text": "Chase after the creature",
-        "proceed": "side_quests/json/SQ9-A1"
+        "proceed": "SQ9-A1"
       },
       {
         "id": "b",
         "text": "Collect the rest of your items",
-        "proceed": "side_quests/json/SQ9-B1"
+        "proceed": "SQ9-B1"
       }
     ],
     "alias": "SQ9-0"
   },
-  "side_quests/json/SQ9-A1": {
+  "SQ9-A1": {
     "options": [
       {
         "id": "a",
         "text": "success",
-        "proceed": "side_quests/json/SQ9-A2"
+        "proceed": "SQ9-A2"
       },
       {
         "id": "b",
         "text": "fail",
-        "proceed": "side_quests/json/SQ9-A3"
+        "proceed": "SQ9-A3"
       }
     ],
     "alias": "SQ9-A1"
@@ -354,27 +372,27 @@
       {
         "id": "a",
         "text": "Accompany the fisherman",
-        "proceed": "fishingLuck"
+        "proceed": "SQ10-A1"
       },
       {
         "id": "b",
         "text": "Stay at land",
-        "proceed": "side_quests/json/SQ10-b1"
+        "proceed": "SQ10-B1"
       }
     ],
     "alias": "SQ10-0"
   },
-  "fishingLuck": {
+  "SQ10-A1": {
     "options": [
       {
         "id": "a",
         "text": "Success",
-        "proceed": "side_quests/json/SQ10-A2"
+        "proceed": "SQ10-A2"
       },
       {
         "id": "b",
         "text": "fail",
-        "proceed": "side_quests/json/SQ10-A3"
+        "proceed": "SQ10-A3"
       }
     ],
     "alias": "SQ10-A1"
@@ -384,7 +402,7 @@
       {
         "id": "a",
         "text": "Give the bandits all of your coins.",
-        "proceed": "side_quests/json/SQ7-A1"
+        "proceed": "SQ7-A1"
       },
       {
         "id": "b",
@@ -399,27 +417,27 @@
       {
         "id": "a",
         "text": "Help him!",
-        "proceed": "side_quests/json/SQ11-A1"
+        "proceed": "SQ11-A1"
       },
       {
         "id": "b",
         "text": "Sorry I'm lost...",
-        "proceed": "side_quests/json/SQ11-B1"
+        "proceed": "SQ11-B1"
       }
     ],
     "alias": "SQ11-0"
   },
-  "banditEncounterSuccess": {
+  "SQ7-B1": {
     "options": [
       {
         "id": "a",
         "text": "Success!",
-        "proceed": "side_quests/json/SQ7-B2!"
+        "proceed": "SQ7-B2!"
       },
       {
         "id": "b",
         "text": "Fail!",
-        "proceed": "side_quests/json/SQ7-B3!"
+        "proceed": "SQ7-B3!"
       }
     ],
     "alias": "SQ7-B1"
@@ -442,12 +460,20 @@
   },
   "SQ1-2": {
     "options": [
-      { "id": "a", "text": "Success", "proceed": "side_quests/json/SQ1-3" },
-      { "id": "b", "text": "Failure", "proceed": "failure" }
+      {
+        "id": "a",
+        "text": "Success",
+        "proceed": "SQ1-3"
+      },
+      {
+        "id": "b",
+        "text": "Failure",
+        "proceed": "failure"
+      }
     ],
     "alias": "SQ1-2"
   },
-  "SQ2-1": {
+  "SQ2-A1": {
     "options": [
       {
         "id": "a",
@@ -460,9 +486,24 @@
         "proceed": "SQ5-0"
       }
     ],
-    "alias": "SQ2-1",
+    "alias": "SQ2-A1",
     "coin": 25,
-    "item": { "dagger": { "luck": 1, "value": 15 } }
+    "drop": true
+  },
+  "SQ2-B1": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Go to the city",
+        "proceed": "SQ4-0"
+      },
+      {
+        "id": "b",
+        "text": "Go to the inn",
+        "proceed": "SQ5-0"
+      }
+    ],
+    "alias": "SQ2-B1"
   },
   "SQ2-2": {
     "options": [
@@ -547,22 +588,60 @@
     "alias": "failure"
   },
   "dropItems": [
-    { "dagger": { "luck": 1, "value": 15 } },
-    { "broadsword": { "strenght": 1, "value": 25 } },
-    { "longsword": { "agility": 1, "value": 20 } },
-    { "staff": { "intellect": 1, "value": 20 } },
-    { "rusty butterknife": { "luck": 1, "intellect": 2, "value": 0 } },
-    { "sharpened spoon": { "strength": 1, "agility": 1, "value": 0 } },
-    { "battle axe": { "strength": 2, "agility": -1, "value": 25 } },
-    { "oddly shaped twig": { "value": 1 } },
     {
-      "cast iron skillet": {
-        "intellect": 1,
+      "weapon": "dagger",
+      "stats": { "strength": 0, "agility": 0, "luck": 1, "intellect": 0 },
+      "value": 15
+    },
+    {
+      "weapon": "broadsword",
+      "stats": { "strength": 1, "agility": 0, "luck": 0, "intellect": 0 },
+      "value": 25
+    },
+    {
+      "weapon": "longsword",
+      "stats": { "strength": 0, "agility": 1, "luck": 0, "intellect": 0 },
+      "value": 20
+    },
+    {
+      "weapon": "staff",
+      "stats": { "strength": 0, "agility": 0, "luck": 0, "intellect": 1 },
+      "value": 20
+    },
+    {
+      "weapon": "rusty butterknife",
+      "stats": { "strength": 0, "agility": 0, "luck": 1, "intellect": 2 },
+      "value": 0
+    },
+    {
+      "weapon": "sharpened spoon",
+      "stats": { "strength": 1, "agility": 1, "luck": 0, "intellect": 0 },
+      "value": 0
+    },
+    {
+      "weapon": "battle axe",
+      "stats": { "strength": 2, "agility": -1, "luck": 0, "intellect": 0 },
+      "value": 25
+    },
+    {
+      "weapon": "oddly shaped twig",
+      "stats": null,
+      "value": 1
+    },
+    {
+      "weapon": "cast iron skillet",
+      "stats": {
+        "strength": 0,
         "agility": -2,
         "luck": 1,
-        "value": 20
-      }
+        "intellect": 1
+      },
+      "value": 20
     },
-    { "war hammer": { "strength": 3, "agility": -1, "luck": -1, "value": 30 } }
+    {
+      "weapon": "war hammer",
+      "stats": { "strength": 3, "agility": -1, "luck": -1, "intellect": 0 },
+      "value": 30
+    }
   ]
 }
