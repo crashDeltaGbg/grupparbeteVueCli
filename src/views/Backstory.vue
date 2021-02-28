@@ -15,13 +15,16 @@
           rem velit tenetur porro molestias eligendi soluta, ullam impedit
           voluptatem, quas harum explicabo optio. Lorem ipsum dolor sit amet
           consectetur adipisicing elit. Odit eius totam nulla hic optio magnam,
-          sint qui quam eligendi. Minus soluta consequuntur nemo sapiente error
-          modi nam temporibus quos cupiditate? Lorem ipsum dolor sit amet,
-          consectetur adipisicing elit. Ea itaque harum, explicabo quo ipsum
-          eaque quod ullam commodi reprehenderit sit optio nihil dolore debitis
-          ut eum expedita veritatis delectus in? Lorem ipsum, dolor sit amet
-          consectetur adipisicing elit. eligendi. Minus soluta consequuntur nemo
-          sapiente error modi nam temporibus quos cupiditate?
+          sint qui quam eligendi.
+        </p>
+        <p>
+          Minus soluta consequuntur nemo sapiente error modi nam temporibus quos
+          cupiditate? Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          Ea itaque harum, explicabo quo ipsum eaque quod ullam commodi
+          reprehenderit sit optio nihil dolore debitis ut eum expedita veritatis
+          delectus in? Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+          eligendi. Minus soluta consequuntur nemo sapiente error modi nam
+          temporibus quos cupiditate?
         </p>
 
         <button class="primary-button" @click="startGame()">Start Game</button>
@@ -65,25 +68,26 @@
 
     background: linear-gradient(
       89.22deg,
-      rgba(0, 0, 0, 0.7) 12.23%,
-      rgba(0, 0, 0, 0.586928) 54.1%,
+      rgba(0, 0, 0, 0.8) 12.23%,
+      rgba(0, 0, 0, 0.670775) 54.1%,
       rgba(0, 0, 0, 0) 100.36%
     );
   }
 
   #backstoryimage {
-    background-image: url(../../public/images/Slott.jpg);
+    background: url(../../public/images/Another-castle.jpg) no-repeat center;
     position: absolute;
     background-size: cover;
+    /* background-position: center center; */
   }
 
   p {
-    max-width: 78%;
+    max-width: 80%;
   }
 
   .backstory {
     .left {
-      width: 100%;
+      width: 80%;
       text-align: left;
       justify-self: center;
       margin: 90px 0;
@@ -97,6 +101,8 @@
       box-sizing: border-box;
       color: $white;
       position: relative;
+
+      /* height: 100vh; */
 
       button {
         margin: 40px auto;

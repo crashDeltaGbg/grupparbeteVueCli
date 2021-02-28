@@ -57,12 +57,13 @@
   #crop {
     width: 100%;
 
-    clip-path: inset(-20px 0px -20px 0px);
-    background-image: linear-gradient(to right, $black, $brown);
+    /* clip-path: inset(-20px 0px -20px 0px); */
+    background-image: linear-gradient(to right, $black 50%, $brown 50%);
   }
 
   #navwrapper {
     display: flex;
+    /* margin-top: 60px; */
   }
 
   #blacknav {
@@ -77,15 +78,15 @@
   #greynav {
     background-color: $brown;
     height: 50px;
-    transform: skew(+45deg);
+    /* transform: skew(+45deg); */
     display: flex;
     justify-content: flex-start;
 
-    width: 100%;
+    width: 100;
   }
 
   .navitems {
-    transform: skew(-45deg);
+    /* transform: skew(-45deg); */
     text-decoration: none;
     list-style: none;
     padding-right: 10px;
@@ -99,7 +100,7 @@
     background-color: $black;
     height: 70px;
     width: 70px;
-    transform: skew(-45deg);
+    /* transform: skew(-45deg); */
 
     border-radius: 50%;
     margin-left: 60px;
@@ -139,14 +140,14 @@
     font-size: $font-size-text;
   }
 
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 879px) {
     #image {
       display: none;
     }
 
     #greynav {
       display: none;
-      background-color: black;
+      background-color: $black;
     }
 
     #crop {
@@ -161,7 +162,7 @@
     }
 
     h1 {
-      font-size: 20px;
+      font-size: $font-size-text;
       padding-right: 45px;
       margin-top: 30px;
     }
