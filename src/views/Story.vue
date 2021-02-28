@@ -5,13 +5,15 @@
       >&nbsp;<Inventory
         :inv="character.inventory"
         :equiped="character.equipment"
-      />&nbsp;<span v-if="character.equipment">{{ character.equipment }}</span
+      />&nbsp;<span v-if="character.equipment">{{
+        character.equipment.weapon
+      }}</span
       >&nbsp;<span>{{ effectiveStats }}</span
       >&nbsp;<input type="button" @click="save()" value="Save" />
     </div>
 
     <div v-if="markdown" v-html="markdown" id="text">
-      <!-- Här läses texten in -->
+      <!-- Här läses texten från markdown-filer in -->
     </div>
     <div v-else>
       <h1>Uh-oh!</h1>
@@ -96,6 +98,10 @@
       if (this.character === null) {
         this.load('character')
       }
+      this.character.equipment = {
+        weapon: 'bent ice pick',
+        stats: { luck: -1 }
+      }
     },
     data() {
       return {
@@ -117,18 +123,15 @@
         const response = await fetch(`/story/json/story.json`)
         const result = await response.json()
         this.selectFile(result[path].alias)
-        // console.log(result[path].alias)
         this.options = result[path].options
         this.die = result[path].die
         this.chance = result[path].chance
         this.success = result[path].success
         this.coin = result[path].coin
         this.cost = result[path].cost
-        // this.item = result[path].item
         this.character.progress = result[path].alias
         if (result[path].drop === true) {
           let items = result.dropItems
-          // console.log(items)
           let i = this.roll('D10')
           this.item = items[i]
         }
@@ -166,10 +169,8 @@
     mixins: [dice, equip, measure, saveGame],
     mounted() {
       this.getStory(this.$store.state.character.progress)
-      // console.log(this.$store.state.character.progress)
     },
     name: 'Story',
-    // props: [alias],
     watch: {
       coin(amount) {
         if (this.coin != null && this.coin != undefined) {
@@ -179,21 +180,6 @@
       item(obj) {
         if (this.item != null && this.item != undefined) {
           this.character.inventory.push(obj)
-        }
-      },
-      equipment() {
-        // TODO Fix this shit!
-        if (this.character.equipment != null) {
-          this.effectiveStats.strength =
-            this.character.strenght + this.character.equipment.strength
-          this.effectiveStats.agility =
-            this.character.agility + this.character.equipment.agility
-          this.effectiveStats.luck =
-            this.character.luck + this.character.equipment.luck
-          this.effectiveStats.intellect =
-            this.character.intellect + this.character.equipment.intellect
-        } else {
-          this.effectiveStats = this.character.stats
         }
       }
     }

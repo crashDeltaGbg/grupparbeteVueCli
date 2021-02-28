@@ -6,8 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     character: {},
-    diceValue: Number,
-    effectiveStats: {}
+    diceValue: Number
   },
   mutations: {
     saveCharacter(state, obj) {

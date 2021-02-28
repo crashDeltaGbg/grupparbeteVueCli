@@ -7,10 +7,10 @@ export const measure = {
   methods: {
     measure(stat) {
       let score = this.roll(this.die) + this.character.stats[stat]
-      // let score = this.roll(this.die) + Number(this.effectiveStats[stat])
-      // console.log(score)
+      if (this.character.equipment) {
+        score += this.character.equipment.stats[stat]
+      }
       let target = this.roll(this.die) + Number(this.success)
-      // console.log(target)
       if (score >= target) {
         this.getStory(this.options[0].proceed)
       } else {

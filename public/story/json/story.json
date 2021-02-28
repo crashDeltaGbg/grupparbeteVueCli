@@ -588,22 +588,60 @@
     "alias": "failure"
   },
   "dropItems": [
-    { "dagger": { "luck": 1, "value": 15 } },
-    { "broadsword": { "strenght": 1, "value": 25 } },
-    { "longsword": { "agility": 1, "value": 20 } },
-    { "staff": { "intellect": 1, "value": 20 } },
-    { "rusty butterknife": { "luck": 1, "intellect": 2, "value": 0 } },
-    { "sharpened spoon": { "strength": 1, "agility": 1, "value": 0 } },
-    { "battle axe": { "strength": 2, "agility": -1, "value": 25 } },
-    { "oddly shaped twig": { "value": 1 } },
     {
-      "cast iron skillet": {
-        "intellect": 1,
+      "weapon": "dagger",
+      "stats": { "strength": 0, "agility": 0, "luck": 1, "intellect": 0 },
+      "value": 15
+    },
+    {
+      "weapon": "broadsword",
+      "stats": { "strength": 1, "agility": 0, "luck": 0, "intellect": 0 },
+      "value": 25
+    },
+    {
+      "weapon": "longsword",
+      "stats": { "strength": 0, "agility": 1, "luck": 0, "intellect": 0 },
+      "value": 20
+    },
+    {
+      "weapon": "staff",
+      "stats": { "strength": 0, "agility": 0, "luck": 0, "intellect": 1 },
+      "value": 20
+    },
+    {
+      "weapon": "rusty butterknife",
+      "stats": { "strength": 0, "agility": 0, "luck": 1, "intellect": 2 },
+      "value": 0
+    },
+    {
+      "weapon": "sharpened spoon",
+      "stats": { "strength": 1, "agility": 1, "luck": 0, "intellect": 0 },
+      "value": 0
+    },
+    {
+      "weapon": "battle axe",
+      "stats": { "strength": 2, "agility": -1, "luck": 0, "intellect": 0 },
+      "value": 25
+    },
+    {
+      "weapon": "oddly shaped twig",
+      "stats": null,
+      "value": 1
+    },
+    {
+      "weapon": "cast iron skillet",
+      "stats": {
+        "strength": 0,
         "agility": -2,
         "luck": 1,
-        "value": 20
-      }
+        "intellect": 1
+      },
+      "value": 20
     },
-    { "war hammer": { "strength": 3, "agility": -1, "luck": -1, "value": 30 } }
+    {
+      "weapon": "war hammer",
+      "stats": { "strength": 3, "agility": -1, "luck": -1, "intellect": 0 },
+      "value": 30
+    }
   ]
 }

@@ -1,6 +1,6 @@
 <template>
   <ul v-if="items">
-    <li v-for="item in items" :key="item">
+    <li v-for="item in items" :key="item.weapon">
       {{ item }}&nbsp;<span v-if="item === equiped" @click="unequip()">-</span
       ><span v-else @click="equip(item)">+</span>
     </li>
