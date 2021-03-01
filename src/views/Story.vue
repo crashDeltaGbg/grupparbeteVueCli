@@ -1,5 +1,7 @@
 <template>
-  <div class="about">
+  <section id="story">
+    <Navbar :title="heading"></Navbar>
+
     <div id="status">
       <span v-if="character.purse">Coin: {{ character.purse }}</span
       >&nbsp;<Inventory
@@ -70,12 +72,13 @@
         </ul>
       </div>
     </template>
-  </div>
+  </section>
 </template>
 
 <script>
   const marked = require('marked')
   import Inventory from '@/components/Inventory.vue'
+  import Navbar from '@/components/Navbar.vue'
   import { dice } from '@/assets/mixins/dice.js'
   import { equip } from '@/assets/mixins/equip.js'
   import { measure } from '@/assets/mixins/measure.js'
@@ -83,7 +86,8 @@
 
   export default {
     components: {
-      Inventory
+      Inventory,
+      Navbar
     },
     computed: {
       character() {
@@ -115,7 +119,8 @@
         message: null,
         options: null,
         player: null,
-        success: null
+        success: null,
+        heading: 'The Story'
       }
     },
     methods: {
@@ -172,6 +177,36 @@
     },
     name: 'Story',
     watch: {
+      heading(newText) {
+        this.heading = newText
+      },
+      markdown(newValue) {
+        // We want a dynamic heading during the story.
+        if (newValue) {
+          let section = document.getElementById('text')
+
+          // If we don't get a section we don't want to run this function anymore.
+          if (!section) {
+            return
+          }
+
+          // Loop through the .md file and search for <H1>.
+          for (let i = 0; i < section.children.length; i++) {
+            const element = section.children[i]
+
+            if (element.tagName === 'H1') {
+              let title = element.innerHTML
+              // Split string at 42 characters.
+              if (title.length > 42) {
+                title = title.match(/.{1,42}/g)[0] + '...'
+              }
+
+              this.heading = title
+              return
+            }
+          }
+        }
+      },
       coin(amount) {
         if (this.coin != null && this.coin != undefined) {
           this.character.purse += amount
