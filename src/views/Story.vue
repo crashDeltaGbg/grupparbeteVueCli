@@ -135,13 +135,13 @@
         this.markdown = marked(conclusion)
       },
       effectiveStats() {
-        // TODO Why does strength return null?
         if (this.character.equipment && this.character.equipment.stats) {
           let base = this.character.stats
           console.log(base)
           let bonus = this.character.equipment.stats
-          console.log(bonus)
+          console.log(bonus.strength)
           let strength = Number(base.strength) + Number(bonus.strength)
+          console.log(strength)
           let agility = Number(base.agility) + Number(bonus.agility)
           let luck = Number(base.luck) + Number(bonus.luck)
           let intellect = Number(base.intellect) + Number(bonus.intellect)
