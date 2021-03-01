@@ -17,6 +17,10 @@ p {
   font-size: $font-size-text;
 }
 
+section {
+  padding-top: 60px;
+}
+
 .flex-wrapper {
   display: flex;
 }
@@ -61,6 +65,5 @@ p {
   cursor: pointer;
   &:hover {
     background: darken($black, 10%);
-    opacity: 0.4;
   }
 }

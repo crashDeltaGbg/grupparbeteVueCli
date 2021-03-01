@@ -67,7 +67,7 @@
 
   #navwrapper {
     display: flex;
-    /* margin-top: 60px; */
+    margin-top: 40px;
   }
 
   #blacknav {
@@ -144,6 +144,9 @@
   }
 
   @media screen and (max-width: 689px) {
+    #navwrapper {
+      margin-top: 0;
+    }
     #image {
       display: none;
     }
@@ -188,7 +191,7 @@
     }
 
     #overlay {
-      background-color: rgba(0, 0, 0, 0.85);
+      background-color: rgb(14, 11, 11);
       height: 100vh;
       display: flex;
       justify-content: center;
