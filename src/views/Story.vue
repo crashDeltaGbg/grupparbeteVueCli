@@ -2,15 +2,16 @@
   <section id="story">
     <Navbar class="top-layer" :title="heading"></Navbar>
     <section id="content">
-      <div id="status">
+      <div id="status" v-if="character">
         <span v-if="character.purse">Coin: {{ character.purse }}</span
         >&nbsp;<Inventory
           :inv="character.inventory"
           :equiped="character.equipment"
+          :character="character"
         />&nbsp;<span v-if="character.equipment">{{
           character.equipment.weapon
         }}</span
-        >&nbsp;<span>{{ effectiveStats }}</span
+        >&nbsp;<span>{{ effectiveStats() }}</span
         >&nbsp;<input type="button" @click="save()" value="Save" />
       </div>
 
@@ -27,7 +28,6 @@
             <ul v-if="chance">
               <li>
                 <input
-                  class="secondary-button"
                   type="button"
                   value="Roll the die!"
                   @click="measure(chance)"
@@ -97,21 +97,13 @@
       Navbar
     },
     computed: {
-      character() {
-        return this.$store.state.character
-      },
-      effectiveStats() {
-        return this.$store.state.effectiveStats
-      }
-    },
-    created() {
-      this.getStory('introduction-1')
-      if (this.character === null) {
-        this.load('character')
-      }
-      this.character.equipment = {
-        weapon: 'bent ice pick',
-        stats: { luck: -1 }
+      character: {
+        get() {
+          return this.$store.state.character
+        },
+        set() {
+          this.$store.commit('updateChar', this.character)
+        }
       }
     },
     data() {
@@ -131,7 +123,7 @@
       }
     },
     methods: {
-      async getStory(path) {
+      async getStory(path = 'introduction-1') {
         const response = await fetch(`/story/json/story.json`)
         const result = await response.json()
         this.selectFile(result[path].alias)
@@ -152,6 +144,27 @@
         const answer = await fetch(`/story/${fileName}.md`)
         const conclusion = await answer.text()
         this.markdown = marked(conclusion)
+      },
+      effectiveStats() {
+        // TODO Why does strength return null?
+        if (this.character.equipment && this.character.equipment.stats) {
+          let base = this.character.stats
+          console.log(base)
+          let bonus = this.character.equipment.stats
+          console.log(bonus)
+          let strength = Number(base.strength) + Number(bonus.strength)
+          let agility = Number(base.agility) + Number(bonus.agility)
+          let luck = Number(base.luck) + Number(bonus.luck)
+          let intellect = Number(base.intellect) + Number(bonus.intellect)
+          return {
+            strength,
+            agility,
+            luck,
+            intellect
+          }
+        } else {
+          return this.character.stats
+        }
       },
       onClick(path) {
         this.getStory(path)
@@ -180,7 +193,23 @@
     },
     mixins: [dice, equip, measure, saveGame],
     mounted() {
-      this.getStory(this.$store.state.character.progress)
+      if (
+        this.character != {} &&
+        this.character != null &&
+        this.character != undefined
+      ) {
+        if (this.character.progress != null) {
+          this.getStory(this.character.progress)
+          console.log('a')
+        } else {
+          this.getStory()
+          console.log('b')
+        }
+      } else {
+        this.load('character')
+        console.log(this.character)
+        console.log('c')
+      }
     },
     name: 'Story',
     watch: {
