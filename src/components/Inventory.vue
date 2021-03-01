@@ -20,7 +20,8 @@
     name: 'inventory',
     props: {
       inv: Array,
-      equiped: Object
+      equiped: Object,
+      character: Object
     }
   }
 </script>

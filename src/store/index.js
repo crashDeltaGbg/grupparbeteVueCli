@@ -13,6 +13,9 @@ export default new Vuex.Store({
       state.character = obj
       localStorage.character = JSON.stringify(obj)
     },
+    updateChar(state, obj) {
+      state.character = obj
+    },
     roll(state) {
       state.diceValue = Math.floor(Math.random() * 20)
     }
