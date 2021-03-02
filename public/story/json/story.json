@@ -408,11 +408,11 @@
   },
   "SQ8-A1": {
     "options": [{}, {}],
-    "alias":"SQ8-A1"
+    "alias": "SQ8-A1"
   },
-    "SQ8-B1": {
+  "SQ8-B1": {
     "options": [{}, {}],
-    "alias":"SQ8-B1"
+    "alias": "SQ8-B1"
   },
   "SQ9-0": {
     "options": [
@@ -429,11 +429,10 @@
     ],
     "coin": "-half",
     "alias": "SQ9-0"
-    
   },
-    "SQ9-B1": {
+  "SQ9-B1": {
     "options": [{}, {}],
-    "alias":"SQ9-B1"
+    "alias": "SQ9-B1"
   },
   "SQ9-A1": {
     "options": [
@@ -451,17 +450,17 @@
     "drop": true,
     "alias": "SQ9-A1"
   },
-    "SQ9-A2": {
+  "SQ9-A2": {
     "options": [{}, {}],
-    "stat": {"agility": -1},
+    "stat": { "agility": -1 },
     "coin": "+half",
     "drop": true,
-    "alias":"SQ9-A2"
+    "alias": "SQ9-A2"
   },
   "SQ9-A3": {
     "options": [{}, {}],
-    "stat": {"agility": -1},
-    "alias":"SQ9-A3"
+    "stat": { "agility": -1 },
+    "alias": "SQ9-A3"
   },
   "SQ10-0": {
     "options": [
@@ -537,22 +536,16 @@
     "alias": "SQ11-0"
   },
   "SQ11-A1": {
-    "options": [
-      {},
-      {}
-    ],
+    "options": [{}, {}],
     "drop": true,
     "alias": "SQ11-A1"
   },
   "SQ11-B1": {
-    "options": [
-      {},
-      {}
-    ],
+    "options": [{}, {}],
     "drop": true,
     "alias": "SQ11-B1"
   },
-  
+
   "SQ7-B1": {
     "options": [
       {
@@ -570,7 +563,7 @@
   },
   "SQ7-B2": {
     "options": [{}, {}],
-    "alias":"SQ7-B2"
+    "alias": "SQ7-B2"
   },
   "SQ7-B3": {
     "options": [{}, {}],
@@ -720,7 +713,6 @@
     "alias": "SQ5-0",
     "cost": 2
   },
-  "SQ7"
   "failure": {
     "alias": "failure"
   },
