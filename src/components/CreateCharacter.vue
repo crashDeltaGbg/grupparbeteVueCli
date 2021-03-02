@@ -361,6 +361,9 @@
     background-color: #949191;
     overflow-x: hidden;
     flex-direction: column;
+    justify-content: center;
+    margin: 100px;
+    background: rgba(0, 0, 0, 0.71);
 
     .hidden {
       display: none;
@@ -437,7 +440,6 @@
       }
 
       &.right {
-        background-color: #c4c4c4;
         order: 1;
 
         @media (min-width: $breakpoint-desktop-small) {
