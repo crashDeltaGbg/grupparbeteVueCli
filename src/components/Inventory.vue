@@ -1,10 +1,18 @@
 <template>
-  <ul v-if="items">
-    <li v-for="item in items" :key="item.weapon">
-      {{ item }}&nbsp;<span v-if="item === equiped" @click="unequip()">-</span
-      ><span v-else @click="equip(item)">+</span>
-    </li>
-  </ul>
+  <div>
+    <div id="purse">Coin:&nbsp;{{ purse }}</div>
+    <div>
+      <div>Inventory</div>
+      <!-- Add v-on that shows/displays #inventory -->
+      <ul v-if="items" id="inventory">
+        <li v-for="item in items" :key="item.weapon">
+          {{ item }}&nbsp;<span v-if="item === equiped" @click="unequip()"
+            >-</span
+          ><span v-else @click="equip(item)">+</span>
+        </li>
+      </ul>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -19,9 +27,10 @@
     mixins: [equip],
     name: 'inventory',
     props: {
-      inv: Array,
+      character: Object,
       equiped: Object,
-      character: Object
+      inv: Array,
+      purse: Number
     }
   }
 </script>

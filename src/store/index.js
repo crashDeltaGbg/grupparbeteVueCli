@@ -5,8 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    character: {},
-    diceValue: Number
+    character: {}
   },
   mutations: {
     saveCharacter(state, obj) {
@@ -15,9 +14,6 @@ export default new Vuex.Store({
     },
     updateChar(state, obj) {
       state.character = obj
-    },
-    roll(state) {
-      state.diceValue = Math.floor(Math.random() * 20)
     }
   },
   actions: {

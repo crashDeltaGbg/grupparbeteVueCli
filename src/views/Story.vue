@@ -1,11 +1,12 @@
 <template>
   <section id="story">
-    <Navbar class="top-layer" :title="heading"></Navbar>
+    <Navbar class="top-layer" :title="heading" :character="character"></Navbar>
     <section id="content">
       <div id="status" v-if="character">
         <span v-if="character.purse">Coin: {{ character.purse }}</span
         >&nbsp;<Inventory
           :inv="character.inventory"
+          :purse="character.purse"
           :equiped="character.equipment"
           :character="character"
         />&nbsp;<span v-if="character.equipment">{{
