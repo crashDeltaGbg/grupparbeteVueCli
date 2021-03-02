@@ -17,3 +17,12 @@
     }
   }
 </script>
+
+<style scoped lang="scss">
+  .character-wrapper {
+    background-image: url(../assets/character-creation.png);
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+  }
+</style>

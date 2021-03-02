@@ -8,7 +8,9 @@
         <nav>
           <div id="greynav">
             <li class="navitems"><a class="navitems" href="#">Quit</a></li>
-            <li class="navitems"><a class="navitems" href="#">Save</a></li>
+            <li class="navitems">
+              <a class="navitems" href="#" @click="save(character)">Save</a>
+            </li>
             <div id="image"></div>
           </div>
         </nav>
@@ -20,20 +22,25 @@
     <transition name="slide">
       <div id="overlay" v-if="show">
         <li class="overlayitems"><a href="#">Quit</a></li>
-        <li class="overlayitems"><a href="#">Save</a></li>
+        <li class="overlayitems">
+          <a href="#" @click="save(character)">Save</a>
+        </li>
       </div>
     </transition>
   </div>
 </template>
 
 <script>
+  import { saveGame } from '@/assets/mixins/save-game.js'
+
   export default {
     data() {
       return {
         show: true && false
       }
     },
-    props: ['title']
+    mixins: [saveGame],
+    props: ['title', 'character']
   }
 </script>
 

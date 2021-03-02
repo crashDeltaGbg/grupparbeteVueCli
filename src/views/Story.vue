@@ -1,6 +1,6 @@
 <template>
   <section id="story">
-    <Navbar class="top-layer" :title="heading"></Navbar>
+    <Navbar class="top-layer" :title="heading" :character="character"></Navbar>
     <section id="content">
       <div id="status" v-if="character">
         <div id="purse" v-if="character.purse">{{ character.purse }}</div>

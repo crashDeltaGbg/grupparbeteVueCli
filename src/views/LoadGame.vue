@@ -16,13 +16,7 @@
     created() {
       if (localStorage.gameSaves) {
         this.savesRaw = JSON.parse(localStorage.gameSaves)
-        // console.log(this.savesRaw)
       }
-      /* const gameSaves = JSON.parse(localStorage.gameSaves)
-      gameSaves.forEach(save => {
-        this.saves.push(save)
-      })
-      console.log(this.saves) */
     },
     data() {
       return {
@@ -35,9 +29,6 @@
       loadCharacter(save) {
         this.character = this.savesRaw.find(x => x[save])[save]
         this.$store.commit('saveCharacter', this.character)
-        console.log(this.character)
-        // let alias = this.character.progress
-        // console.log(alias)
         this.$router.push({ path: `/story` })
       }
     },
@@ -49,7 +40,6 @@
           save = Object.keys(this.savesRaw[i])[0]
           this.saves.push(save)
         }
-        // console.log(this.saves)
       }
     }
   }

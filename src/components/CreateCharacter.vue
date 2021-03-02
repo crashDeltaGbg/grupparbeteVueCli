@@ -111,36 +111,42 @@
     </div>
     <div class="right side" :class="{ 'page-2': page === 2 }">
       <div id="name-value" v-if="page === 2">{{ name }}</div>
-      <div id="img-wrapper">
-        <button v-if="page === 1" class="arrow left" @click="onClickImg('-')">
-          left
+      <div id="left-wrapper">
+        <div id="img-wrapper">
+          <button v-if="page === 1" class="arrow left" @click="onClickImg('-')">
+            left
+          </button>
+          <div
+            :style="'background-image: url(' + img[0] + ')'"
+            id="character-image"
+          />
+          <button
+            v-if="page === 1"
+            class="arrow right"
+            @click="onClickImg('+')"
+          >
+            right
+          </button>
+        </div>
+        <button
+          class="primary-button"
+          id="go-back"
+          v-if="page === 2 && windowSize > 979"
+          :page="page"
+          @click="page = 1"
+        >
+          Go back
         </button>
-        <div
-          :style="'background-image: url(' + img[0] + ')'"
-          id="character-image"
-        />
-        <button v-if="page === 1" class="arrow right" @click="onClickImg('+')">
-          right
+        <button
+          class="primary-button"
+          id="next-step"
+          v-if="page === 1 && windowSize > 979"
+          :page="page"
+          @click="saveGo(page)"
+        >
+          Next
         </button>
       </div>
-      <button
-        class="primary-button"
-        id="go-back"
-        v-if="page === 2 && windowSize > 979"
-        :page="page"
-        @click="page = 1"
-      >
-        Go back
-      </button>
-      <button
-        class="primary-button"
-        id="next-step"
-        v-if="page === 1 && windowSize > 979"
-        :page="page"
-        @click="saveGo(page)"
-      >
-        Next
-      </button>
     </div>
   </section>
 </template>
@@ -361,6 +367,14 @@
     background-color: #949191;
     overflow-x: hidden;
     flex-direction: column;
+    justify-content: center;
+    margin: 100px;
+    background: rgba(0, 0, 0, 0.71);
+
+    #left-wrapper {
+      display: flex;
+      flex-direction: column;
+    }
 
     .hidden {
       display: none;
@@ -433,11 +447,12 @@
         &.right {
           order: 1;
           position: relative;
+          display: flex;
+          flex-direction: column;
         }
       }
 
       &.right {
-        background-color: #c4c4c4;
         order: 1;
 
         @media (min-width: $breakpoint-desktop-small) {
@@ -460,6 +475,7 @@
           margin-left: auto;
           margin: auto 0 11px auto;
           justify-self: flex-end;
+          color: #fff;
         }
 
         .stat-value {
@@ -502,6 +518,7 @@
       margin-left: 50%;
       width: 414px;
       text-transform: capitalize;
+      color: #fff;
       @media (max-width: 979px) {
         width: calc(100% - 40px);
         max-width: 414px;
@@ -525,7 +542,7 @@
       button {
         height: 30px;
         width: 30px;
-        background-image: url('../assets/arrow.svg');
+        background-image: url('../assets/white-arrow.svg');
         border: 0;
         background-color: transparent;
         background-repeat: no-repeat;
@@ -562,15 +579,14 @@
       }
 
       @media (min-width: $breakpoint-desktop-small) {
-        transform: translateX(50%);
-        margin-right: 107px;
         position: unset;
       }
     }
 
     #go-back {
-      transform: translateX(-50%);
-      margin: 20px 0;
+      margin: auto;
+      width: 414px;
+      margin-top: 4.5rem;
 
       &.mobile {
         @media (max-width: 979px) {
@@ -587,7 +603,6 @@
         position: unset;
       }
       @media (min-width: 1024px) {
-        margin-left: 107px;
         position: unset;
       }
     }
@@ -621,7 +636,7 @@
       }
 
       @media (min-width: $breakpoint-desktop-small) {
-        margin: 80px 0 60px;
+        margin: 5rem 0 60px;
       }
     }
 
