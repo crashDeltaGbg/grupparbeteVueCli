@@ -1,40 +1,44 @@
 <template>
-  <div id="intro">
-    <Navbar id="zIndexNavbar" title="Introduction"></Navbar>
-    <div id="blackBackground">
-      <h2>Welcome to Terra Autem!</h2>
-      <div id="containerDiv">
-        <p>
-          In this land still filled with magic and mythical creatures you have
-          been chosen to partake in an epic adventure that will be told for
-          countless generations... if you survive to tell the bard at the end
-          that is.
-        </p>
-        <p>
-          Adventure Hunter is a textbased adventure that is inspired by Dungeons
-          &amp; Dragons and text adventure games like where an actions succees
-          or failure depends on your stats and a die system.
-        </p>
-        <p>
-          You will design your avatar right after this introduction and will get
-          to allocate your stats as you seem fit. While a strong warrior might
-          not have much of a problem facing a troll in single combat, an agile
-          rogue would be wise to wait for an ambush oppurtunity or maybe try to
-          sneak past, you get the gist of it. When faced with adversity you get
-          to roll a die, the relevant stat to the adversity and the total from
-          the roll is added together and compared to see if you overcome the
-          hardship or fail and have to suffer the consequences.
-        </p>
+  <section>
+    <div id="intro">
+      <Navbar id="zIndexNavbar" title="Introduction"></Navbar>
+
+      <div id="blackBackground">
+        <div id="containerDiv">
+          <h2>Welcome to Terra Autem!</h2>
+          <p>
+            In this land still filled with magic and mythical creatures you have
+            been chosen to partake in an epic adventure that will be told for
+            countless generations... if you survive to tell the bard at the end
+            that is.
+          </p>
+          <p>
+            Adventure Hunter is a textbased adventure that is inspired by
+            Dungeons &amp; Dragons and text adventure games like where an
+            actions succees or failure depends on your stats and a die system.
+          </p>
+          <p>
+            You will design your avatar right after this introduction and will
+            get to allocate your stats as you seem fit. While a strong warrior
+            might not have much of a problem facing a troll in single combat, an
+            agile rogue would be wise to wait for an ambush oppurtunity or maybe
+            try to sneak past, you get the gist of it. When faced with adversity
+            you get to roll a die, the relevant stat to the adversity and the
+            total from the roll is added together and compared to see if you
+            overcome the hardship or fail and have to suffer the consequences.
+          </p>
+
+          <button
+            @click="continueStory($event)"
+            class="primary-button"
+            id="zIndexButton"
+          >
+            Continue
+          </button>
+        </div>
       </div>
-      <button
-        @click="continueStory($event)"
-        class="primary-button"
-        id="zIndexButton"
-      >
-        Continue
-      </button>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -54,20 +58,22 @@
 </script>
 
 <style lang="scss">
+  @import '../assets/style/variables.scss';
+  section,
   #intro {
-    width: 100vw;
+    /* width: 100vw; */
     height: 100vh;
     display: flex;
     flex-direction: column;
-    background: #949191;
-    overflow-x: hidden;
+
+    /* overflow-x: hidden; */
     padding: 0;
     margin: 0;
     background-image: url(../assets/intro.png);
     background-size: cover;
 
-    h1 {
-      z-index: 1;
+    @media (max-width: $breakpoint-tablet) {
+      background-image: none;
     }
 
     h2 {
@@ -75,18 +81,24 @@
       font-size: 40px;
       color: #fff;
       z-index: 1;
+      text-align: left;
+      padding-top: 100px;
     }
 
     p {
-      font-size: 25px;
+      font-size: 18px;
       margin-top: 25px;
-      margin-left: 150px;
-      margin-right: 150px;
-      color: #fff;
+      line-height: 35px;
+      color: $white;
+      text-align: left;
     }
     #containerDiv {
       position: relative;
       z-index: 1;
+      justify-content: center;
+      margin: 0 auto;
+
+      width: 60%;
     }
 
     #blackBackground {
