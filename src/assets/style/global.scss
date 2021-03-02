@@ -19,6 +19,9 @@ p {
 
 section {
   padding-top: 60px;
+  @media (max-width: 646px) {
+    padding-top: 0px;
+  }
 }
 
 .flex-wrapper {

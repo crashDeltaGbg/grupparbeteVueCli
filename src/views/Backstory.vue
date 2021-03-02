@@ -55,6 +55,11 @@
 
   #ontop {
     position: relative;
+
+    @media (max-width: 646px) {
+      padding-top: 0;
+      margin-top: 0;
+    }
   }
 
   #backstoryimage::before {
@@ -71,7 +76,6 @@
       rgba(0, 0, 0, 0) 100.36%
     );
     @media (max-width: 646px) {
-      /* background-color: ; */
       background: none;
     }
   }

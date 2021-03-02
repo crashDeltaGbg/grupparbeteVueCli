@@ -67,7 +67,6 @@
 
   #navwrapper {
     display: flex;
-    margin-top: 40px;
   }
 
   #blacknav {
@@ -144,9 +143,6 @@
   }
 
   @media screen and (max-width: 689px) {
-    #navwrapper {
-      margin-top: 0;
-    }
     #image {
       display: none;
     }
