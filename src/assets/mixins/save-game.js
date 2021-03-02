@@ -1,4 +1,9 @@
 export const saveGame = {
+  /*computed: {
+    charcter() {
+      return this.$store.state.character
+    }
+  },*/
   data() {
     return {
       arr: []
@@ -30,6 +35,9 @@ export const saveGame = {
     },
     load(fileName) {
       this.character = JSON.parse(window.localStorage.getItem(fileName))
+      console.log(fileName)
+      /* this.$store.commit('saveCharacter', this.character) */
+      return this.character
     }
   },
   name: 'SaveGameFunction'

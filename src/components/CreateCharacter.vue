@@ -173,7 +173,7 @@
         imgIndex: 0,
         points: 10,
         stats: {
-          stength: 3,
+          strength: 3,
           agility: 3,
           intellect: 3,
           luck: 3

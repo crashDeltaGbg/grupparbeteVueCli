@@ -17,6 +17,13 @@ p {
   font-size: $font-size-text;
 }
 
+section {
+  padding-top: 60px;
+  @media (max-width: 646px) {
+    padding-top: 0px;
+  }
+}
+
 .flex-wrapper {
   display: flex;
 }
@@ -61,6 +68,5 @@ p {
   cursor: pointer;
   &:hover {
     background: darken($black, 10%);
-    opacity: 0.4;
   }
 }

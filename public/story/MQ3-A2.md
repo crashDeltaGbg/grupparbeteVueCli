@@ -1,0 +1,5 @@
+# Success
+
+Unsure if you are blessed by the gods or simply if your adventure has paid off, your hit lands and your weapon quite literally sinks into the beast. It is dazed and you take this opportunity to strike again. The beast crumbles under the force of your weapon, and the mark on your hand begins to glow with a white light as you continue to beat the beast, until finally, with a surge of power, your weapon connects one final time to slay the mighty foe. With a quick sigh of relief you know it is not over yet, you have one obstacle left to overcome.
+
+The black obelisk begins to reverberate with power once more as you get closer. The glowing mark on your hand is emanating the same frequency of magic. You grasp your weapon with your marked hand and thrust it into the obelisk. With a thunderous crack you are swept off your feet and thrown to the ground. The obelisk shatters before you and the mark that has been a pain in your hand for days now, finally, numbs. With this you collapse and unconsciousness takes you.

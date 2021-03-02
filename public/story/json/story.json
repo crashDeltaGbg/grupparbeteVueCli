@@ -92,26 +92,10 @@
       {
         "id": "a",
         "text": "Continue",
-        "proceed": "MQ1-B3"
-      }
-    ],
-    "alias": "MQ1-B2"
-  },
-
-  "MQ1-B3": {
-    "options": [
-      {
-        "id": "a",
-        "text": "Continue",
-        "proceed": "SQ1-0"
-      },
-      {
-        "id": "b",
-        "text": "Chapter 2",
         "proceed": "MQ2-1"
       }
     ],
-    "alias": "MQ1-B3"
+    "alias": "MQ1-B2"
   },
   "MQ2-1": {
     "options": [
@@ -218,6 +202,26 @@
     ],
     "alias": "MQ2-B2"
   },
+  "MQ2-B2-A1": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Continue",
+        "proceed": "MQ3-1"
+      }
+    ],
+    "alias": "MQ2-B2-A1"
+  },
+  "MQ2-B2-B1": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Continue",
+        "proceed": "MQ3-1"
+      }
+    ],
+    "alias": "MQ2-B2-B1"
+  },
   "MQ2-B1-A1": {
     "options": [
       {
@@ -237,6 +241,71 @@
       }
     ],
     "alias": "MQ2-B1-B1"
+  },
+  "MQ3-1": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Continue",
+        "proceed": "MQ3-2"
+      }
+    ],
+    "alias": "MQ3-1"
+  },
+  "MQ3-2": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Fight",
+        "proceed": "MQ3-A1"
+      },
+      {
+        "id": "b",
+        "text": "Flee",
+        "proceed": "MQ3-B1"
+      }
+    ],
+    "alias": "MQ3-2"
+  },
+  "MQ3-A1": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Continue",
+        "proceed": "MQ3-A2"
+      }
+    ],
+    "alias": "MQ3-A1"
+  },
+  "MQ3-B1": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Continue",
+        "proceed": "MQ3-A1"
+      }
+    ],
+    "alias": "MQ3-B1"
+  },
+  "MQ3-A2": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Continue",
+        "proceed": "epilogue"
+      }
+    ],
+    "alias": "MQ3-A2"
+  },
+  "epilogue": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Restart",
+        "proceed": "introduction-1"
+      }
+    ],
+    "alias": "epilogue"
   },
   "SQ0-0": {
     "options": [
