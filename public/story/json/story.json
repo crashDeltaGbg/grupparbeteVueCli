@@ -406,6 +406,14 @@
     ],
     "alias": "SQ8-0"
   },
+  "SQ8-A1": {
+    "options": [{}, {}],
+    "alias":"SQ8-A1"
+  },
+    "SQ8-B1": {
+    "options": [{}, {}],
+    "alias":"SQ8-B1"
+  },
   "SQ9-0": {
     "options": [
       {
@@ -419,13 +427,19 @@
         "proceed": "SQ9-B1"
       }
     ],
+    "coin": "-half",
     "alias": "SQ9-0"
+    
+  },
+    "SQ9-B1": {
+    "options": [{}, {}],
+    "alias":"SQ9-B1"
   },
   "SQ9-A1": {
     "options": [
       {
         "id": "a",
-        "text": "success",
+        "text": "Success!",
         "proceed": "SQ9-A2"
       },
       {
@@ -434,7 +448,20 @@
         "proceed": "SQ9-A3"
       }
     ],
+    "drop": true,
     "alias": "SQ9-A1"
+  },
+    "SQ9-A2": {
+    "options": [{}, {}],
+    "stat": {"agility": -1},
+    "coin": "+half",
+    "drop": true,
+    "alias":"SQ9-A2"
+  },
+  "SQ9-A3": {
+    "options": [{}, {}],
+    "stat": {"agility": -1},
+    "alias":"SQ9-A3"
   },
   "SQ10-0": {
     "options": [
@@ -466,6 +493,14 @@
     ],
     "alias": "SQ10-A1"
   },
+  "SQ10-A2": {
+    "options": [{}, {}],
+    "alias": "SQ10-A2"
+  },
+  "SQ10-A3": {
+    "options": [{}, {}],
+    "alias": "SQ10-A3"
+  },
   "SQ7-0": {
     "options": [
       {
@@ -480,6 +515,11 @@
       }
     ],
     "alias": "SQ7-0"
+  },
+  "SQ7-A1": {
+    "options": [{}, {}],
+    "alias": "SQ7-A1",
+    "coin": "-all"
   },
   "SQ11-0": {
     "options": [
@@ -496,20 +536,47 @@
     ],
     "alias": "SQ11-0"
   },
+  "SQ11-A1": {
+    "options": [
+      {},
+      {}
+    ],
+    "drop": true,
+    "alias": "SQ11-A1"
+  },
+  "SQ11-B1": {
+    "options": [
+      {},
+      {}
+    ],
+    "drop": true,
+    "alias": "SQ11-B1"
+  },
+  
   "SQ7-B1": {
     "options": [
       {
         "id": "a",
         "text": "Success!",
-        "proceed": "SQ7-B2!"
+        "proceed": "SQ7-B2"
       },
       {
         "id": "b",
         "text": "Fail!",
-        "proceed": "SQ7-B3!"
+        "proceed": "SQ7-B3"
       }
     ],
     "alias": "SQ7-B1"
+  },
+  "SQ7-B2": {
+    "options": [{}, {}],
+    "alias":"SQ7-B2"
+  },
+  "SQ7-B3": {
+    "options": [{}, {}],
+    "alias": "SQ7-B3",
+    "coin": "-all",
+    "drop": "-all"
   },
   "SQ1-1": {
     "options": [
@@ -653,6 +720,7 @@
     "alias": "SQ5-0",
     "cost": 2
   },
+  "SQ7"
   "failure": {
     "alias": "failure"
   },

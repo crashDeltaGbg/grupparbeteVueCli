@@ -155,6 +155,8 @@
           let items = result.dropItems
           let i = this.roll('D10')
           this.item = items[i]
+        } else if (result[path].drop === '-all') {
+          this.item = '-all'
         }
       },
       async selectFile(fileName) {
@@ -272,12 +274,16 @@
         }
       },
       coin(amount) {
-        if (this.coin != null && this.coin != undefined) {
+        if (this.coin != null && this.coin != undefined && !isNaN(this.coin)) {
           this.character.purse += amount
+        } else if (this.coin === '-all') {
+          this.character.purse = 0
         }
       },
       item(obj) {
-        if (this.item != null && this.item != undefined) {
+        if (this.item === '-all') {
+          this.character.inventory = []
+        } else if (this.item != null && this.item != undefined) {
           this.character.inventory.push(obj)
         }
       }
