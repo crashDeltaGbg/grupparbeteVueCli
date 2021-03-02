@@ -22,7 +22,7 @@
   .character-wrapper {
     background-image: url(../assets/character-creation.png);
     background-size: cover;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
   }
 </style>
