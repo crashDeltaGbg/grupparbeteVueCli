@@ -761,12 +761,6 @@
   "failure": {
     "alias": "failure"
   },
-  "SQ7-B3": {
-    "options": [{}, {}],
-    "alias": "SQ7-B3",
-    "coin": "-all",
-    "drop": "-all"
-  },
   "fork": {
     "options": [
       {
