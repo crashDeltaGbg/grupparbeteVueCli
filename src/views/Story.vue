@@ -37,7 +37,7 @@
             <ul v-if="chance">
               <li>
                 <button @click="measure(chance)" class="secondary-button">
-                  Try your {{ chance }}!
+                  Try your {{ chance }}! <img src="/images/svg/dice.svg" />
                 </button>
               </li>
             </ul>

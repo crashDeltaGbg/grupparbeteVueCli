@@ -70,6 +70,7 @@
   .equip {
     background-color: white;
     color: black;
+    line-height: 2em;
   }
   ul {
     padding: 0;
