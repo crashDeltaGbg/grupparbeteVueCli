@@ -7,11 +7,21 @@
         </div>
         <nav>
           <div id="greynav">
-            <li class="navitems"><a class="navitems" href="#">Quit</a></li>
             <li class="navitems">
-              <a class="navitems" href="#" @click="save(character)">Save</a>
+              <router-link class="navitems" to="/">Quit</router-link>
             </li>
-            <div id="image"></div>
+            <li class="navitems">
+              <span class="navitems" @click="save(character)">Save</span>
+            </li>
+            <div
+              id="image"
+              class="idioti"
+              :style="
+                'background-image:url(' +
+                  character.img +
+                  '); background-position: center; background-size: cover; background-repeat: no-repeat'
+              "
+            ></div>
           </div>
         </nav>
 
@@ -21,9 +31,9 @@
 
     <transition name="slide">
       <div id="overlay" v-if="show">
-        <li class="overlayitems"><a href="#">Quit</a></li>
+        <li class="overlayitems"><router-link to="/">Quit</router-link></li>
         <li class="overlayitems">
-          <a href="#" @click="save(character)">Save</a>
+          <span @click="save(character)">Save</span>
         </li>
       </div>
     </transition>
@@ -140,7 +150,8 @@
   }
 
   .overlayitems,
-  a {
+  a,
+  span {
     color: white;
     list-style: none;
     padding: 30px;
