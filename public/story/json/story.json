@@ -486,19 +486,45 @@
       },
       {
         "id": "b",
-        "text": "fail",
+        "text": "Fail",
         "proceed": "SQ10-A3"
       }
     ],
+    "chance": "luck",
+    "die": "D4",
+    "success": 10,
     "alias": "SQ10-A1"
   },
   "SQ10-A2": {
-    "options": [{}, {}],
+    "options": [
+      {
+        "id": "a",
+        "text": "Go back the way you came",
+        "proceed": "SQ4-0"
+      }
+    ],
+    "coin": 10,
     "alias": "SQ10-A2"
   },
   "SQ10-A3": {
-    "options": [{}, {}],
+    "options": [
+      {
+        "id": "a",
+        "text": "Go back in to the city",
+        "proceed": "SQ4-0"
+      }
+    ],
     "alias": "SQ10-A3"
+  },
+  "SQ10-B1": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Go back in to the city",
+        "proceed": "SQ4-0"
+      }
+    ],
+    "alias": "SQ10-B1"
   },
   "SQ7-0": {
     "options": [
@@ -585,6 +611,16 @@
     ],
     "coin": -1,
     "alias": "SQ12-B1"
+  },
+  "SQ12-B1-A1": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Go to the city",
+        "proceed": "SQ4-0"
+      }
+    ],
+    "alias": "SQ12-B1-A1"
   },
   "SQ12-B1-B1": {
     "options": [
@@ -856,7 +892,13 @@
     "cost": 2
   },
   "SQ5-1": {
-    "options": [{}, {}],
+    "options": [
+      {
+        "id": "a",
+        "proceed": "SQ12-0",
+        "text": "Order an ale"
+      }
+    ],
     "alias": "SQ5-1"
   },
   "SQ6-0": {
