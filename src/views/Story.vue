@@ -82,7 +82,7 @@
                 class="options-button"
                 :class="{
                   'primary-button': index === 0,
-                  'third-button': index === 1
+                  'third-button': index === 1 || index === 2
                 }"
                 type="button"
                 :value="option.text"
@@ -252,25 +252,26 @@
 
             if (element.tagName === 'H1') {
               let title = element.innerHTML
+              if (title) {
+                if (window.innerWidth < 980 && window.innerWidth > 767) {
+                  // Split string at 34 characters.
+                  if (title.length > 9) {
+                    title = title.match(/.{1,9}/g)[0]
+                  }
+                } else if (window.innerWidth < 768) {
+                  // Split string at 34 characters.
+                  if (title.length > 34) {
+                    title = title.match(/.{1,34}/g)[0] + '...'
+                  }
+                } else {
+                  // Split string at 42 characters.
+                  if (title.length > 42) {
+                    title = title.match(/.{1,42}/g)[0] + '...'
+                  }
+                }
 
-              if (window.innerWidth < 980 && window.innerWidth > 767) {
-                // Split string at 34 characters.
-                if (title.length > 9) {
-                  title = title.match(/.{1,9}/g)[0]
-                }
-              } else if (window.innerWidth < 768) {
-                // Split string at 34 characters.
-                if (title.length > 34) {
-                  title = title.match(/.{1,34}/g)[0] + '...'
-                }
-              } else {
-                // Split string at 42 characters.
-                if (title.length > 42) {
-                  title = title.match(/.{1,42}/g)[0] + '...'
-                }
+                this.heading = title
               }
-
-              this.heading = title
             }
           }
 
@@ -375,11 +376,13 @@
           display: flex;
           margin: 40px 0;
           justify-content: flex-start;
+          flex-wrap: wrap;
           flex-direction: column;
           padding: 0;
 
           li {
             list-style-type: none;
+            margin: 20px 0;
 
             .primary-button,
             .third-button {
@@ -387,12 +390,17 @@
               padding: 12px;
             }
 
-            .third-button {
+            .third-button,
+            .options-button {
               padding: 10px;
               margin: 20px 0;
               @media (min-width: $breakpoint-desktop-small) {
                 margin: 0 auto 0 20px;
               }
+            }
+
+            .options-button {
+              height: 100%;
             }
           }
 
