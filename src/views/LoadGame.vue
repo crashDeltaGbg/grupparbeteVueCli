@@ -1,18 +1,35 @@
 <template>
-  <div v-if="saves">
-    <ul>
-      <li v-for="save in saves" :key="save">
-        <button @click="loadCharacter(save)">{{ save }}</button>
-      </li>
-    </ul>
-  </div>
-  <div v-else>
-    There are no saved games.
+  <div id="wrap">
+    <Navbar id="navve" title="Previous Games"></Navbar>
+    <div id="container">
+      <div v-if="saves">
+        <ul>
+          <li v-for="save in saves" :key="save">
+            <button
+              id="buttons"
+              class="primary-button"
+              @click="loadCharacter(save)"
+            >
+              {{ save }}
+            </button>
+          </li>
+        </ul>
+      </div>
+      <div v-else>
+        There are no saved games.
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+  import Navbar from '@/components/Navbar.vue'
+
   export default {
+    name: 'Introduction',
+    components: {
+      Navbar
+    },
     created() {
       if (localStorage.gameSaves) {
         this.savesRaw = JSON.parse(localStorage.gameSaves)
@@ -44,3 +61,56 @@
     }
   }
 </script>
+<style lang="scss" scoped>
+  @import '../assets/style/variables.scss';
+
+  #navve {
+    position: relative;
+    padding-top: 60px;
+    @media (max-width: 688px) {
+      padding-top: 0px;
+    }
+  }
+
+  #wrap::before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  #wrap {
+    background-image: url(../../public/images/Wizard.jpg);
+    position: relative;
+    background-size: cover;
+    background-position: center;
+  }
+
+  #container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    position: relative;
+    overflow-x: hidden;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding-top: 40px;
+  }
+
+  li,
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  #buttons {
+    margin: 17px;
+  }
+</style>
