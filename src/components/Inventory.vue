@@ -8,7 +8,7 @@
             class="inventoryIcons"
             :src="item.src"
             :alt="item.weapon"
-            @click="weaponStats(item)"
+            @click="stats ? (stats = null) : weaponStats(item)"
           /><!--{{ item.weapon }}-->&nbsp;<span
             v-if="item === equipped"
             @click="unequip()"
