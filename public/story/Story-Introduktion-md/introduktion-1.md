@@ -1,5 +1,6 @@
 ## Introduction
-A long time ago in the country far away, named Terra autem. A land inhabited by gnomes and mountain trolls, elves and dragons, kings and queens. Embossed out ancient candle magic and archaic black art.
+
+A long time ago in the country far away, named Terra autem. A land inhabited by gnomes and mountain trolls, elves and dragons, King's and queens. Embossed out ancient candle magic and archaic black art.
 
 Here King Roidür has ruled his country in peacetime for many years, and of the peace between the mountain troll and the kingdom a calm has settled over the population and not everyone was ready for what was growing underneath the mountains.
 
