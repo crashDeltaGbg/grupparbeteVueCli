@@ -360,9 +360,11 @@
             .primary-button,
             .third-button {
               margin: 0;
+              padding: 12px;
             }
 
             .third-button {
+              padding: 10px;
               margin: 20px 0;
               @media (min-width: $breakpoint-desktop-small) {
                 margin: 0 auto 0 20px;
