@@ -65,6 +65,7 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
+    /* justify-content: center; */
     /*  position: relative;
     overflow-x: hidden; */
     padding: 0;
@@ -73,9 +74,9 @@
     background-size: cover;
     background-position: center;
     overflow: auto;
-    @media (max-width: 688px) {
+    /* @media (max-width: 688px) {
       background-image: none;
-    }
+    } */
 
     #intro::before {
       content: '';
@@ -85,9 +86,9 @@
       bottom: 0px;
       left: 0px;
       background-color: rgba(0, 0, 0, 0.66);
-      @media (max-width: 688px) {
+      /* @media (max-width: 688px) {
         background-color: $black;
-      }
+      } */
     }
 
     h2 {
@@ -123,10 +124,14 @@
       @media (max-width: 688px) {
         width: 75%;
       }
-    }
 
-    button {
-      /* margin: 0 auto; */
+      #zIndexButton {
+        float: left;
+
+        /* @media (max-width: 688px) {
+          float: none;
+        } */
+      }
     }
 
     /* #blackBackground {
