@@ -218,6 +218,11 @@
         "id": "a",
         "text": "Continue",
         "proceed": "MQ3-1"
+      },
+      {
+        "id": "b",
+        "text": "You feel tired",
+        "proceed": "SQ9-0"
       }
     ],
     "alias": "MQ2-B2-B1"
@@ -427,11 +432,17 @@
         "proceed": "SQ9-B1"
       }
     ],
-    "coin": "-half",
+    "coin": "-all",
     "alias": "SQ9-0"
   },
   "SQ9-B1": {
-    "options": [{}, {}],
+    "options": [
+      {
+        "id": "a",
+        "text": "Continue",
+        "proceed": "MQ3-1"
+      }
+    ],
     "alias": "SQ9-B1"
   },
   "SQ9-A1": {
@@ -447,18 +458,32 @@
         "proceed": "SQ9-A3"
       }
     ],
+    "die": "D6",
+    "chance": "luck",
+    "success": 8,
     "drop": true,
     "alias": "SQ9-A1"
   },
   "SQ9-A2": {
-    "options": [{}, {}],
+    "options": [
+      {
+        "id": "a",
+        "text": "Continue",
+        "proceed": "MQ3-1"
+      }
+    ],
     "stat": { "agility": -1 },
-    "coin": "+half",
-    "drop": true,
+    "coin": 50,
     "alias": "SQ9-A2"
   },
   "SQ9-A3": {
-    "options": [{}, {}],
+    "options": [
+      {
+        "id": "a",
+        "text": "Continue",
+        "proceed": "MQ3-1"
+      }
+    ],
     "stat": { "agility": -1 },
     "alias": "SQ9-A3"
   },
