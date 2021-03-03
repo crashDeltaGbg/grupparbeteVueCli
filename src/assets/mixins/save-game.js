@@ -35,8 +35,6 @@ export const saveGame = {
     },
     load(fileName) {
       this.character = JSON.parse(window.localStorage.getItem(fileName))
-      console.log(fileName)
-      /* this.$store.commit('saveCharacter', this.character) */
       return this.character
     }
   },

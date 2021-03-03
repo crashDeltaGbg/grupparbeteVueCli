@@ -159,11 +159,6 @@
         window.addEventListener('resize', this.onResize)
       })
     },
-    watch: {
-      windowSize(n, old) {
-        console.log('Window changed from' + old + ' To ' + n)
-      }
-    },
     data() {
       return {
         page: 1,

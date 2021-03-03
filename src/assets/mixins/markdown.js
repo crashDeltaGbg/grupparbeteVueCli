@@ -8,8 +8,6 @@ export let markdown = {
       .then(result => {
         this.stories = result.options
         this.mdUrl = result.mdFilePath
-        console.log(this.stories)
-        console.log(this.mdUrl)
         this.selectFile(this.mdUrl)
       })
   },
