@@ -589,7 +589,13 @@
     "alias": "SQ7-0"
   },
   "SQ7-A1": {
-    "options": [{}, {}],
+    "options": [
+      {
+        "id": "a",
+        "text": "Continue",
+        "proceed": "MQ3-1"
+      }
+    ],
     "alias": "SQ7-A1",
     "coin": "-all"
   },
@@ -787,11 +793,23 @@
     "alias": "SQ7-B1"
   },
   "SQ7-B2": {
-    "options": [{}, {}],
+    "options": [
+      {
+        "id": "a",
+        "text": "Continue",
+        "proceed": "MQ3-1"
+      }
+    ],
     "alias": "SQ7-B2"
   },
   "SQ7-B3": {
-    "options": [{}, {}],
+    "options": [
+      {
+        "id": "a",
+        "text": "Continue",
+        "proceed": "MQ3-1"
+      }
+    ],
     "alias": "SQ7-B3",
     "coin": "-all",
     "drop": "-all"
