@@ -8,12 +8,12 @@
             class="inventoryIcons"
             :src="item.src"
             :alt="item.weapon"
-            @click="stats ? (stats = null) : weaponStats(item)"
-          /><!--{{ item.weapon }}&nbsp;<span
-            v-if="item === equipped"
-            @click="unequip()"
-            >[-]</span
-          ><span v-else @click="equip(item)">[+]</span>-->
+            @click="
+              weapon === item.weapon && stats != null
+                ? (stats = null)
+                : weaponStats(item)
+            "
+          />
         </li>
       </ul>
       <div v-if="stats" id="weaponStats">
@@ -74,6 +74,11 @@
   }
   ul {
     padding: 0;
+  }
+  #inventory {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-auto-rows: auto;
   }
   #weaponStats {
     font-size: 12px;
