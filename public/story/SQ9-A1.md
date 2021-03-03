@@ -1,4 +1,4 @@
-# The Black Phooka!
+# The Black Phooka&excl;
 
 Without thinking, you throw yourself up and rush after the creature through the darkness. After a while, you glimpse the black long tail as it dives into a large dead and hollow tree.
 

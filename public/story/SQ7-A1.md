@@ -1,4 +1,4 @@
-# Bandits!
+# Bandits&excl;
 
 You choose to give up all your coins in the hope that the bandits will let you through unscathed.
 
