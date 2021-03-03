@@ -17,6 +17,7 @@
         <p>Something's amiss :(</p>
       </div>
       <template v-if="die || cost">
+        <!-- To use "custom"; "|| custom" needs to be added to v-if -->
         <div v-if="die">
           <div id="chance">
             <ul v-if="chance">
@@ -28,6 +29,7 @@
             </ul>
           </div>
         </div>
+        <!-- <div v-if="custom" v-html="custom"></div> -->
         <div v-else>
           <input
             type="button"
@@ -111,6 +113,7 @@
         chance: null,
         coin: null,
         cost: null,
+        custom: null,
         die: null,
         heading: 'The Story',
         item: null,
@@ -133,13 +136,17 @@
         this.success = result[path].success
         this.coin = result[path].coin
         this.cost = result[path].cost
+        this.custom = result[path].custom
         this.character.progress = result[path].alias
-        if (result[path].drop === true) {
+        let drop = result[path].drop
+        if (drop === true) {
           let items = result.dropItems
           let i = this.roll('D10')
           this.item = items[i]
-        } else if (result[path].drop === '-all') {
+        } else if (drop === '-all') {
           this.item = '-all'
+        } else if (drop != null && drop != undefined) {
+          this.item = drop
         }
       },
       async selectFile(fileName) {

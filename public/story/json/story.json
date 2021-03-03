@@ -29,7 +29,8 @@
         "proceed": "MQ1"
       }
     ],
-    "alias": "introduction-3"
+    "alias": "introduction-3",
+    "custom": "Ett litet test att interpolera en sträng innehållande kod.<br><input type=\"button\" value=\"OK\" v-on:click=\"getStory('MQ1')\" class=\"secondary-button\"/>"
   },
 
   "MQ1": {
@@ -373,7 +374,7 @@
     "alias": "SQ2-1",
     "chance": "luck",
     "die": "D4",
-    "success": "20"
+    "success": 3
   },
   "SQ3-0": {
     "options": [
@@ -683,7 +684,7 @@
     "alias": "SQ3-1",
     "chance": "luck",
     "die": "D4",
-    "success": "3",
+    "success": 3,
     "coin": -50
   },
   "SQ3-2": {
