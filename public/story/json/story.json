@@ -700,8 +700,8 @@
   },
   "SQ4-0": {
     "options": [
-      { "id": "a", "text": "Town Square", "proceed": "townSquare" },
-      { "id": "b", "text": "Ale House", "proceed": "aleHouse" }
+      { "id": "a", "text": "Harbor", "proceed": "SQ10-0" },
+      { "id": "b", "text": "Ale House", "proceed": "SQ6-0" }
     ],
     "alias": "SQ4-0"
   },
