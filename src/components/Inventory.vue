@@ -29,7 +29,7 @@
     name: 'inventory',
     props: {
       character: Object,
-      equiped: Object,
+      equipped: Object,
       inv: Array,
       purse: Number
     }
