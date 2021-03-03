@@ -8,7 +8,7 @@
             class="inventoryIcons"
             :src="item.src"
             :alt="item.weapon"
-            @click="stats(item)"
+            @click="weaponStats(item)"
           /><!--{{ item.weapon }}-->&nbsp;<span
             v-if="item === equipped"
             @click="unequip()"
@@ -16,8 +16,8 @@
           ><span v-else @click="equip(item)">[+]</span>
         </li>
       </ul>
-      <ul v-if="stats" id="weaponStats">
-        <li>{{ weapon }}</li>
+      <ul v-if="stats" id="weaponStats" @click="stats = null">
+        <li>{{ weapon }}:</li>
         <li>Strength: {{ stats.strength }}</li>
         <li>Agility: {{ stats.agility }}</li>
         <li>Luck: {{ stats.luck }}</li>
@@ -57,7 +57,7 @@
 
 <style scoped>
   .inventoryIcons {
-    height: 20px;
+    height: 30px;
   }
   ul {
     padding: 0;
