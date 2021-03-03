@@ -23,9 +23,7 @@
         </div>
       </div>
 
-      <div v-if="markdown" v-html="markdown" id="text">
-        <!-- Här läses texten från markdown-filer in -->
-      </div>
+      <div v-if="markdown" v-html="markdown" id="text"></div>
       <div v-else>
         <h1>Uh-oh!</h1>
         <p>Something's amiss :(</p>
@@ -35,12 +33,9 @@
           <div id="chance">
             <ul v-if="chance">
               <li>
-                <input
-                  type="button"
-                  value="Roll the die!"
-                  class="secondary-button"
-                  @click="measure(chance)"
-                />
+                <button @click="measure(chance)" class="secondary-button">
+                  Try your {{ chance }}!
+                </button>
               </li>
             </ul>
           </div>
@@ -365,9 +360,11 @@
             .primary-button,
             .third-button {
               margin: 0;
+              padding: 12px;
             }
 
             .third-button {
+              padding: 10px;
               margin: 20px 0;
               @media (min-width: $breakpoint-desktop-small) {
                 margin: 0 auto 0 20px;
