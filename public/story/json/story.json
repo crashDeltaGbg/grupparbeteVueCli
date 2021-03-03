@@ -542,10 +542,134 @@
   },
   "SQ11-B1": {
     "options": [{}, {}],
-    "drop": true,
     "alias": "SQ11-B1"
   },
-
+  "SQ12-0": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Ask the bartender",
+        "proceed": "SQ12-A1"
+      },
+      {
+        "id": "b",
+        "text": "Join the group",
+        "proceed": "SQ12-B1"
+      }
+    ],
+    "alias": "SQ12-0"
+  },
+  "SQ12-A1": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Leave the alehouse",
+        "proceed": "SQ4-0"
+      }
+    ],
+    "coin": -1,
+    "alias": "SQ12-A1"
+  },
+  "SQ12-B1": {
+    "options": [
+      {
+        "id": "a",
+        "text": "No way I'm visiting a haunted house!",
+        "proceed": "SQ12-B1-A1"
+      },
+      {
+        "id": "b",
+        "text": "Treasure and riches have captured your interest",
+        "proceed": "SQ12-B1-B1"
+      }
+    ],
+    "coin": -1,
+    "alias": "SQ12-B1"
+  },
+  "SQ12-B1-B1": {
+    "options": [
+      {
+        "id": "a",
+        "text": "By drawing your weapon",
+        "proceed": "SQ12-B1-B1-A1"
+      },
+      {
+        "id": "b",
+        "text": "Do nothing",
+        "proceed": "SQ12-B1-B1-B1"
+      }
+    ],
+    "alias": "SQ12-B1-B1"
+  },
+  "SQ12-B1-B1-A1": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Front door",
+        "proceed": "SQ12-B1-B1-A1-A1"
+      },
+      {
+        "id": "b",
+        "text": "Back door",
+        "proceed": "SQ12-B1-B1-A1-B1"
+      }
+    ],
+    "alias": "SQ12-B1-B1-A1"
+  },
+  "SQ12-B1-B1-A1-A1": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Run back to the city",
+        "proceed": "SQ4-0"
+      }
+    ],
+    "coins": -10,
+    "alias": "SQ12-B1-B1-A1-A1"
+  },
+  "SQ12-B1-B1-A1-B1": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Go back to the city",
+        "proceed": "SQ4-0"
+      }
+    ],
+    "alias": "SQ12-B1-B1-A1-B1"
+  },
+  "SQ12-B1-B1-B1": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Success",
+        "proceed": "SQ12-B1-B1-B1-A1"
+      },
+      {
+        "id": "b",
+        "text": "Fail",
+        "proceed": "SQ12-B1-B1-B1-B1"
+      }
+    ],
+    "alias": "SQ12-B1-B1-B1",
+    "chance": "luck",
+    "die": "D4",
+    "success": 3
+  },
+  "SQ12-B1-B1-B1-A1": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Go back to the city",
+        "proceed": "SQ4-0"
+      }
+    ],
+    "coin": 100,
+    "alias": "SQ12-B1-B1-B1-A1"
+  },
+  "SQ12-B1-B1-B1-B1": {
+    "options": [{}, {}],
+    "alias": "SQ12-B1-B1-B1-A1"
+  },
   "SQ7-B1": {
     "options": [
       {
