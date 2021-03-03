@@ -3,6 +3,7 @@
     <Navbar class="top-layer" :title="heading" :character="character"></Navbar>
     <section id="content">
       <div id="status" v-if="character">
+<<<<<<< HEAD
         <!-- <span v-if="character.purse">Coin: {{ character.purse }}</span
         >&nbsp; --><Inventory
           :inv="character.inventory"
@@ -14,6 +15,26 @@
         }}</span
         >&nbsp;<span>{{ effectiveStats() }}</span
         >&nbsp;<input type="button" @click="save()" value="Save" /> -->
+=======
+        <div id="purse" v-if="character.purse">{{ character.purse }}</div>
+        <div id="equiped" v-if="character.equiped">{{ character.equiped }}</div>
+        <div v-if="character.inventory.length > 0">
+          <Inventory
+            :inv="character.inventory"
+            :equiped="character.equipment"
+            :character="character"
+          />
+        </div>
+        <div id="character-stats">
+          Your Stats:
+          <ul>
+            <li>Strength: {{ effectiveStats().strength }}</li>
+            <li>Agillity: {{ effectiveStats().agility }}</li>
+            <li>Intellect: {{ effectiveStats().intellect }}</li>
+            <li>Luck: {{ effectiveStats().luck }}</li>
+          </ul>
+        </div>
+>>>>>>> 56deaac6fbe2dcccb1a720d7e3d4126b8b61e8e9
       </div>
 
       <div v-if="markdown" v-html="markdown" id="text">
@@ -28,21 +49,37 @@
           <div id="chance">
             <ul v-if="chance">
               <li>
+<<<<<<< HEAD
                 <button @click="measure(chance)">Try your {{ chance }}!</button>
+=======
+                <input
+                  type="button"
+                  value="Roll the die!"
+                  class="secondary-button"
+                  @click="measure(chance)"
+                />
+>>>>>>> 56deaac6fbe2dcccb1a720d7e3d4126b8b61e8e9
               </li>
             </ul>
           </div>
         </div>
         <div v-else>
-          <input type="button" value="Pay cost" @click="pay(cost)" />
+          <input
+            type="button"
+            class="secondary-button"
+            value="Pay cost"
+            @click="pay(cost)"
+          />
           <template>
             <div>
               <p>
                 {{ message }}
+                <br />
                 <input
                   v-if="pay === true"
                   type="button"
                   value="OK"
+                  class="third-button"
                   @click="getStory(options[0].proceed)"
                 />
               </p>
@@ -52,6 +89,7 @@
             <input
               type="button"
               value="Leave"
+              class="primary-button"
               @click="getStory(options[1].proceed)"
             />
           </div>
@@ -109,14 +147,14 @@
         coin: null,
         cost: null,
         die: null,
+        heading: 'The Story',
         item: null,
         markdown: null,
         merchandice: null,
         message: null,
         options: null,
         player: null,
-        success: null,
-        heading: 'The Story'
+        success: null
       }
     },
     methods: {
@@ -199,15 +237,11 @@
       ) {
         if (this.character.progress != null) {
           this.getStory(this.character.progress)
-          console.log('a')
         } else {
           this.getStory()
-          console.log('b')
         }
       } else {
         this.load('character')
-        console.log(this.character)
-        console.log('c')
       }
     },
     name: 'Story',
@@ -231,9 +265,22 @@
 
             if (element.tagName === 'H1') {
               let title = element.innerHTML
-              // Split string at 42 characters.
-              if (title.length > 42) {
-                title = title.match(/.{1,42}/g)[0] + '...'
+
+              if (window.innerWidth < 980 && window.innerWidth > 767) {
+                // Split string at 34 characters.
+                if (title.length > 9) {
+                  title = title.match(/.{1,9}/g)[0]
+                }
+              } else if (window.innerWidth < 768) {
+                // Split string at 34 characters.
+                if (title.length > 34) {
+                  title = title.match(/.{1,34}/g)[0] + '...'
+                }
+              } else {
+                // Split string at 42 characters.
+                if (title.length > 42) {
+                  title = title.match(/.{1,42}/g)[0] + '...'
+                }
               }
 
               this.heading = title
@@ -265,6 +312,12 @@
 <style lang="scss">
   @import '../assets/style/variables.scss';
 
+  #chance {
+    li {
+      list-style-type: none;
+    }
+  }
+
   .top-layer {
     position: absolute;
     z-index: 100;
@@ -291,7 +344,7 @@
       padding-right: 20px;
       color: #fff;
       text-align: left;
-      height: calc(100% - 120px);
+      min-height: inherit;
       background: rgba($black, 0.7);
 
       @media (min-width: $breakpoint-tablet) {
@@ -305,6 +358,7 @@
           rgba($black, 0.56) 73.99%,
           rgba($black, 0) 97.05%
         );
+        min-width: 65%;
         padding-right: 30%;
       }
 
@@ -320,6 +374,7 @@
           display: flex;
           margin: 40px 0;
           justify-content: flex-start;
+          flex-direction: column;
           padding: 0;
 
           li {
@@ -331,16 +386,94 @@
             }
 
             .third-button {
-              margin: 0 auto 0 20px;
+              margin: 20px 0;
+              @media (min-width: $breakpoint-desktop-small) {
+                margin: 0 auto 0 20px;
+              }
+            }
+          }
+
+          @media (min-width: $breakpoint-desktop-small) {
+            flex-direction: row;
+          }
+        }
+      }
+
+      #status {
+        background: rgba($black, 0.8);
+        width: 100%;
+        position: unset;
+        right: unset;
+        border-radius: 6px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        > div {
+          max-width: 160px;
+          margin: 20px auto;
+
+          ul {
+            li {
+              list-style-type: none;
             }
           }
         }
+
+        #purse {
+          background-image: url(../assets/icons/coins.png);
+          background-repeat: no-repeat;
+          background-position: left center;
+          padding-left: 60px;
+        }
+
+        #character-stats {
+          font-size: 12px;
+          font-weight: bold;
+
+          ul {
+            padding: 0;
+            margin: 4px 0;
+
+            li {
+              list-style-type: none;
+              font-weight: 100;
+            }
+          }
+        }
+
+        @media (min-width: $breakpoint-tablet) {
+          position: absolute;
+          right: 20px;
+          max-width: 160px;
+          display: block;
+
+          > div {
+            margin: 20px;
+            max-width: unset;
+          }
+        }
+        @media (min-width: $breakpoint-desktop-small) {
+          right: 90px;
+        }
+      }
+
+      .secondary-button {
+        color: #000;
+      }
+
+      .primary-button,
+      .secondary-button,
+      .third-button {
+        margin: 20px 0;
+        white-space: pre-wrap;
+        height: auto;
+        min-height: 47px;
       }
     }
 
     @media (max-width: 767px) {
       padding: 0;
-      padding-bottom: 20px;
     }
   }
 </style>
