@@ -6,7 +6,7 @@
       <ul v-if="items" id="inventory">
         <li v-for="item in items" :key="item.weapon">
           {{ item.weapon }}&nbsp;<span
-            v-if="item === equiped"
+            v-if="item === equipped"
             @click="unequip()"
             >-</span
           ><span v-else @click="equip(item)">+</span>
