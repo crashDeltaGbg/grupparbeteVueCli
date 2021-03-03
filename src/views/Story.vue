@@ -284,11 +284,11 @@
 
           // TODO: Here it would be fun if the bgr changed dynamically to!
         }
-        // Remove fade out and add fade in class after 0.6s.
+        // Remove fade out and add fade in class after 0.3s.
         setTimeout(() => {
           container.classList.remove('fade-out')
           container.classList.add('fade-in')
-        }, 600)
+        }, 300)
       },
       coin(amount) {
         if (this.coin != null && this.coin != undefined && !isNaN(this.coin)) {
@@ -313,12 +313,11 @@
 
   .fade-out {
     opacity: 0;
-    transition: 0.6s;
   }
 
   .fade-in {
     opacity: 1;
-    transition: 0.6s;
+    transition: 0.3s;
   }
 
   #chance {
