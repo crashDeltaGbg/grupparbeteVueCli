@@ -8,7 +8,7 @@
             class="inventoryIcons"
             :src="item.src"
             :alt="item.weapon"
-            @click="weaponStats(item)"
+            @click="stats ? (stats = null) : weaponStats(item)"
           /><!--{{ item.weapon }}-->&nbsp;<span
             v-if="item === equipped"
             @click="unequip()"
@@ -16,13 +16,15 @@
           ><span v-else @click="equip(item)">[+]</span>
         </li>
       </ul>
-      <ul v-if="stats" id="weaponStats" @click="stats = null">
-        <li>{{ weapon }}:</li>
-        <li>Strength: {{ stats.strength }}</li>
-        <li>Agility: {{ stats.agility }}</li>
-        <li>Luck: {{ stats.luck }}</li>
-        <li>Intellect: {{ stats.intellect }}</li>
-      </ul>
+      <div v-if="stats" id="weaponStats" @click="stats = null">
+        {{ weapon }}:
+        <ul>
+          <li>Strength: {{ stats.strength }}</li>
+          <li>Agility: {{ stats.agility }}</li>
+          <li>Luck: {{ stats.luck }}</li>
+          <li>Intellect: {{ stats.intellect }}</li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
@@ -61,5 +63,17 @@
   }
   ul {
     padding: 0;
+  }
+  #weaponStats {
+    font-size: 12px;
+    font-weight: bold;
+  }
+  #weaponStats ul {
+    padding: 0;
+    margin: 4px 0;
+  }
+  #weaponStats li {
+    list-style-type: none;
+    font-weight: 100;
   }
 </style>
