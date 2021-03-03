@@ -903,7 +903,11 @@
   },
   "SQ4-0": {
     "options": [
+<<<<<<< HEAD
+      { "id": "a", "text": "Harbor", "proceed": "SQ10-0" },
+=======
       { "id": "a", "text": "Town Harbor", "proceed": "SQ10-0" },
+>>>>>>> 3531b8393013b5815f9367ba2cd6c3c2e87d6abc
       { "id": "b", "text": "Ale House", "proceed": "SQ6-0" }
     ],
     "alias": "SQ4-0"
