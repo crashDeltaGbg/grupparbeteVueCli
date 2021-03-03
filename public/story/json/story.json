@@ -29,7 +29,8 @@
         "proceed": "MQ1"
       }
     ],
-    "alias": "introduction-3"
+    "alias": "introduction-3",
+    "custom": "Ett litet test att interpolera en sträng innehållande kod.<br><input type=\"button\" value=\"OK\" v-on:click=\"getStory('MQ1')\" class=\"secondary-button\"/>"
   },
 
   "MQ1": {
@@ -388,7 +389,7 @@
     "alias": "SQ2-1",
     "chance": "luck",
     "die": "D4",
-    "success": "20"
+    "success": 3
   },
   "SQ3-0": {
     "options": [
@@ -926,7 +927,7 @@
     "alias": "SQ3-1",
     "chance": "luck",
     "die": "D4",
-    "success": "3",
+    "success": 3,
     "coin": -50
   },
   "SQ3-2": {
@@ -1040,59 +1041,69 @@
   },
   "dropItems": [
     {
-      "weapon": "dagger",
+      "weapon": "Dagger",
       "stats": { "strength": 0, "agility": 0, "luck": 1, "intellect": 0 },
-      "value": 15
+      "value": 15,
+      "src": "/images/svg/Dagger.svg"
     },
     {
-      "weapon": "broadsword",
+      "weapon": "Broadsword",
       "stats": { "strength": 1, "agility": 0, "luck": 0, "intellect": 0 },
-      "value": 25
+      "value": 25,
+      "src": "/images/svg/Broadsword.svg"
     },
     {
-      "weapon": "longsword",
+      "weapon": "Longsword",
       "stats": { "strength": 0, "agility": 1, "luck": 0, "intellect": 0 },
-      "value": 20
+      "value": 20,
+      "src": "/images/svg/Longsword.svg"
     },
     {
-      "weapon": "staff",
+      "weapon": "Staff",
       "stats": { "strength": 0, "agility": 0, "luck": 0, "intellect": 1 },
-      "value": 20
+      "value": 20,
+      "src": "/images/svg/Staff.svg"
     },
     {
-      "weapon": "rusty butterknife",
+      "weapon": "Rusty Butterknife",
       "stats": { "strength": 0, "agility": 0, "luck": 1, "intellect": 2 },
-      "value": 0
+      "value": 0,
+      "src": "/images/svg/Butterknife.svg"
     },
     {
-      "weapon": "sharpened spoon",
+      "weapon": "Sharpened Spoon",
       "stats": { "strength": 1, "agility": 1, "luck": 0, "intellect": 0 },
-      "value": 0
+      "value": 0,
+      "src": "/images/svg/Spoon.svg"
     },
     {
-      "weapon": "battle axe",
+      "weapon": "Battle Axe",
       "stats": { "strength": 2, "agility": -1, "luck": 0, "intellect": 0 },
-      "value": 25
+      "value": 25,
+      "src": "/images/svg/Battle_Axe.svg"
     },
     {
-      "weapon": "oddly shaped twig",
+      "weapon": "Oddly Shaped Twig",
       "stats": null,
-      "value": 1
+      "value": 1,
+      "src": "/images/svg/Twig.svg"
     },
     {
-      "weapon": "cast iron skillet",
+      "weapon": "Cast Iron Skillet",
       "stats": {
         "strength": 0,
         "agility": -2,
         "luck": 1,
         "intellect": 1
       },
-      "value": 20
+      "value": 20,
+      "src": "/images/svg/Skillet.svg"
     },
     {
-      "weapon": "war hammer",
+      "weapon": "War Hammer",
       "stats": { "strength": 3, "agility": -1, "luck": -1, "intellect": 0 },
-      "value": 30
+      "value": 30,
+      "src": "/images/svg/War_Hammer.svg"
     }
   ]
 }
