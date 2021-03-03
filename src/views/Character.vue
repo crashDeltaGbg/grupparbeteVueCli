@@ -23,6 +23,7 @@
     background-image: url(../assets/character-creation.png);
     background-size: cover;
     width: 100vw;
-    height: 100vh;
+    height: auto;
+    position: absolute;
   }
 </style>

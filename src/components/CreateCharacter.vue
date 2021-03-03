@@ -371,6 +371,10 @@
     margin: 100px;
     background: rgba(0, 0, 0, 0.71);
 
+    @media (max-width: 1024px) {
+      margin: 0;
+    }
+
     #left-wrapper {
       display: flex;
       flex-direction: column;
@@ -563,10 +567,9 @@
         max-width: 522px;
         width: calc(50% - 5px);
         box-sizing: border-box;
-        display: block;
         min-width: 137px;
         font-size: 100%;
-        margin: 0 0 0 5px;
+        margin: 0 0 0 0px;
       }
     }
 
@@ -710,6 +713,10 @@
 
     @media (min-width: $breakpoint-desktop-small) {
       flex-direction: row;
+
+      #character-creation {
+        margin: 1rem;
+      }
     }
   }
 </style>

@@ -73,6 +73,8 @@
     background-image: url(../assets/intro.png);
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     overflow: auto;
     /* @media (max-width: 688px) {
       background-image: none;
