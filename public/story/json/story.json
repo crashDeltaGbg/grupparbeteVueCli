@@ -219,6 +219,11 @@
         "id": "a",
         "text": "Continue",
         "proceed": "MQ3-1"
+      },
+      {
+        "id": "b",
+        "text": "You feel tired",
+        "proceed": "SQ9-0"
       }
     ],
     "alias": "MQ2-B2-B1"
@@ -428,11 +433,17 @@
         "proceed": "SQ9-B1"
       }
     ],
-    "coin": "-half",
+    "coin": "-all",
     "alias": "SQ9-0"
   },
   "SQ9-B1": {
-    "options": [{}, {}],
+    "options": [
+      {
+        "id": "a",
+        "text": "Continue",
+        "proceed": "MQ3-1"
+      }
+    ],
     "alias": "SQ9-B1"
   },
   "SQ9-A1": {
@@ -448,18 +459,32 @@
         "proceed": "SQ9-A3"
       }
     ],
+    "die": "D6",
+    "chance": "luck",
+    "success": 8,
     "drop": true,
     "alias": "SQ9-A1"
   },
   "SQ9-A2": {
-    "options": [{}, {}],
+    "options": [
+      {
+        "id": "a",
+        "text": "Continue",
+        "proceed": "MQ3-1"
+      }
+    ],
     "stat": { "agility": -1 },
-    "coin": "+half",
-    "drop": true,
+    "coin": 50,
     "alias": "SQ9-A2"
   },
   "SQ9-A3": {
-    "options": [{}, {}],
+    "options": [
+      {
+        "id": "a",
+        "text": "Continue",
+        "proceed": "MQ3-1"
+      }
+    ],
     "stat": { "agility": -1 },
     "alias": "SQ9-A3"
   },
@@ -487,19 +512,45 @@
       },
       {
         "id": "b",
-        "text": "fail",
+        "text": "Fail",
         "proceed": "SQ10-A3"
       }
     ],
+    "chance": "luck",
+    "die": "D4",
+    "success": 10,
     "alias": "SQ10-A1"
   },
   "SQ10-A2": {
-    "options": [{}, {}],
+    "options": [
+      {
+        "id": "a",
+        "text": "Go back the way you came",
+        "proceed": "SQ4-0"
+      }
+    ],
+    "coin": 10,
     "alias": "SQ10-A2"
   },
   "SQ10-A3": {
-    "options": [{}, {}],
+    "options": [
+      {
+        "id": "a",
+        "text": "Go back in to the city",
+        "proceed": "SQ4-0"
+      }
+    ],
     "alias": "SQ10-A3"
+  },
+  "SQ10-B1": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Go back in to the city",
+        "proceed": "SQ4-0"
+      }
+    ],
+    "alias": "SQ10-B1"
   },
   "SQ7-0": {
     "options": [
@@ -543,10 +594,144 @@
   },
   "SQ11-B1": {
     "options": [{}, {}],
-    "drop": true,
     "alias": "SQ11-B1"
   },
-
+  "SQ12-0": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Ask the bartender",
+        "proceed": "SQ12-A1"
+      },
+      {
+        "id": "b",
+        "text": "Join the group",
+        "proceed": "SQ12-B1"
+      }
+    ],
+    "alias": "SQ12-0"
+  },
+  "SQ12-A1": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Leave the alehouse",
+        "proceed": "SQ4-0"
+      }
+    ],
+    "coin": -1,
+    "alias": "SQ12-A1"
+  },
+  "SQ12-B1": {
+    "options": [
+      {
+        "id": "a",
+        "text": "No way I'm visiting a haunted house!",
+        "proceed": "SQ12-B1-A1"
+      },
+      {
+        "id": "b",
+        "text": "Treasure and riches have captured your interest",
+        "proceed": "SQ12-B1-B1"
+      }
+    ],
+    "coin": -1,
+    "alias": "SQ12-B1"
+  },
+  "SQ12-B1-A1": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Go to the city",
+        "proceed": "SQ4-0"
+      }
+    ],
+    "alias": "SQ12-B1-A1"
+  },
+  "SQ12-B1-B1": {
+    "options": [
+      {
+        "id": "a",
+        "text": "By drawing your weapon",
+        "proceed": "SQ12-B1-B1-A1"
+      },
+      {
+        "id": "b",
+        "text": "Do nothing",
+        "proceed": "SQ12-B1-B1-B1"
+      }
+    ],
+    "alias": "SQ12-B1-B1"
+  },
+  "SQ12-B1-B1-A1": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Front door",
+        "proceed": "SQ12-B1-B1-A1-A1"
+      },
+      {
+        "id": "b",
+        "text": "Back door",
+        "proceed": "SQ12-B1-B1-A1-B1"
+      }
+    ],
+    "alias": "SQ12-B1-B1-A1"
+  },
+  "SQ12-B1-B1-A1-A1": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Run back to the city",
+        "proceed": "SQ4-0"
+      }
+    ],
+    "coins": -10,
+    "alias": "SQ12-B1-B1-A1-A1"
+  },
+  "SQ12-B1-B1-A1-B1": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Go back to the city",
+        "proceed": "SQ4-0"
+      }
+    ],
+    "alias": "SQ12-B1-B1-A1-B1"
+  },
+  "SQ12-B1-B1-B1": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Success",
+        "proceed": "SQ12-B1-B1-B1-A1"
+      },
+      {
+        "id": "b",
+        "text": "Fail",
+        "proceed": "SQ12-B1-B1-B1-B1"
+      }
+    ],
+    "alias": "SQ12-B1-B1-B1",
+    "chance": "luck",
+    "die": "D4",
+    "success": 3
+  },
+  "SQ12-B1-B1-B1-A1": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Go back to the city",
+        "proceed": "SQ4-0"
+      }
+    ],
+    "coin": 100,
+    "alias": "SQ12-B1-B1-B1-A1"
+  },
+  "SQ12-B1-B1-B1-B1": {
+    "options": [{}, {}],
+    "alias": "SQ12-B1-B1-B1-A1"
+  },
   "SQ7-B1": {
     "options": [
       {
@@ -719,7 +904,11 @@
   },
   "SQ4-0": {
     "options": [
+<<<<<<< HEAD
+      { "id": "a", "text": "Harbor", "proceed": "SQ10-0" },
+=======
       { "id": "a", "text": "Town Harbor", "proceed": "SQ10-0" },
+>>>>>>> 3531b8393013b5815f9367ba2cd6c3c2e87d6abc
       { "id": "b", "text": "Ale House", "proceed": "SQ6-0" }
     ],
     "alias": "SQ4-0"
@@ -733,7 +922,13 @@
     "cost": 2
   },
   "SQ5-1": {
-    "options": [{}, {}],
+    "options": [
+      {
+        "id": "a",
+        "proceed": "SQ12-0",
+        "text": "Order an ale"
+      }
+    ],
     "alias": "SQ5-1"
   },
   "SQ6-0": {
