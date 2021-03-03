@@ -3,17 +3,17 @@
     <Navbar class="top-layer" :title="heading" :character="character"></Navbar>
     <section id="content">
       <div id="status" v-if="character">
-        <span v-if="character.purse">Coin: {{ character.purse }}</span
-        >&nbsp;<Inventory
+        <!-- <span v-if="character.purse">Coin: {{ character.purse }}</span
+        >&nbsp; --><Inventory
           :inv="character.inventory"
           :purse="character.purse"
           :equiped="character.equipment"
           :character="character"
-        />&nbsp;<span v-if="character.equipment">{{
+        /><!-- &nbsp;<span v-if="character.equipment">{{
           character.equipment.weapon
         }}</span
         >&nbsp;<span>{{ effectiveStats() }}</span
-        >&nbsp;<input type="button" @click="save()" value="Save" />
+        >&nbsp;<input type="button" @click="save()" value="Save" /> -->
       </div>
 
       <div v-if="markdown" v-html="markdown" id="text">
@@ -28,11 +28,7 @@
           <div id="chance">
             <ul v-if="chance">
               <li>
-                <input
-                  type="button"
-                  value="Roll the die!"
-                  @click="measure(chance)"
-                />
+                <button @click="measure(chance)">Try your {{ chance }}!</button>
               </li>
             </ul>
           </div>
@@ -139,6 +135,8 @@
           let items = result.dropItems
           let i = this.roll('D10')
           this.item = items[i]
+        } else if (result[path].drop === '-all') {
+          this.item = '-all'
         }
       },
       async selectFile(fileName) {
@@ -247,12 +245,16 @@
         }
       },
       coin(amount) {
-        if (this.coin != null && this.coin != undefined) {
+        if (this.coin != null && this.coin != undefined && !isNaN(this.coin)) {
           this.character.purse += amount
+        } else if (this.coin === '-all') {
+          this.character.purse = 0
         }
       },
       item(obj) {
-        if (this.item != null && this.item != undefined) {
+        if (this.item === '-all') {
+          this.character.inventory = []
+        } else if (this.item != null && this.item != undefined) {
           this.character.inventory.push(obj)
         }
       }

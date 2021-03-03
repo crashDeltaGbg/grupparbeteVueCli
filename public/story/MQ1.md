@@ -1,4 +1,4 @@
-# Chapter 1: The destruction of Villa Pisci.
+# Chapter 1: The destruction of Villa Pisci
 
 The wind shrieks like a child in pain coupled with a heavy rumble akin to an army of thousands marching and beating their heavy war-drums. The very ground shakes as the sounds grow louder, all emanating from the mountain range. The day had finally come, the day that the wise but often overlooked magicians and mystics had prophesized for years, but not had the power or influence to stop.
 

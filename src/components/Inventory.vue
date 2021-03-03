@@ -3,10 +3,11 @@
     <div id="purse">Coin:&nbsp;{{ purse }}</div>
     <div>
       <div>Inventory</div>
-      <!-- Add v-on that shows/displays #inventory -->
       <ul v-if="items" id="inventory">
         <li v-for="item in items" :key="item.weapon">
-          {{ item }}&nbsp;<span v-if="item === equiped" @click="unequip()"
+          {{ item.weapon }}&nbsp;<span
+            v-if="item === equiped"
+            @click="unequip()"
             >-</span
           ><span v-else @click="equip(item)">+</span>
         </li>
