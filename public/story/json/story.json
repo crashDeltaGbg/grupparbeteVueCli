@@ -64,12 +64,7 @@
       {
         "id": "a",
         "text": "Continue",
-        "proceed": "SQ2-0"
-      },
-      {
-        "id": "b",
-        "text": "Chapter 2",
-        "proceed": "MQ2-1"
+        "proceed": "SQ0-0"
       }
     ],
     "alias": "MQ1-A2",
@@ -92,7 +87,7 @@
       {
         "id": "a",
         "text": "Continue",
-        "proceed": "MQ2-1"
+        "proceed": "SQ0-0"
       }
     ],
     "alias": "MQ1-B2"
@@ -316,7 +311,7 @@
     "options": [
       {
         "id": "a",
-        "text": "Take the road to Sea'Gull",
+        "text": "Take the road to King's Castle",
         "proceed": "SQ1-0"
       },
       {
@@ -904,7 +899,8 @@
   "SQ4-0": {
     "options": [
       { "id": "a", "text": "Town Harbor", "proceed": "SQ10-0" },
-      { "id": "b", "text": "Ale House", "proceed": "SQ6-0" }
+      { "id": "b", "text": "Ale House", "proceed": "SQ6-0" },
+      { "id": "c", "text": "King's Castle", "proceed": "MQ2-1" }
     ],
     "alias": "SQ4-0"
   },
@@ -930,23 +926,35 @@
     "options": [
       {
         "id": "a",
-        "text": "",
+        "text": "Sit by the bar",
         "proceed": "SQ6-1"
       },
       {
         "id": "b",
-        "text": "",
-        "proceed": "SQ6-2"
+        "text": "Go back",
+        "proceed": "SQ4-0"
       }
     ],
     "alias": "SQ6-0"
   },
   "SQ6-1": {
-    "options": [{}, {}],
+    "options": [
+      {
+        "id": "a",
+        "text": "Continue",
+        "proceed": "SQ6-2"
+      }
+    ],
     "alias": "SQ6-1"
   },
   "SQ6-2": {
-    "options": [{}, {}],
+    "options": [
+      {
+        "id": "a",
+        "text": "Leave",
+        "proceed": "SQ4-0"
+      }
+    ],
     "alias": "SQ6-2"
   },
   "failure": {
