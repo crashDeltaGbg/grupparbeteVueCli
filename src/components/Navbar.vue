@@ -13,19 +13,27 @@
             <li class="navitems">
               <span class="navitems" @click="save(character)">Save</span>
             </li>
-            <div
-              id="image"
-              class="idioti"
-              :style="
-                'background-image:url(' +
-                  character.img +
-                  '); background-position: center; background-size: cover; background-repeat: no-repeat'
-              "
-            ></div>
+            <template v-if="this.$route.path === '/story'">
+              <div
+                id="image"
+                :style="
+                  'background-image:url(' +
+                    character.img +
+                    '); background-position: center; background-size: cover; background-repeat: no-repeat'
+                "
+              ></div>
+            </template>
+            <template v-else>
+              <div id="image"></div>
+            </template>
           </div>
         </nav>
 
-        <span class="material-icons" @click="show = !show">settings</span>
+        <img
+          src="../assets/Sett.svg"
+          class="material-icons"
+          @click="show = !show"
+        /><!-- </span> -->
       </div>
     </div>
 
@@ -142,11 +150,11 @@
   }
 
   .material-icons {
-    font-size: 36px;
-    padding-right: 90px;
+    /* font-size: 36px;
+    padding-right: 90px; */
     display: none;
-    color: white;
-    cursor: pointer;
+
+    /* cursor: pointer; */
   }
 
   .overlayitems,
@@ -191,14 +199,18 @@
       display: block;
       padding-top: 7px;
       padding-right: 20px;
-      transform: none;
+      height: 32px;
       z-index: 10;
+      cursor: pointer;
+      /* background: url(../assets/Sett.svg) no-repeat; */
     }
 
     .material-icons:hover {
-      display: block;
+      /* display: block;
+      height: 32px;
+      width: 32px;
       padding-top: 7px;
-      padding-right: 20px;
+      padding-right: 20px; */
       transform: none;
       z-index: 10;
       color: $brown;

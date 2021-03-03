@@ -4,11 +4,13 @@
     <section id="content">
       <div id="status" v-if="character">
         <div id="purse" v-if="character.purse">{{ character.purse }}</div>
-        <div id="equiped" v-if="character.equiped">{{ character.equiped }}</div>
+        <div id="equipped" v-if="character.equipped">
+          {{ character.equipped }}
+        </div>
         <div v-if="character.inventory.length > 0">
           <Inventory
             :inv="character.inventory"
-            :equiped="character.equipment"
+            :equipped="character.equipment"
             :character="character"
           />
         </div>
@@ -29,6 +31,7 @@
         <p>Something's amiss :(</p>
       </div>
       <template v-if="die || cost">
+        <!-- To use "custom"; "|| custom" needs to be added to v-if -->
         <div v-if="die">
           <div id="chance">
             <ul v-if="chance">
@@ -40,6 +43,7 @@
             </ul>
           </div>
         </div>
+        <!-- <div v-if="custom" v-html="custom"></div> -->
         <div v-else>
           <input
             type="button"
@@ -80,7 +84,7 @@
                 class="options-button"
                 :class="{
                   'primary-button': index === 0,
-                  'third-button': index === 1
+                  'third-button': index === 1 || index === 2
                 }"
                 type="button"
                 :value="option.text"
@@ -123,6 +127,7 @@
         chance: null,
         coin: null,
         cost: null,
+        custom: null,
         die: null,
         heading: 'The Story',
         item: null,
@@ -136,6 +141,13 @@
     },
     methods: {
       async getStory(path = 'introduction-1') {
+        let container = document.getElementById('text')
+        // Add fade class when navigating the story.
+        if (container) {
+          container.classList.add('fade-out')
+          container.classList.remove('fade-in')
+        }
+
         const response = await fetch(`/story/json/story.json`)
         const result = await response.json()
         this.selectFile(result[path].alias)
@@ -145,13 +157,17 @@
         this.success = result[path].success
         this.coin = result[path].coin
         this.cost = result[path].cost
+        this.custom = result[path].custom
         this.character.progress = result[path].alias
-        if (result[path].drop === true) {
+        let drop = result[path].drop
+        if (drop === true) {
           let items = result.dropItems
           let i = this.roll('D10')
           this.item = items[i]
-        } else if (result[path].drop === '-all') {
+        } else if (drop === '-all') {
           this.item = '-all'
+        } else if (drop != null && drop != undefined) {
+          this.item = drop
         }
       },
       async selectFile(fileName) {
@@ -227,6 +243,8 @@
         this.heading = newText
       },
       markdown(newValue) {
+        let container = document.getElementById('text')
+
         // We want a dynamic heading during the story.
         if (newValue) {
           let section = document.getElementById('text')
@@ -235,38 +253,42 @@
           if (!section) {
             return
           }
-
           // Loop through the .md file and search for <H1>.
           for (let i = 0; i < section.children.length; i++) {
             const element = section.children[i]
 
             if (element.tagName === 'H1') {
               let title = element.innerHTML
+              if (title) {
+                if (window.innerWidth < 980 && window.innerWidth > 767) {
+                  // Split string at 34 characters.
+                  if (title.length > 9) {
+                    title = title.match(/.{1,9}/g)[0]
+                  }
+                } else if (window.innerWidth < 768) {
+                  // Split string at 34 characters.
+                  if (title.length > 34) {
+                    title = title.match(/.{1,34}/g)[0] + '...'
+                  }
+                } else {
+                  // Split string at 42 characters.
+                  if (title.length > 42) {
+                    title = title.match(/.{1,42}/g)[0] + '...'
+                  }
+                }
 
-              if (window.innerWidth < 980 && window.innerWidth > 767) {
-                // Split string at 34 characters.
-                if (title.length > 9) {
-                  title = title.match(/.{1,9}/g)[0]
-                }
-              } else if (window.innerWidth < 768) {
-                // Split string at 34 characters.
-                if (title.length > 34) {
-                  title = title.match(/.{1,34}/g)[0] + '...'
-                }
-              } else {
-                // Split string at 42 characters.
-                if (title.length > 42) {
-                  title = title.match(/.{1,42}/g)[0] + '...'
-                }
+                this.heading = title
               }
-
-              this.heading = title
-              return
             }
           }
 
           // TODO: Here it would be fun if the bgr changed dynamically to!
         }
+        // Remove fade out and add fade in class after 0.3s.
+        setTimeout(() => {
+          container.classList.remove('fade-out')
+          container.classList.add('fade-in')
+        }, 300)
       },
       coin(amount) {
         if (this.coin != null && this.coin != undefined && !isNaN(this.coin)) {
@@ -288,6 +310,15 @@
 
 <style lang="scss">
   @import '../assets/style/variables.scss';
+
+  .fade-out {
+    opacity: 0;
+  }
+
+  .fade-in {
+    opacity: 1;
+    transition: 0.3s;
+  }
 
   #chance {
     li {
@@ -351,11 +382,13 @@
           display: flex;
           margin: 40px 0;
           justify-content: flex-start;
+          flex-wrap: wrap;
           flex-direction: column;
           padding: 0;
 
           li {
             list-style-type: none;
+            margin: 20px 0;
 
             .primary-button,
             .third-button {
@@ -363,12 +396,17 @@
               padding: 12px;
             }
 
-            .third-button {
+            .third-button,
+            .options-button {
               padding: 10px;
               margin: 20px 0;
               @media (min-width: $breakpoint-desktop-small) {
                 margin: 0 auto 0 20px;
               }
+            }
+
+            .options-button {
+              height: 100%;
             }
           }
 
