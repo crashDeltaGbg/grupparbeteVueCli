@@ -4,11 +4,13 @@
     <section id="content">
       <div id="status" v-if="character">
         <div id="purse" v-if="character.purse">{{ character.purse }}</div>
-        <div id="equiped" v-if="character.equiped">{{ character.equiped }}</div>
+        <div id="equipped" v-if="character.equipped">
+          {{ character.equipped }}
+        </div>
         <div v-if="character.inventory.length > 0">
           <Inventory
             :inv="character.inventory"
-            :equiped="character.equipment"
+            :equipped="character.equipment"
             :character="character"
           />
         </div>
