@@ -136,6 +136,13 @@
     },
     methods: {
       async getStory(path = 'introduction-1') {
+        let container = document.getElementById('text')
+        // Add fade class when navigating the story.
+        if (container) {
+          container.classList.add('fade-out')
+          container.classList.remove('fade-in')
+        }
+
         const response = await fetch(`/story/json/story.json`)
         const result = await response.json()
         this.selectFile(result[path].alias)
@@ -227,6 +234,8 @@
         this.heading = newText
       },
       markdown(newValue) {
+        let container = document.getElementById('text')
+
         // We want a dynamic heading during the story.
         if (newValue) {
           let section = document.getElementById('text')
@@ -235,7 +244,6 @@
           if (!section) {
             return
           }
-
           // Loop through the .md file and search for <H1>.
           for (let i = 0; i < section.children.length; i++) {
             const element = section.children[i]
@@ -261,12 +269,16 @@
               }
 
               this.heading = title
-              return
             }
           }
 
           // TODO: Here it would be fun if the bgr changed dynamically to!
         }
+        // Remove fade out and add fade in class after 0.6s.
+        setTimeout(() => {
+          container.classList.remove('fade-out')
+          container.classList.add('fade-in')
+        }, 600)
       },
       coin(amount) {
         if (this.coin != null && this.coin != undefined && !isNaN(this.coin)) {
@@ -288,6 +300,16 @@
 
 <style lang="scss">
   @import '../assets/style/variables.scss';
+
+  .fade-out {
+    opacity: 0;
+    transition: 0.6s;
+  }
+
+  .fade-in {
+    opacity: 1;
+    transition: 0.6s;
+  }
 
   #chance {
     li {
