@@ -3,43 +3,15 @@
     <Navbar class="top-layer" :title="heading" :character="character"></Navbar>
     <section id="content">
       <div id="status" v-if="character">
-<<<<<<< HEAD
-        <!-- <span v-if="character.purse">Coin: {{ character.purse }}</span
-        >&nbsp; --><Inventory
+        <Inventory
           :inv="character.inventory"
           :purse="character.purse"
-          :equiped="character.equipment"
+          :equipped="character.equipment"
           :character="character"
-        /><!-- &nbsp;<span v-if="character.equipment">{{
-          character.equipment.weapon
-        }}</span
-        >&nbsp;<span>{{ effectiveStats() }}</span
-        >&nbsp;<input type="button" @click="save()" value="Save" /> -->
-=======
-        <div id="purse" v-if="character.purse">{{ character.purse }}</div>
-        <div id="equiped" v-if="character.equiped">{{ character.equiped }}</div>
-        <div v-if="character.inventory.length > 0">
-          <Inventory
-            :inv="character.inventory"
-            :equiped="character.equipment"
-            :character="character"
-          />
-        </div>
-        <div id="character-stats">
-          Your Stats:
-          <ul>
-            <li>Strength: {{ effectiveStats().strength }}</li>
-            <li>Agillity: {{ effectiveStats().agility }}</li>
-            <li>Intellect: {{ effectiveStats().intellect }}</li>
-            <li>Luck: {{ effectiveStats().luck }}</li>
-          </ul>
-        </div>
->>>>>>> 56deaac6fbe2dcccb1a720d7e3d4126b8b61e8e9
+        />
       </div>
 
-      <div v-if="markdown" v-html="markdown" id="text">
-        <!-- Här läses texten från markdown-filer in -->
-      </div>
+      <div v-if="markdown" v-html="markdown" id="text"></div>
       <div v-else>
         <h1>Uh-oh!</h1>
         <p>Something's amiss :(</p>
@@ -49,16 +21,9 @@
           <div id="chance">
             <ul v-if="chance">
               <li>
-<<<<<<< HEAD
-                <button @click="measure(chance)">Try your {{ chance }}!</button>
-=======
-                <input
-                  type="button"
-                  value="Roll the die!"
-                  class="secondary-button"
-                  @click="measure(chance)"
-                />
->>>>>>> 56deaac6fbe2dcccb1a720d7e3d4126b8b61e8e9
+                <button @click="measure(chance)" class="secondary-button">
+                  Try your {{ chance }}!
+                </button>
               </li>
             </ul>
           </div>

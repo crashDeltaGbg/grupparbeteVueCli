@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 ## Chapter 1: The destruction of Villa Pisci
-=======
-# Chapter 1: The destruction of Villa Pisci.
->>>>>>> 56deaac6fbe2dcccb1a720d7e3d4126b8b61e8e9
 
 You see a cowering man attempting to hide under nearby cart and run towards him. _"I have a boat close by, if you value your life you should come with me!"_ The man looks at you, nods, and begins to follow you.
 

@@ -373,7 +373,7 @@
     "alias": "SQ2-1",
     "chance": "luck",
     "die": "D4",
-    "success": "3"
+    "success": "20"
   },
   "SQ3-0": {
     "options": [
@@ -718,7 +718,7 @@
   },
   "SQ4-0": {
     "options": [
-      { "id": "a", "text": "Town Square", "proceed": "townSquare" },
+      { "id": "a", "text": "Town Harbor", "proceed": "SQ10-0" },
       { "id": "b", "text": "Ale House", "proceed": "SQ6-0" }
     ],
     "alias": "SQ4-0"
