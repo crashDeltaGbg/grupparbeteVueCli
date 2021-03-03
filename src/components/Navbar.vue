@@ -7,23 +7,37 @@
         </div>
         <nav>
           <div id="greynav">
-            <li class="navitems"><a class="navitems" href="#">Quit</a></li>
             <li class="navitems">
-              <a class="navitems" href="#" @click="save(character)">Save</a>
+              <router-link class="navitems" to="/">Quit</router-link>
             </li>
-            <div id="image"></div>
+            <li class="navitems">
+              <span class="navitems" @click="save(character)">Save</span>
+            </li>
+            <div
+              id="image"
+              class="idioti"
+              :style="
+                'background-image:url(' +
+                  character.img +
+                  '); background-position: center; background-size: cover; background-repeat: no-repeat'
+              "
+            ></div>
           </div>
         </nav>
 
-        <span class="material-icons" @click="show = !show">settings</span>
+        <img
+          src="../assets/Sett.svg"
+          class="material-icons"
+          @click="show = !show"
+        /><!-- </span> -->
       </div>
     </div>
 
     <transition name="slide">
       <div id="overlay" v-if="show">
-        <li class="overlayitems"><a href="#">Quit</a></li>
+        <li class="overlayitems"><router-link to="/">Quit</router-link></li>
         <li class="overlayitems">
-          <a href="#" @click="save(character)">Save</a>
+          <span @click="save(character)">Save</span>
         </li>
       </div>
     </transition>
@@ -132,15 +146,16 @@
   }
 
   .material-icons {
-    font-size: 36px;
-    padding-right: 90px;
+    /* font-size: 36px;
+    padding-right: 90px; */
     display: none;
-    color: white;
-    cursor: pointer;
+
+    /* cursor: pointer; */
   }
 
   .overlayitems,
-  a {
+  a,
+  span {
     color: white;
     list-style: none;
     padding: 30px;
@@ -180,14 +195,18 @@
       display: block;
       padding-top: 7px;
       padding-right: 20px;
-      transform: none;
+      height: 32px;
       z-index: 10;
+      cursor: pointer;
+      /* background: url(../assets/Sett.svg) no-repeat; */
     }
 
     .material-icons:hover {
-      display: block;
+      /* display: block;
+      height: 32px;
+      width: 32px;
       padding-top: 7px;
-      padding-right: 20px;
+      padding-right: 20px; */
       transform: none;
       z-index: 10;
       color: $brown;

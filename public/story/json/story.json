@@ -65,12 +65,7 @@
       {
         "id": "a",
         "text": "Continue",
-        "proceed": "SQ2-0"
-      },
-      {
-        "id": "b",
-        "text": "Chapter 2",
-        "proceed": "MQ2-1"
+        "proceed": "SQ0-0"
       }
     ],
     "alias": "MQ1-A2",
@@ -93,7 +88,7 @@
       {
         "id": "a",
         "text": "Continue",
-        "proceed": "MQ2-1"
+        "proceed": "SQ0-0"
       }
     ],
     "alias": "MQ1-B2"
@@ -102,8 +97,13 @@
     "options": [
       {
         "id": "a",
-        "text": "Continue",
+        "text": "Continue straight to the castle",
         "proceed": "MQ2-2"
+      },
+      {
+        "id": "b",
+        "text": "Take the scenic route",
+        "proceed": "SQ8-0"
       }
     ],
     "alias": "MQ2-1"
@@ -162,7 +162,12 @@
     "options": [
       {
         "id": "a",
-        "text": "Continue",
+        "text": "Make camp",
+        "proceed": "SQ9-0"
+      },
+      {
+        "id": "b",
+        "text": "Continue straight to the forest",
         "proceed": "MQ3-1"
       }
     ],
@@ -182,8 +187,13 @@
     "options": [
       {
         "id": "a",
-        "text": "Continue",
+        "text": "Wait for the cover of darkness",
         "proceed": "MQ2-B2"
+      },
+      {
+        "id": "b",
+        "text": "Grab an ale at the inn",
+        "proceed": "SQ12-0"
       }
     ],
     "alias": "MQ2-B1"
@@ -208,7 +218,7 @@
       {
         "id": "a",
         "text": "Continue",
-        "proceed": "MQ3-1"
+        "proceed": "SQ11-0"
       }
     ],
     "alias": "MQ2-B2-A1"
@@ -317,7 +327,7 @@
     "options": [
       {
         "id": "a",
-        "text": "Take the road to Sea'Gull",
+        "text": "Take the road to King's Castle",
         "proceed": "SQ1-0"
       },
       {
@@ -413,11 +423,23 @@
     "alias": "SQ8-0"
   },
   "SQ8-A1": {
-    "options": [{}, {}],
+    "options": [
+      {
+        "id": "a",
+        "text": "Continue to the castle",
+        "proceed": "MQ2-2"
+      }
+    ],
     "alias": "SQ8-A1"
   },
   "SQ8-B1": {
-    "options": [{}, {}],
+    "options": [
+      {
+        "id": "a",
+        "text": "Continue to the castle",
+        "proceed": "MQ2-2"
+      }
+    ],
     "alias": "SQ8-B1"
   },
   "SQ9-0": {
@@ -441,7 +463,7 @@
       {
         "id": "a",
         "text": "Continue",
-        "proceed": "MQ3-1"
+        "proceed": "SQ7-0"
       }
     ],
     "alias": "SQ9-B1"
@@ -470,7 +492,7 @@
       {
         "id": "a",
         "text": "Continue",
-        "proceed": "MQ3-1"
+        "proceed": "SQ7-0"
       }
     ],
     "stat": { "agility": -1 },
@@ -482,7 +504,7 @@
       {
         "id": "a",
         "text": "Continue",
-        "proceed": "MQ3-1"
+        "proceed": "SQ7-0"
       }
     ],
     "stat": { "agility": -1 },
@@ -568,7 +590,13 @@
     "alias": "SQ7-0"
   },
   "SQ7-A1": {
-    "options": [{}, {}],
+    "options": [
+      {
+        "id": "a",
+        "text": "Continue",
+        "proceed": "MQ3-1"
+      }
+    ],
     "alias": "SQ7-A1",
     "coin": "-all"
   },
@@ -588,12 +616,24 @@
     "alias": "SQ11-0"
   },
   "SQ11-A1": {
-    "options": [{}, {}],
+    "options": [
+      {
+        "id": "a",
+        "text": "Continue",
+        "proceed": "MQ3-1"
+      }
+    ],
     "drop": true,
     "alias": "SQ11-A1"
   },
   "SQ11-B1": {
-    "options": [{}, {}],
+    "options": [
+      {
+        "id": "a",
+        "text": "Continue",
+        "proceed": "MQ3-1"
+      }
+    ],
     "alias": "SQ11-B1"
   },
   "SQ12-0": {
@@ -615,8 +655,8 @@
     "options": [
       {
         "id": "a",
-        "text": "Leave the alehouse",
-        "proceed": "SQ4-0"
+        "text": "Go back to your room",
+        "proceed": "MQ2-B2"
       }
     ],
     "coin": -1,
@@ -642,8 +682,8 @@
     "options": [
       {
         "id": "a",
-        "text": "Go to the city",
-        "proceed": "SQ4-0"
+        "text": "Go back to your room",
+        "proceed": "MQ2-B2"
       }
     ],
     "alias": "SQ12-B1-A1"
@@ -682,8 +722,8 @@
     "options": [
       {
         "id": "a",
-        "text": "Run back to the city",
-        "proceed": "SQ4-0"
+        "text": "Run back to your room",
+        "proceed": "MQ2-B2"
       }
     ],
     "coins": -10,
@@ -693,8 +733,8 @@
     "options": [
       {
         "id": "a",
-        "text": "Go back to the city",
-        "proceed": "SQ4-0"
+        "text": "Go back to your room",
+        "proceed": "MQ2-B2"
       }
     ],
     "alias": "SQ12-B1-B1-A1-B1"
@@ -729,7 +769,13 @@
     "alias": "SQ12-B1-B1-B1-A1"
   },
   "SQ12-B1-B1-B1-B1": {
-    "options": [{}, {}],
+    "options": [
+      {
+        "id": "a",
+        "text": "Continue",
+        "proceed": "MQ2-B2"
+      }
+    ],
     "alias": "SQ12-B1-B1-B1-A1"
   },
   "SQ7-B1": {
@@ -748,11 +794,23 @@
     "alias": "SQ7-B1"
   },
   "SQ7-B2": {
-    "options": [{}, {}],
+    "options": [
+      {
+        "id": "a",
+        "text": "Continue",
+        "proceed": "MQ3-1"
+      }
+    ],
     "alias": "SQ7-B2"
   },
   "SQ7-B3": {
-    "options": [{}, {}],
+    "options": [
+      {
+        "id": "a",
+        "text": "Continue",
+        "proceed": "MQ3-1"
+      }
+    ],
     "alias": "SQ7-B3",
     "coin": "-all",
     "drop": "-all"
@@ -905,14 +963,15 @@
   "SQ4-0": {
     "options": [
       { "id": "a", "text": "Town Harbor", "proceed": "SQ10-0" },
-      { "id": "b", "text": "Ale House", "proceed": "SQ6-0" }
+      { "id": "b", "text": "Ale House", "proceed": "SQ6-0" },
+      { "id": "c", "text": "King's Castle", "proceed": "MQ2-1" }
     ],
     "alias": "SQ4-0"
   },
   "SQ5-0": {
     "options": [
       { "id": "a", "text": "Success!", "proceed": "SQ5-1" },
-      { "id": "b", "text": "", "proceed": "fork" }
+      { "id": "b", "text": "Failure!", "proceed": "fork" }
     ],
     "alias": "SQ5-0",
     "cost": 2
@@ -931,23 +990,35 @@
     "options": [
       {
         "id": "a",
-        "text": "",
+        "text": "Sit by the bar",
         "proceed": "SQ6-1"
       },
       {
         "id": "b",
-        "text": "",
-        "proceed": "SQ6-2"
+        "text": "Go back",
+        "proceed": "SQ4-0"
       }
     ],
     "alias": "SQ6-0"
   },
   "SQ6-1": {
-    "options": [{}, {}],
+    "options": [
+      {
+        "id": "a",
+        "text": "Continue",
+        "proceed": "SQ6-2"
+      }
+    ],
     "alias": "SQ6-1"
   },
   "SQ6-2": {
-    "options": [{}, {}],
+    "options": [
+      {
+        "id": "a",
+        "text": "Leave",
+        "proceed": "SQ4-0"
+      }
+    ],
     "alias": "SQ6-2"
   },
   "failure": {
