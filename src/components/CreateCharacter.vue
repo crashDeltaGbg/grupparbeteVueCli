@@ -16,7 +16,6 @@
           <button
             class="secondary-button"
             id="randomize-bio"
-            disabled
             :page="page"
             @click="randomizeBio()"
           >
@@ -193,6 +192,11 @@
         this.windowSize = window.innerWidth
       },
       randomizeBio() {
+        fetch('https://api.kanye.rest')
+          .then(response => response.json())
+          .then(result => {
+            this.bio = result.quote
+          })
         // Do something fun here.
       },
       toggleHelpMsg(e) {
