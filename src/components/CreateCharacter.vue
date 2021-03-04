@@ -44,10 +44,21 @@
               Help
             </button>
             <div class="hidden" id="help-text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo rem
-              alias impedit quam id nemo praesentium? Dicta enim in, pariatur
-              sit repudiandae dolore eligendi cumque dolorum repellendus, hic
-              velit incidunt!
+              <ul>
+                <li>
+                  Here you decide what qualities your character should have or
+                  not have. You have 10 points at your disposal to spend as you
+                  wish.
+                </li>
+                <li>
+                  Your stats will be tested during the game and play a crucial
+                  role in many events.
+                </li>
+                <li>
+                  If you feel like YOLO, use the randomize button below and let
+                  chance determine your stats and future in the game.
+                </li>
+              </ul>
             </div>
             <label for="stats">Stats:</label>
             <div id="available-points">
@@ -686,6 +697,16 @@
       background: #373737;
       color: #fff;
       z-index: 10;
+
+      ul {
+        padding: 0;
+
+        li {
+          list-style-type: none;
+          margin: 20px 0;
+          text-align: left;
+        }
+      }
     }
 
     #stats {
