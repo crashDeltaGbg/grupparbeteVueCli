@@ -46,8 +46,7 @@
         "proceed": "MQ1-B1"
       }
     ],
-    "alias": "MQ1",
-    "mod": { "stat": "strength", "value": 3 }
+    "alias": "MQ1"
   },
 
   "MQ1-A1": {
@@ -223,7 +222,7 @@
         "proceed": "SQ11-0"
       }
     ],
-    "drop": true,
+    "drop": "random",
     "alias": "MQ2-B2-A1"
   },
   "MQ2-B2-B1": {
@@ -487,7 +486,7 @@
     "die": "D6",
     "chance": "luck",
     "success": 8,
-    "drop": true,
+    "drop": "random",
     "alias": "SQ9-A1"
   },
   "SQ9-A2": {
@@ -626,7 +625,7 @@
         "proceed": "MQ3-1"
       }
     ],
-    "drop": true,
+    "drop": "random",
     "alias": "SQ11-A1"
   },
   "SQ11-B1": {
@@ -785,12 +784,12 @@
     "options": [
       {
         "id": "a",
-        "text": "Continue",
+        "text": "Success",
         "proceed": "SQ7-B2"
       },
       {
         "id": "b",
-        "text": "Continue",
+        "text": "Failure",
         "proceed": "SQ7-B3"
       }
     ],
@@ -807,7 +806,8 @@
         "proceed": "MQ3-1"
       }
     ],
-    "alias": "SQ7-B2"
+    "alias": "SQ7-B2",
+    "drop": "random"
   },
   "SQ7-B3": {
     "options": [
@@ -885,7 +885,7 @@
     ],
     "alias": "SQ2-A1",
     "coin": 25,
-    "drop": true
+    "drop": "random"
   },
   "SQ2-B1": {
     "options": [

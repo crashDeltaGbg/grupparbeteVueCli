@@ -160,7 +160,7 @@
         this.custom = result[path].custom
         this.character.progress = result[path].alias
         let drop = result[path].drop
-        if (drop === true) {
+        if (drop === 'random') {
           let items = result.dropItems
           let i = this.roll('D10')
           this.item = items[i]
