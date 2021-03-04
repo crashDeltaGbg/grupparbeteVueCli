@@ -171,9 +171,7 @@
         bio: null,
         img: [
           require('../../public/images/character-1.jpg'),
-          require('../../public/images/character-2.jpg'),
-          require('../assets/logo.png'),
-          require('../assets/arrow.svg')
+          require('../../public/images/character-2.jpg')
         ], // TODO Example images until the real images are defined.
         imgIndex: 0,
         points: 10,
