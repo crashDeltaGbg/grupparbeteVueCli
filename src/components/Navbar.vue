@@ -14,12 +14,11 @@
               <span class="navitems" @click="save(character)">Save</span>
             </li>
             <template v-if="this.$route.path === '/story'">
+              <!-- <template v-if="backgroundimage"> -->
               <div
                 id="image"
                 :style="
-                  'background-image:url(' +
-                    character.img +
-                    '); background-position: center; background-size: cover; background-repeat: no-repeat'
+                  `background-image:url(${character.img}); background-position: center; background-size: cover; background-repeat: no-repeat`
                 "
               ></div>
             </template>

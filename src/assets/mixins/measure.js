@@ -7,7 +7,6 @@ export const measure = {
   methods: {
     measure(stat) {
       let score = this.roll(this.die) + this.effectiveStats()[stat]
-      console.log(score)
       /*if (this.character.equipment) {
         score += this.character.equipment.stats[stat]
       }*/

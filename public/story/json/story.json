@@ -1084,9 +1084,9 @@
     },
     {
       "weapon": "Oddly Shaped Twig",
-      "stats": null,
+      "stats": { "strength": 0, "agility": 0, "luck": 0, "intellect": 0 },
       "value": 1,
-      "src": "/images/svg/Twig.svg"
+      "src": "/images/png/Twig.png"
     },
     {
       "weapon": "Cast Iron Skillet",

@@ -8,21 +8,25 @@
             class="inventoryIcons"
             :src="item.src"
             :alt="item.weapon"
-            @click="stats ? (stats = null) : weaponStats(item)"
-          /><!--{{ item.weapon }}-->&nbsp;<span
-            v-if="item === equipped"
-            @click="unequip()"
-            >[-]</span
-          ><span v-else @click="equip(item)">[+]</span>
+            @click="
+              weapon === item.weapon && stats != null
+                ? (stats = null)
+                : weaponStats(item)
+            "
+          />
         </li>
       </ul>
-      <div v-if="stats" id="weaponStats" @click="stats = null">
+      <div v-if="stats" id="weaponStats">
         {{ weapon }}:
         <ul>
           <li>Strength: {{ stats.strength }}</li>
           <li>Agility: {{ stats.agility }}</li>
           <li>Luck: {{ stats.luck }}</li>
           <li>Intellect: {{ stats.intellect }}</li>
+          <li v-if="item === equipped">
+            <span @click="unequip" class="equip">Unequip</span>
+          </li>
+          <li v-else><span @click="equip(item)" class="equip">Equip</span></li>
         </ul>
       </div>
     </div>
@@ -37,13 +41,15 @@
       return {
         items: this.inv,
         stats: null,
-        weapon: null
+        weapon: null,
+        item: null
       }
     },
     methods: {
       weaponStats(obj) {
-        this.weapon = obj.weapon
+        this.item = obj
         this.stats = obj.stats
+        this.weapon = obj.weapon
       }
     },
     mixins: [equip],
@@ -59,10 +65,20 @@
 
 <style scoped>
   .inventoryIcons {
-    height: 30px;
+    height: 20px;
+  }
+  .equip {
+    background-color: white;
+    color: black;
+    line-height: 2em;
   }
   ul {
     padding: 0;
+  }
+  #inventory {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-auto-rows: auto;
   }
   #weaponStats {
     font-size: 12px;

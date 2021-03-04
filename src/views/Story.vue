@@ -7,7 +7,7 @@
         <div id="equipped" v-if="character.equipped">
           {{ character.equipped }}
         </div>
-        <div v-if="character.inventory.length > 0">
+        <div v-if="character.inventory != []">
           <Inventory
             :inv="character.inventory"
             :equipped="character.equipment"
@@ -37,7 +37,7 @@
             <ul v-if="chance">
               <li>
                 <button @click="measure(chance)" class="secondary-button">
-                  Try your {{ chance }}!
+                  Try your {{ chance }}! <img src="/images/svg/dice.svg" />
                 </button>
               </li>
             </ul>
@@ -178,11 +178,11 @@
       effectiveStats() {
         if (this.character.equipment && this.character.equipment.stats) {
           let base = this.character.stats
-          console.log(base)
+
           let bonus = this.character.equipment.stats
-          console.log(bonus.strength)
+
           let strength = Number(base.strength) + Number(bonus.strength)
-          console.log(strength)
+
           let agility = Number(base.agility) + Number(bonus.agility)
           let luck = Number(base.luck) + Number(bonus.luck)
           let intellect = Number(base.intellect) + Number(bonus.intellect)
