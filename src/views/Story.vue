@@ -7,7 +7,7 @@
         <div id="equipped" v-if="character.equipped">
           {{ character.equipped }}
         </div>
-        <div v-if="character.inventory.length > 0">
+        <div v-if="character.inventory != []">
           <Inventory
             :inv="character.inventory"
             :equipped="character.equipment"
