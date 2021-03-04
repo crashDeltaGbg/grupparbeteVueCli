@@ -206,8 +206,18 @@
         // Do something fun here.
       },
       toggleHelpMsg(e) {
-        // Bug on mobile. Probobly need to rewrite function to work properly on both hover state and click. TODO
-        if (window.innerWidth < 980 && e.type === 'mouseenter') {
+        // Fixed bug with hover/click on mobile/desktop.
+        // If screen width is less than 980 we don't want the hover effect.
+        if (
+          window.innerWidth < 980 &&
+          (e.type === 'mouseenter' || e.type === 'mouseleave')
+        ) {
+          return
+        }
+
+        // If screen width is greater then 980 we disable the click and use only
+        // hover effect.
+        if (window.innerWidth > 980 && e.type === 'click') {
           return
         }
 
@@ -678,6 +688,7 @@
       background-color: #c4c4c4;
       border-width: 1px;
       padding: 0;
+      cursor: pointer;
 
       &::after {
         content: '?';
