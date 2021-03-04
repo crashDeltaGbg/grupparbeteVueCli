@@ -169,6 +169,12 @@
         } else if (drop != null && drop != undefined) {
           this.item = drop
         }
+        let mod = result[path].mod
+        if (mod) {
+          console.log(mod)
+          this.character.stats[mod.stat] += mod.value
+          console.log(mod.stat)
+        }
       },
       async selectFile(fileName) {
         const answer = await fetch(`/story/${fileName}.md`)

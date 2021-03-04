@@ -46,7 +46,8 @@
         "proceed": "MQ1-B1"
       }
     ],
-    "alias": "MQ1"
+    "alias": "MQ1",
+    "mod": { "stat": "strength", "value": 3 }
   },
 
   "MQ1-A1": {
@@ -495,7 +496,7 @@
         "proceed": "SQ7-0"
       }
     ],
-    "stat": { "agility": -1 },
+    "mod": { "stat": "agility", "value": -1 },
     "coin": 50,
     "alias": "SQ9-A2"
   },
@@ -507,7 +508,7 @@
         "proceed": "SQ7-0"
       }
     ],
-    "stat": { "agility": -1 },
+    "mod": { "stat": "agility", "value": -1 },
     "alias": "SQ9-A3"
   },
   "SQ10-0": {
@@ -539,7 +540,7 @@
       }
     ],
     "chance": "luck",
-    "die": "D4",
+    "die": "D6",
     "success": 10,
     "alias": "SQ10-A1"
   },
@@ -782,7 +783,7 @@
     "options": [
       {
         "id": "a",
-        "text": "Success!",
+        "text": "Continue",
         "proceed": "SQ7-B2"
       },
       {
@@ -791,6 +792,9 @@
         "proceed": "SQ7-B3"
       }
     ],
+    "chance": "strength",
+    "die": "D4",
+    "success": 4,
     "alias": "SQ7-B1"
   },
   "SQ7-B2": {
