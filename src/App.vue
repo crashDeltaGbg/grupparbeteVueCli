@@ -1,15 +1,5 @@
 <template>
   <div id="app">
-    <!--<div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/introduction">Introduction</router-link> |
-      <router-link to="/dice">Dice</router-link> |
-      <router-link to="/about">About</router-link> |
-      <router-link to="/character">Character</router-link> |
-      <router-link to="/story">Story</router-link>|
-      <router-link to="/backstory">Backstory</router-link>|
-      <router-link to="/choices">Choices</router-link>|
-    </div>-->
     <transition :name="currentTransistion">
       <router-view />
     </transition>
@@ -20,18 +10,7 @@
   export default {
     data() {
       return {
-        currentTransistion: 'none'
-      }
-    },
-    watch: {
-      $route(to) {
-        // We watch the route and add fade transition to router-view when we hit
-        // the character page.
-        if (to.path === '/introduction') {
-          this.currentTransistion = 'fade'
-        } else {
-          this.currentTransistion = 'none'
-        }
+        currentTransistion: 'fade'
       }
     }
   }

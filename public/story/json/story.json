@@ -784,12 +784,12 @@
     "options": [
       {
         "id": "a",
-        "text": "Success!",
+        "text": "Continue",
         "proceed": "SQ7-B2"
       },
       {
         "id": "b",
-        "text": "Fail!",
+        "text": "Continue",
         "proceed": "SQ7-B3"
       }
     ],
