@@ -44,21 +44,10 @@
               Help
             </button>
             <div class="hidden" id="help-text">
-              <ul>
-                <li>
-                  Here you decide what qualities your character should have or
-                  not have. You have 10 points at your disposal to spend as you
-                  wish.
-                </li>
-                <li>
-                  Your stats will be tested during the game and play a crucial
-                  role in many events.
-                </li>
-                <li>
-                  If you feel like YOLO, use the randomize button below and let
-                  chance determine your stats and future in the game.
-                </li>
-              </ul>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo rem
+              alias impedit quam id nemo praesentium? Dicta enim in, pariatur
+              sit repudiandae dolore eligendi cumque dolorum repellendus, hic
+              velit incidunt!
             </div>
             <label for="stats">Stats:</label>
             <div id="available-points">
@@ -177,9 +166,7 @@
         bio: null,
         img: [
           require('../../public/images/character-1.jpg'),
-          require('../../public/images/character-2.jpg'),
-          require('../assets/logo.png'),
-          require('../assets/arrow.svg')
+          require('../../public/images/character-2.jpg')
         ], // TODO Example images until the real images are defined.
         imgIndex: 0,
         points: 10,
@@ -206,18 +193,8 @@
         // Do something fun here.
       },
       toggleHelpMsg(e) {
-        // Fixed bug with hover/click on mobile/desktop.
-        // If screen width is less than 980 we don't want the hover effect.
-        if (
-          window.innerWidth < 980 &&
-          (e.type === 'mouseenter' || e.type === 'mouseleave')
-        ) {
-          return
-        }
-
-        // If screen width is greater then 980 we disable the click and use only
-        // hover effect.
-        if (window.innerWidth > 980 && e.type === 'click') {
+        // Bug on mobile. Probobly need to rewrite function to work properly on both hover state and click. TODO
+        if (window.innerWidth < 980 && e.type === 'mouseenter') {
           return
         }
 
@@ -390,6 +367,10 @@
     justify-content: center;
     margin: 100px;
     background: rgba(0, 0, 0, 0.71);
+
+    @media (max-width: 1024px) {
+      margin: 0;
+    }
 
     #left-wrapper {
       display: flex;
@@ -583,10 +564,9 @@
         max-width: 522px;
         width: calc(50% - 5px);
         box-sizing: border-box;
-        display: block;
         min-width: 137px;
         font-size: 100%;
-        margin: 0 0 0 5px;
+        margin: 0 0 0 0px;
       }
     }
 
@@ -688,7 +668,6 @@
       background-color: #c4c4c4;
       border-width: 1px;
       padding: 0;
-      cursor: pointer;
 
       &::after {
         content: '?';
@@ -708,16 +687,6 @@
       background: #373737;
       color: #fff;
       z-index: 10;
-
-      ul {
-        padding: 0;
-
-        li {
-          list-style-type: none;
-          margin: 20px 0;
-          text-align: left;
-        }
-      }
     }
 
     #stats {
@@ -741,6 +710,10 @@
 
     @media (min-width: $breakpoint-desktop-small) {
       flex-direction: row;
+
+      #character-creation {
+        margin: 1rem;
+      }
     }
   }
 </style>

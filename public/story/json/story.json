@@ -172,6 +172,7 @@
         "proceed": "MQ3-1"
       }
     ],
+    "coin": 12,
     "alias": "MQ2-A2-A2"
   },
   "MQ2-A2-B1": {
@@ -222,6 +223,7 @@
         "proceed": "SQ11-0"
       }
     ],
+    "drop": true,
     "alias": "MQ2-B2-A1"
   },
   "MQ2-B2-B1": {
@@ -788,7 +790,7 @@
       },
       {
         "id": "b",
-        "text": "Fail!",
+        "text": "Continue",
         "proceed": "SQ7-B3"
       }
     ],
