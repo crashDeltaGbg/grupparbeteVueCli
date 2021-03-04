@@ -1084,7 +1084,7 @@
     },
     {
       "weapon": "Oddly Shaped Twig",
-      "stats": null,
+      "stats": { "strength": 0, "agility": 0, "luck": 0, "intellect": 0 },
       "value": 1,
       "src": "/images/png/Twig.png"
     },

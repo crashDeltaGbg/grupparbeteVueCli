@@ -14,14 +14,7 @@
               <span class="navitems" @click="save(character)">Save</span>
             </li>
             <template v-if="this.$route.path === '/story'">
-              <div
-                id="image"
-                :style="
-                  'background-image:url(' +
-                    character.img +
-                    '); background-position: center; background-size: cover; background-repeat: no-repeat'
-                "
-              ></div>
+              <div id="image" :style="backgroundimage"></div>
             </template>
             <template v-else>
               <div id="image"></div>
@@ -54,11 +47,19 @@
   export default {
     data() {
       return {
-        show: true && false
+        show: true && false,
+        backgroundimage: null
       }
     },
     mixins: [saveGame],
-    props: ['title', 'character']
+    props: ['title', 'character'],
+    watch: {
+      character(obj) {
+        let src = obj.img
+        console.log(src)
+        this.backgroundimage = `background-image:url(${src}); background-position: center; background-size: cover; background-repeat: no-repeat`
+      }
+    }
   }
 </script>
 

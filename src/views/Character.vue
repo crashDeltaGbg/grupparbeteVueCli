@@ -22,6 +22,7 @@
   .character-wrapper {
     background-image: url(../assets/character-creation.png);
     background-size: cover;
+    background-attachment: fixed;
     width: 100vw;
     height: 100vh;
   }
