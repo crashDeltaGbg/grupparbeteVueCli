@@ -267,9 +267,9 @@
               let title = element.innerHTML
               if (title) {
                 if (window.innerWidth < 980 && window.innerWidth > 767) {
-                  // Split string at 34 characters.
+                  // Split string at 9 characters.
                   if (title.length > 9) {
-                    title = title.match(/.{1,9}/g)[0]
+                    title = title.match(/.{1,9}/g)[0] + '...'
                   }
                 } else if (window.innerWidth < 768) {
                   // Split string at 34 characters.

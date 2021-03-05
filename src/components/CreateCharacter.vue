@@ -187,7 +187,6 @@
           intellect: 3,
           luck: 3
         },
-        isMobile: false,
         windowSize: window.innerWidth
       }
     },
