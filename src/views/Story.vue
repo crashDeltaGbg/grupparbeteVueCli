@@ -136,7 +136,11 @@
         message: null,
         options: null,
         player: null,
-        success: null
+        success: null,
+        savingThrowValue: 1,
+        optionsBefore: null,
+        markdownBefore: null,
+        optionText: null
       }
     },
     methods: {
@@ -151,7 +155,9 @@
         const response = await fetch(`/story/json/story.json`)
         const result = await response.json()
         this.selectFile(result[path].alias)
+        this.optionsBefore = this.options //saves last button-choices
         this.options = result[path].options
+        this.optionText = this.options[0].text //Looks for failstate in text
         this.die = result[path].die
         this.chance = result[path].chance
         this.success = result[path].success
@@ -177,6 +183,7 @@
         }
       },
       async selectFile(fileName) {
+        this.markdownBefore = this.markdown // Saves the text from before the failstate.
         const answer = await fetch(`/story/${fileName}.md`)
         const conclusion = await answer.text()
         this.markdown = marked(conclusion)
@@ -204,6 +211,20 @@
       },
       onClick(path) {
         this.getStory(path)
+        if (
+          //Checks if revive token and fail-state is active
+          this.optionText === 'Ask him for a retry?' &&
+          this.savingThrowValue > 0
+        ) {
+          //Reverts text and button prompts to state before failure but spends your revive-token
+          this.markdown =
+            'The gods answered your prayers and reverts time...' +
+            this.markdownBefore
+          this.options = this.optionsBefore
+          this.savingThrowValue -= 1
+        } else {
+          this.markdown = 'It looks like your prayers go unanswered...'
+        }
       },
       obtain(item) {
         this.item = item
@@ -218,6 +239,7 @@
           return (this.pay = false)
         }
       },
+
       purchase(item, cost) {
         let checkOut = this.pay(cost)
         if (checkOut) {

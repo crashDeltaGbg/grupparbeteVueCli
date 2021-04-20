@@ -1023,11 +1023,57 @@
         "id": "a",
         "text": "Leave",
         "proceed": "SQ4-0"
+      },
+      {
+        "id": "b",
+        "text": "Look around",
+        "proceed": "SQ6-3"
       }
     ],
     "alias": "SQ6-2"
   },
+  "SQ6-3": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Steal the bag",
+        "proceed": "SQ6-4"
+      },
+      {
+        "id": "b",
+        "text": "Leave",
+        "proceed": "SQ4-0"
+      }
+    ],
+    "alias": "SQ6-3"
+  },
+  "SQ6-4": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Success!",
+        "proceed": "SQ4-0"
+      },
+      {
+        "id": "b",
+        "text": "Failure!",
+        "proceed": "failure"
+      }
+    ],
+    "alias": "SQ6-4",
+    "chance": "luck",
+    "die": "D4",
+    "success": 3,
+    "coin": 10
+  },
   "failure": {
+    "options": [
+      {
+        "id": "a",
+        "text": "Ask him for a retry?",
+        "proceed": ""
+      }
+    ],
     "alias": "failure"
   },
   "fork": {
